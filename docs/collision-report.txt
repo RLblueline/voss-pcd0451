@@ -1,0 +1,8 @@
+shoulder 5..175 : link1 vs housing/bracket   OK
+elbow -50..125 : link2/head vs link1         OK
+tilt -35..40 : head vs link2/post            OK
+shutters 0..1 : plates vs head internals     OK
+firmware workspace: 185 poses accepted, 31 rejected (grid 10 x 15 deg)
+accepted poses : arm/head vs housing + wall  OK
+
+ALL CLEAR

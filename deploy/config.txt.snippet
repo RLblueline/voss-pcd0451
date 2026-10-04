@@ -1,0 +1,9 @@
+# Append to /boot/firmware/config.txt, then reboot.
+dtparam=audio=off
+dtparam=i2c_arm=on
+dtparam=spi=on
+enable_uart=1
+dtoverlay=googlevoicehat-soundcard
+# Fixed core clock keeps SPI (WS2812 timing) and the mini-UART (printer baud) stable
+core_freq=400
+core_freq_min=400

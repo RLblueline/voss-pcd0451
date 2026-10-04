@@ -1,0 +1,9 @@
+anthropic>=0.40
+numpy
+vosk
+webrtcvad-wheels
+openwakeword
+onnxruntime
+smbus2
+spidev
+pyserial
