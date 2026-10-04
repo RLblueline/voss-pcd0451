@@ -32,7 +32,7 @@ arecord (I2S stereo, 16 kHz) ──► openWakeWord ──► GCC-PHAT DOA ─�
 | `stt` | Wake word and utterance capture with Vosk |
 | `tts` | Piper, then sox intercom chain, then concatenation of chime, thunk and relay-click sfx |
 | `lights` | WS2812 over SPI (eye ring, REC, AUD, OK); modes and mood effects at 50 Hz |
-| `body` | PCA9685 driver, calibration, kinematics and workspace check, eased motion thread, gestures, `quiesce()` |
+| `body` | PCA9685 driver, calibration, yaw-pitch-pitch kinematics and workspace check, eased motion thread, gestures, `quiesce()` |
 | `printer` | ESC/POS memo layouts: memo, write-up, commendation, checklist |
 | `tools` | Claude tool schemas and handlers |
 | `brain` | Claude tool-use loop and rolling history |
@@ -50,17 +50,40 @@ arecord (I2S stereo, 16 kHz) ──► openWakeWord ──► GCC-PHAT DOA ─�
 | `notes` | "Permanent record" notes: add, list, search, delete |
 | `print_memo` | Print a memo, write-up, commendation or the checklist |
 
+## Motion model
+
+- **Pose joints:** `yaw`, `shoulder`, `elbow`, `pitch` (absolute head pitch, + nose down) and
+  `shutter`.
+- **Servo channels:** yaw, shoulder, elbow, tilt and shutter, where
+  `tilt = pitch + shoulder + elbow`. Lifting the arm keeps the head level unless a gesture
+  asks otherwise. If a requested pitch would push the tilt servo past −35…+40°, pitch is
+  adjusted to fit.
+
+| Pose | yaw | shoulder | elbow | pitch | Notes |
+|---|---|---|---|---|---|
+| Home | 90 | 20 | −20 | 0 | |
+| Listen / look | 90 − DOA | 12 | −8 | −4 | leans in |
+| Think | — | 30 | −34 | 8 | |
+| Stamp | — | −5 | 5 | 15 | ~50 mm drop, 4× speed, then back |
+| Concern | — | 8 | −10 | −3 | slow |
+| Sulk | 145 | 30 | −30 | 15 | |
+| Rest | 90 | 60 | −60 | 0 | lowest-torque fold |
+
 ## Motion safety
 
-- **Workspace check.** Every arm target passes `body.workspace_ok()`, a plan-view check
-  of the elbow, link and head against the housing footprint and the wall. The model uses
-  head centre 114 mm past the elbow, radius 84. The CAD collision sweep confirms that
-  every pose it accepts is clear.
-- **Path check.** Moves are interpolated in joint space. If any intermediate pose fails,
-  the move goes through home instead.
-- **Printing.** `quiesce()` waits for motion to stop and cuts servo outputs (PCA9685 OE)
-  while the printer runs.
-- **Rest.** After 45 s idle the arm homes and the outputs are released, so she's silent.
+- **Workspace check.** Every target passes `body.workspace_ok()`:
+  - joint limits, including the derived tilt
+  - the elbow as a 30 mm circle
+  - the head as a plan-view capsule (radius 84) that follows its pitch swing
+  These are checked against the housing, the yaw tower and the wall. The CAD collision sweep
+  confirms every pose it accepts is clear.
+- **Path check.** Moves are interpolated in joint space; if any intermediate pose fails, the
+  move goes through home instead.
+- **Gravity.** The shoulder and elbow always hold.
+  - At rest, only yaw, tilt and shutters are released (per-channel full-off).
+  - While printing, motion is frozen, not cut.
+  - On shutdown (`Body.stop()`), the arm is lowered to its stop before OE cuts power.
+- **Speed limits:** yaw 90, shoulder 60 and elbow 90 °/s, eased.
 
 ## Configuration
 
@@ -79,8 +102,8 @@ Set values in `/etc/memo.env`. The most useful ones:
 | `MEMO_SERVO_OE_GPIO` | 17 | −1 if OE isn't wired |
 | `MEMO_SIM` | 0 | 1 = no hardware (desktop testing) |
 
-Geometry constants in `config.py` (`SHOULDER_XY`, `HOUSING_D`, `HEAD_CENTER`, `HEAD_R`,
-`LIMITS`) must match `cad/memo.scad`. If you change the CAD, update them and re-run
+Geometry constants in `config.py` (`YAW_XY`, `L1`, `L2`, `TILT_OFF`, `TILT_DROP`, `HEAD_R`,
+`HEAD_LEN`, `OBSTACLES`, `LIMITS`) must match `cad/memo.scad`. If you change the CAD, update them and re-run
 `cad/tools/collide.py`.
 
 ## Tests
@@ -95,7 +118,7 @@ The tests cover:
 - timers, checklist, notes and weather (with fake HTTP)
 - printer layouts staying within 32 columns of ASCII
 - DOA sign and accuracy on synthetic delays, and the decimator
-- the workspace check and pulse mapping
-- motion with `quiesce()` and rest release
+- the workspace check, level-head tilt, stamp drop height and pulse mapping
+- motion with `quiesce()`, rest release and shutdown
 - LED encoding
 - the sox chain, if sox is installed

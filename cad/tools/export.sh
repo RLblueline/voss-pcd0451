@@ -3,7 +3,7 @@
 set -e
 cd "$(dirname "$0")/.."
 mkdir -p stl
-parts="bezel cartridge_frame lens neck_boot ear_plus ear_minus housing back_plate bracket s1_body link1 hanger s2_body s1_horn link2 post s3_body s2_horn head_top head_mid head_chin ears cartridge sg90 leds bumper paper s3_horn pinion"
+parts="bezel cartridge_frame lens neck_boot ear_plus ear_minus housing back_plate tower yaw_body turret coupler sh_body link1 el_body sh_horn link2 post tl_body el_horn head_top head_mid head_chin ears cartridge sg90 leds bumper paper s3_horn pinion"
 for p in $parts; do
   openscad -q -D "PART=\"$p\"" -o "stl/$p.stl" tools/parts.scad &
   [ $(jobs -r | wc -l) -ge 4 ] && wait -n

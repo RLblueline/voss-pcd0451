@@ -3,7 +3,7 @@
 Build in this order so you can test each stage before it gets buried. Do the software
 bring-up checks in [Bring-up](07-bringup.md) at the steps marked ⚡.
 
-![Arm from behind](img/10_rear_arm.png)
+![Arm detail](img/10_arm_detail.png)
 
 ## 0. Before you print
 
@@ -28,30 +28,34 @@ bring-up checks in [Bring-up](07-bringup.md) at the steps marked ⚡.
 3. Fit the speaker behind the grille, the mics behind their holes (ports facing the holes),
    the amp beside the speaker, and the printer in its bay with paper exiting the front slot.
 4. Fit the DC jacks in the bottom. Put the 1000 µF capacitor across the PCA9685 V+/GND.
-5. Fasten the shoulder bracket to the housing front with 4 × M3. Route the shoulder servo
-   cable through the 10 mm hole.
+5. Fasten the yaw tower to the housing front with 4 × M3. Route the servo cables through
+   the 12 mm hole.
 
-## 3. Shoulder
+## 3. Yaw
 
-1. Press a 608 into the bracket floor pocket.
-2. Drop the shoulder MG996R into the bracket, shaft up and body toward the wall. Screw
-   the flange to the shelf.
-3. ⚡ Run `calibrate zero` so the servo sits at 90°.
-4. Fit the horn to the link1 top plate, then press it onto the spline with link1 pointing
-   straight out. Insert the M8 pin up through link1's bottom plate into the 608, and
-   tighten the nyloc just enough to remove play.
+1. Press a 608 into each tower shelf.
+2. Mount the MG996R in the tower's servo shelf, shaft up and body toward the wall.
+   ⚡ Run `calibrate zero` (yaw 90).
+3. Push the 8 mm shaft down through both bearings into the coupler on the yaw horn, with the
+   turret facing straight out. Clamp the turret's base on top of the shaft with its M3 screw.
 
-## 4. Elbow
+## 4. Shoulder
 
-1. Bolt the elbow hanger under link1's bottom plate (4 × M3). Press a 608 into its floor.
-2. Mount the elbow MG996R, shaft up and body toward the shoulder.
-3. ⚡ Zero the servo. Fit link2 with the links in line. Insert the M8 pin from below.
+1. Mount the 35 kg·cm servo through the turret's flange plate, shaft toward +Y and body down.
+   Press a 624 into the turret's pivot plate.
+2. ⚡ Zero the servo (shoulder 0 = link1 level).
+3. Fit link1's horn-side plate to the horn and its other plate onto an M4 shoulder bolt through
+   the 624, with link1 level.
+4. **Support the arm by hand or with a prop from here on** whenever the servos are unpowered.
+5. Optional but recommended: hook a tension spring from the top of the turret to the anchor on
+   link1's beam.
 
-## 5. Tilt post
+## 5. Elbow and tilt post
 
-1. Bolt the tilt post under link2's tab (2 × M3). Press a 624 into the pivot plate.
-2. Mount the DS3218 through the mount plate, shaft toward +Y and body up.
-3. ⚡ Zero the servo.
+1. Mount a DS3218 in link1's elbow bracket, body lying back along the beam. Press in a 624.
+2. ⚡ Zero it. Fit link2's side plates on the horn and the pivot bolt with the links in line.
+3. Bolt the tilt post under link2's end block (2 × M3). Mount the second DS3218, body up,
+   and press in a 624. ⚡ Zero it.
 
 ## 6. Eye cartridge
 

@@ -72,38 +72,44 @@ SERVO_FREQ = 50
 SERVO_OE_GPIO = _get("MEMO_SERVO_OE_GPIO", 17, int)   # PCA9685 OE; -1 = not wired.
                                                       # (GPIO16 is taken by the voicehat overlay)
 CALIBRATION_FILE = DATA_DIR / "calibration.json"
-REST_AFTER_S = 45.0          # idle time before the arm homes and goes limp (silent)
+REST_AFTER_S = 45.0          # idle time before the arm homes and yaw/tilt/shutter go limp
 
-# Default calibration. MG996R shoulder/elbow, DS3218 tilt, SG90 shutter.
-# servo_deg = offset_deg +/- joint_deg ; shutter: closed_deg..open_deg for aperture 0..1
+# Default calibration (5 channels). Yaw MG996R, shoulder 35 kg-cm standard-size servo
+# (DS3235 class), elbow + tilt DS3218, shutters SG90.  servo_deg = offset_deg +/- joint_deg.
 DEFAULT_CALIBRATION = {
-    "shoulder": {"ch": 0, "min_us": 500, "max_us": 2500, "range_deg": 180, "offset_deg": 0,  "invert": False},
-    "elbow":    {"ch": 1, "min_us": 500, "max_us": 2500, "range_deg": 180, "offset_deg": 55, "invert": False},
-    "tilt":     {"ch": 2, "min_us": 500, "max_us": 2500, "range_deg": 180, "offset_deg": 90, "invert": False},
-    "shutter":  {"ch": 3, "min_us": 500, "max_us": 2400, "range_deg": 180, "closed_deg": 4, "open_deg": 176},
+    "yaw":      {"ch": 0, "min_us": 500, "max_us": 2500, "range_deg": 180, "offset_deg": 0,   "invert": False},
+    "shoulder": {"ch": 1, "min_us": 500, "max_us": 2500, "range_deg": 180, "offset_deg": 90,  "invert": False},
+    "elbow":    {"ch": 2, "min_us": 500, "max_us": 2500, "range_deg": 180, "offset_deg": 130, "invert": False},
+    "tilt":     {"ch": 3, "min_us": 500, "max_us": 2500, "range_deg": 180, "offset_deg": 90,  "invert": False},
+    "shutter":  {"ch": 4, "min_us": 500, "max_us": 2400, "range_deg": 180, "closed_deg": 4, "open_deg": 176},
 }
 
-# Joint zero: shoulder 90 = link1 straight out, elbow 0 = links in line,
-# tilt 0 = head level (positive = nose down), shutter 1 = eye fully open.
+# Joint conventions (match cad/assembly.scad):
+#   yaw 90 = arm straight out from the wall;  shoulder 0 = link1 horizontal, + lifts;
+#   elbow 0 = links in line, + lifts link2;  pitch = absolute head pitch, + nose down.
+#   The tilt servo is derived: tilt = pitch + shoulder + elbow (keeps the head level).
 LIMITS = {
-    "shoulder": (5.0, 175.0),
-    "elbow": (-50.0, 125.0),
-    "tilt": (-35.0, 40.0),     # CAD collision-checked (cad/tools/collide.py)
+    "yaw": (5.0, 175.0),
+    "shoulder": (-20.0, 75.0),
+    "elbow": (-110.0, 40.0),
+    "pitch": (-40.0, 45.0),
+    "tilt": (-35.0, 40.0),      # servo range, CAD collision-checked
     "shutter": (0.0, 1.0),
 }
-MAX_SPEED = {"shoulder": 90.0, "elbow": 120.0, "tilt": 200.0, "shutter": 4.0}   # deg/s, aperture/s (head is ~600 g)
+MAX_SPEED = {"yaw": 90.0, "shoulder": 60.0, "elbow": 90.0, "pitch": 150.0, "shutter": 4.0}  # deg/s, aperture/s
 
-# ---------------------------------------------------------------- geometry (mm)
-SHOULDER_XY = (0.0, 108.0)        # matches cad/memo.scad SY
+# ---------------------------------------------------------------- geometry (mm), matches cad/memo.scad
+YAW_XY = (0.0, 112.0)            # yaw axis; the shoulder pitch axis sits on it at z = 0
 L1 = 120.0
 L2 = 100.0
-HEAD_CENTER = 114.0               # elbow axis -> tilt axis (= head centre in plan view)
-HEAD_R = 84.0                     # plan-view radius covering the 90 x 140 mm head
-HOUSING_HALF_W = 72.0
-HOUSING_D = 70.0
-ELBOW_R = 25.0
-LINK_R = 16.0
+TILT_OFF = 14.0                  # tilt axis past link2's end ...
+TILT_DROP = 72.0                 # ... and this far below link2's centreline
+HEAD_R = 84.0                    # plan-view radius covering the 90 x 140 mm head
+HEAD_LEN = 270.0                 # tilt axis -> bottom of the head
+ELBOW_R = 30.0
 CLEARANCE = 8.0
+# plan-view obstacles (x0, x1, y0, y1): housing, yaw tower
+OBSTACLES = [(-72.0, 72.0, 0.0, 70.0), (-30.0, 30.0, 70.0, 132.0)]
 
 # ---------------------------------------------------------------- LEDs (WS2812 on SPI MOSI)
 LED_SPI_BUS = 0

@@ -27,14 +27,16 @@ C_OK     = [0.35, 0.75, 0.30, 0.9];
 C_STEEL  = [0.70, 0.71, 0.73];
 
 // ---------------------------------------------------------------- arm geometry
-SY       = 108;     // shoulder axis distance from wall
-L1       = 120;     // shoulder -> elbow
+SY       = 112;     // yaw axis distance from wall
+ARM_Z    = 0;       // shoulder pitch axis height (sits on the yaw axis)
+L1       = 120;     // shoulder -> elbow (pitch axes)
 L2       = 100;     // elbow -> link2 end
 TILT_OFF = 14;      // tilt axis past link2 end
-ZT       = -184;    // tilt axis height
-PT       = 4;       // link plate thickness
-HUB_R    = 16;      // fork hub radius
-WEB_R    = 28;      // fork webs start this far from their joint axis
+TILT_DROP = 72;     // tilt axis below link2's centreline
+HUB_R    = 16;      // side-plate hub radius
+XB0      = 36;      // cross block (joins side plates to the centre beam) starts here
+BEAM_Y   = 10; BEAM_Z = 12;   // centre beam half width / half height
+PT       = 3.5;     // side plate thickness
 CLR      = 0.4;     // print clearance
 
 // ---------------------------------------------------------------- servo data (verify with calipers)
@@ -129,8 +131,8 @@ module housing_shell() {
         translate([-31, HD - 6, -137]) cube([62, 10, 4.5]);
         translate([-36, HD - 1.2, -141]) cube([72, 2, 13]);
         // shoulder bracket screws + servo cable
-        for (x = [-24, 24], z = [-42, -12]) translate([x, HD - 5, z]) rotate([-90, 0, 0]) cylinder(d = 3.4, h = 10, $fn = 16);
-        translate([0, HD - 5, -26]) rotate([-90, 0, 0]) cylinder(d = 10, h = 10);
+        for (x = [-24, 24], z = [-136, -52]) translate([x, HD - 5, z]) rotate([-90, 0, 0]) cylinder(d = 3.4, h = 10, $fn = 16);
+        translate([0, HD - 5, -90]) rotate([-90, 0, 0]) cylinder(d = 12, h = 10);
         // power jacks (5 V logic, 6 V servo) + vents in the bottom
         for (x = [-30, 30]) translate([x, 30, HZ0 - 1]) cylinder(d = 8, h = 6);
         for (x = [-12 : 6 : 12]) translate([x - 1.5, 15, HZ0 - 1]) cube([3, 40, 6]);
@@ -162,114 +164,130 @@ module back_plate() {
     for (p = [[-28, 0], [28, 0], [-28, -19], [28, -19]]) translate([p[0], BP_T, p[1] - 60]) rotate([-90, 0, 0]) difference() { cylinder(d = 6, h = 5); cylinder(d = 2.5, h = 6); }
 }
 
-// shoulder servo in world frame
-module S1_place() { translate([0, SY, 0]) rotate([0, 0, 90]) children(); }
+// =====================================================================
+// CLASSIC ARM: base yaw (vertical) + shoulder / elbow / head-tilt pitch (horizontal)
+// Frames:  turret = translate([0,SY,0]) rotate([0,0,YAW])
+//          link1  = turret * rotate([0,-SH,0])            (SH > 0 lifts the arm)
+//          link2  = link1 * translate([L1,0,0]) rotate([0,-EL,0])
+//          head   = link2 * translate([L2+TILT_OFF,0,-TILT_DROP]) rotate([0,TILT,0])
+// Head stays level when TILT = SH + EL.
+// =====================================================================
 
-module shoulder_bracket() {
+// ---------------------------------------------------------------- yaw tower (world)
+module YAW_place() { translate([0, SY, -125]) rotate([0, 0, 90]) children(); }   // MG996R, shaft up
+
+module yaw_tower() {
+    module shelf(z0, t, front) translate([0, 0, z0]) linear_extrude(t) hull() {
+        translate([-16, HD + 4]) square([32, 1]); translate([0, SY]) circle(r = front);
+    }
     difference() {
         union() {
-            translate([-30, HD, -48]) cube([60, 4, 42]);                     // mount plate
-            translate([-16, HD + 4, -13.5]) cube([32, SY + 19 - HD - 4, 3]);  // shelf under servo flange
-            translate([0, 0, -48]) linear_extrude(8) hull() {                  // floor with bearing
-                translate([-16, HD + 4]) square([32, 1]);
-                translate([0, SY]) circle(r = 15);
-            }
-            for (sx = [-1, 1]) translate([sx * 14.5 - 1.5, HD + 4, -48]) cube([3, SY - 14 - HD - 4, 37.5]);  // side walls
-            for (sx = [-1, 1]) translate([sx * 14.5 - 1.5, HD, -48]) cube([3, 4, 42]);
+            translate([-30, HD, -142]) cube([60, 4, 96]);                                 // wall plate
+            shelf(-60, 8, 15);                                                            // upper 608
+            shelf(-112, 8, 15);                                                           // lower 608
+            translate([0, 0, -138.5]) linear_extrude(3) hull() {                          // servo shelf
+                translate([-16, HD + 4]) square([32, 1]); translate([-16, SY + 18]) square([32, 1]); }
+            for (sx = [-1, 1]) translate([sx * 14.5 - 1.5, HD + 4, -142]) cube([3, SY - 14 - HD - 4, 90]);
         }
-        S1_place() { servo_cut(MG, 40); servo_holes(MG); }
-        translate([0, SY, -47]) cylinder(d = 22.2, h = 7.1);   // 608 pocket
-        translate([0, SY, -60]) cylinder(d = 10, h = 30);
-        for (x = [-24, 24], z = [-42, -12]) translate([x, HD - 1, z]) rotate([-90, 0, 0]) cylinder(d = 3.4, h = 10, $fn = 16);
-        translate([0, HD - 1, -26]) rotate([-90, 0, 0]) cylinder(d = 10, h = 10);
+        for (z = [-59.1, -111.1]) translate([0, SY, z]) cylinder(d = 22.2, h = 7.2);
+        translate([0, SY, -150]) cylinder(d = 10, h = 120);
+        YAW_place() { servo_cut(MG, 30); servo_holes(MG); }
+        for (x = [-24, 24], z = [-136, -52]) translate([x, HD - 1, z]) rotate([-90, 0, 0]) cylinder(d = 3.4, h = 10, $fn = 16);
+        translate([0, HD - 1, -90]) rotate([-90, 0, 0]) cylinder(d = 12, h = 10);
     }
 }
 
-// =====================================================================
-// LINK 1  (frame: origin on shoulder axis, +X along the link)
-// =====================================================================
-module link_plate(len, r0, r1) { hull() { circle(r = r0); translate([len, 0]) circle(r = r1); } }
+// ---------------------------------------------------------------- pitch joint bracket
+// Canonical: joint axis = Y through the origin, servo (DS-size) shaft +Y, body pointing +Z.
+// Horn at y 24.25..27.25; the driven side plate goes at y 27.25..; the other side plate rides
+// an M4 bolt in a 624 bearing in the pivot plate (y -27..-22).
+YFL = DS[2] / 2 - DS[2] + DS[4];   // flange underside, y = 8.25
+module JS_place() { translate([0, DS[2] / 2, 0]) multmatrix([[0, -1, 0, 0], [0, 0, 1, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) children(); }
+
+module joint_bracket(reach = 0) {   // reach: extend the frame along +u (past the servo body) to this u
+    top = max(38, reach);
+    difference() {
+        union() {
+            translate([-16, YFL - 3.5, -22]) cube([32, 3.5, top + 22]);                 // flange plate
+            translate([-16, -27, -16]) cube([32, 5, (reach > 0 ? reach : 16) + 16]);   // pivot plate
+            for (sx = [-1, 1]) translate([sx * 14 - 2, -27, -16]) cube([4, YFL + 27, (reach > 0 ? reach : 16) + 16]);
+        }
+        JS_place() { servo_cut(DS, 30); servo_holes(DS); }
+        translate([0, -28, 0]) rotate([-90, 0, 0]) cylinder(d = 13.2, h = 5.1);           // 624
+        rotate([90, 0, 0]) cylinder(d = 4.4, h = 80, center = true);
+    }
+}
+
+// ---------------------------------------------------------------- turret (turret frame)
+module turret() {
+    color(C_BEIGE2) {
+        rotate([0, 180, 0]) joint_bracket(reach = 44);       // body down; frame reaches z -44
+        difference() {
+            translate([0, 0, -50]) cylinder(r = 22, h = 6.01);
+            translate([0, 0, -51]) cylinder(d = 8.1, h = 10);
+            translate([12, 0, -47]) rotate([0, 90, 0]) cylinder(d = 3.2, h = 12);   // shaft clamp screw
+        }
+        translate([-16, -27, -44.01]) cube([32, YFL + 27, 6]);
+    }
+}
+module SH_servo() { rotate([0, 180, 0]) JS_place() children(); }   // shoulder servo, turret frame
+
+// ---------------------------------------------------------------- links (link frame: origin on proximal pitch axis)
+module side_plate_2d() { hull() { circle(r = HUB_R); translate([XB0, -BEAM_Z]) square([8, 2 * BEAM_Z]); } }
+
+module link_body(len) {
+    // two side plates wrap the proximal joint bracket, a cross block joins them to a centre box beam
+    difference() {
+        union() {
+            translate([0, DS[2] / 2 + HORN_Z + HORN_T, 0]) rotate([-90, 0, 0]) linear_extrude(PT) side_plate_2d();
+            translate([0, -27.5, 0]) rotate([90, 0, 0]) linear_extrude(PT) side_plate_2d();
+            translate([XB0, -27.5 - PT, -BEAM_Z]) cube([8, 55 + 2 * PT + 0.25, 2 * BEAM_Z]);
+            translate([XB0, -BEAM_Y, -BEAM_Z]) cube([len - XB0, 2 * BEAM_Y, 2 * BEAM_Z]);
+        }
+        rotate([-90, 0, 0]) translate([0, 0, 20]) horn_holes(30);
+        rotate([90, 0, 0]) cylinder(d = 4.3, h = 80, center = true);
+        translate([XB0 + 10, -BEAM_Y + 2, -BEAM_Z + 2]) cube([len - XB0 - 20, 2 * BEAM_Y - 4, 2 * BEAM_Z - 4]);  // hollow beam
+        translate([XB0 + 10, -BEAM_Y - 1, -4]) cube([len - XB0 - 20, 2 * BEAM_Y + 2, 8]);                    // cable slot
+    }
+}
 
 module link1() {
-    color(C_BEIGE) difference() {
-        union() {
-            translate([0, 0, HORN_Z + HORN_T]) linear_extrude(PT) link_plate(L1, HUB_R, HUB_R);   // top z 7..11
-            translate([0, 0, -56]) linear_extrude(PT) link_plate(L1, HUB_R, HUB_R);              // bottom z -56..-52
-            for (sy = [-1, 1]) translate([WEB_R, sy * 14 - 2, -52]) cube([L1 - 22 - WEB_R, 4, 59]); // box-beam webs
-            translate([WEB_R, -14, -52]) cube([3, 28, 59]);
-            // raised panel detail on top
-            translate([0, 0, 11]) linear_extrude(1.2) translate([WEB_R + 6, -9]) square([L1 - WEB_R - 40, 18]);
-        }
-        horn_holes();
-        translate([0, 0, -60]) cylinder(d = 8.2, h = 10);
-        // hanger bolts
-        for (x = [L1 - 54, L1 - 42], y = [-9, 9]) translate([x, y, -60]) cylinder(d = 3.4, h = 10, $fn = 16);
+    color(C_BEIGE) link_body(L1 - 36);
+    color(C_BEIGE2) translate([L1, 0, 0]) {                  // elbow bracket, servo body pointing back
+        rotate([0, -90, 0]) joint_bracket();
+        translate([-44, -27, -16]) cube([8, YFL + 27, 32]);
     }
-    // cosmetic hex screws on the top plate
-    for (x = [WEB_R + 2, L1 - 24], y = [-12, 12]) translate([x, y, 11]) hexhead(4.5, 1);
+    for (x = [XB0 + 14, L1 - 50]) translate([x, 0, BEAM_Z]) hexhead(4.5, 1);
+    // optional counterbalance spring anchor (tension spring to the turret)
+    color(C_BEIGE2) translate([60, 0, BEAM_Z]) difference() { translate([-6, -4, 0]) cube([12, 8, 8]); translate([0, 5, 4]) rotate([90, 0, 0]) cylinder(d = 3.2, h = 10); }
 }
+module EL_servo() { translate([L1, 0, 0]) rotate([0, -90, 0]) JS_place() children(); }   // link1 frame
 
-// elbow servo placement in link1 frame (body points back toward the shoulder)
-module S2_place() { translate([L1, 0, -69]) children(); }
-
-module elbow_hanger() {
-    color(C_BEIGE2) difference() {
-        union() {
-            translate([L1 - 58, -16, -116]) cube([20, 32, 60]);                               // back block
-            translate([L1 - 58, -16, -82.5]) cube([58 + 19, 32, 3]);                          // shelf
-            translate([0, 0, -116]) linear_extrude(8) hull() {                                // bearing floor
-                translate([L1 - 58, -16]) square([1, 32]);
-                translate([L1, 0]) circle(r = 15);
-            }
-        }
-        S2_place() { servo_cut(MG, 30); servo_holes(MG); }
-        translate([L1, 0, -115]) cylinder(d = 22.2, h = 7.1);
-        translate([L1, 0, -130]) cylinder(d = 10, h = 30);
-        for (x = [L1 - 54, L1 - 42], y = [-9, 9]) translate([x, y, -70]) cylinder(d = 2.6, h = 20, $fn = 16);
-        translate([L1 - 48, 0, -110]) rotate([90, 0, 0]) cylinder(d = 9, h = 40, center = true);  // cable window
-    }
-}
-
-// =====================================================================
-// LINK 2  (frame: origin on elbow axis, +X along the link)
-// =====================================================================
 module link2() {
+    X = L2 + TILT_OFF;
     color(C_BEIGE) difference() {
         union() {
-            translate([0, 0, -62]) linear_extrude(PT) link_plate(L2, HUB_R, 14);                     // top z -62..-58
-            translate([0, 0, -124]) linear_extrude(PT) link_plate(L2 + TILT_OFF, HUB_R, 16);         // bottom, tab to tilt axis
-            for (sy = [-1, 1]) translate([WEB_R + 2, sy * 12 - 2, -120]) cube([L2 - WEB_R - 2, 4, 58]);
-            translate([L2 - 4, -14, -120]) cube([4, 28, 58]);
-            translate([WEB_R + 2, -14, -120]) cube([3, 28, 58]);
+            link_body(X + 16);
+            translate([X - 16, -BEAM_Y, -BEAM_Z]) cube([32, YFL + 10.5 + BEAM_Y, 2 * BEAM_Z]);   // end block over the post
         }
-        horn_holes();
-        translate([0, 0, -130]) cylinder(d = 8.2, h = 10);
-        for (x = [L2 + TILT_OFF - 10, L2 + TILT_OFF + 10]) translate([x, 11, -130]) cylinder(d = 3.4, h = 10, $fn = 16);
+        for (x = [X - 10, X + 10]) translate([x, 11, -20]) cylinder(d = 3.4, h = 40, $fn = 16);
     }
-    for (x = [WEB_R + 6, L2 - 12], y = [-10, 10]) translate([x, y, -58]) hexhead(4.5, 1);
+    for (x = [XB0 + 14, L2 - 10]) translate([x, 0, BEAM_Z]) hexhead(4.5, 1);
 }
 
-// tilt servo placement in link2 frame: shaft along +Y, body pointing up
-module S3_place() {
-    translate([L2 + TILT_OFF, DS[2] / 2, ZT]) multmatrix([[0, -1, 0, 0], [0, 0, 1, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) children();
-}
-
+// tilt post (link2 frame): canonical joint bracket at the tilt axis, body up, narrow neck to link2
 module tilt_post() {
-    X = L2 + TILT_OFF;
-    yfl = DS[2] / 2 - DS[2] + DS[4];     // flange underside y
+    X = L2 + TILT_OFF; ZA = -TILT_DROP;
     color(C_BEIGE2) difference() {
         union() {
-            translate([X - 16, yfl - 3.5, ZT - 22]) cube([32, 3.5, 60]);                       // mount plate (flange zone)
-            translate([X - 16, yfl - 3.5, ZT + 37]) cube([22, 3.5, -124 - (ZT + 37)]);       // narrowed neck up to link2 (tilt clearance)
-            translate([X - 16, -27, ZT - 16]) cube([32, 5, 32]);                                     // pivot plate
-            for (sx = [-1, 1]) translate([X + sx * 14 - 2, -27, ZT - 16]) cube([4, yfl + 27, 32]);   // side bars
-            translate([X - 16, yfl - 3.5, -128]) cube([32, 14, 4]);                                 // top foot under link2
+            translate([X, 0, ZA]) joint_bracket();
+            translate([X - 16, YFL - 3.5, ZA + 37]) cube([22, 3.5, -BEAM_Z - (ZA + 37) - 4]);  // narrow neck (tilt clearance)
+            translate([X - 16, YFL - 3.5, -BEAM_Z - 4]) cube([32, 14, 4]);                   // foot under the beam
         }
-        S3_place() { servo_cut(DS, 30); servo_holes(DS); }
-        translate([X, -28, ZT]) rotate([-90, 0, 0]) cylinder(d = 13.2, h = 5.1);   // 624 bearing
-        for (x = [X - 10, X + 10]) translate([x, 11, -140]) cylinder(d = 2.6, h = 30, $fn = 16);
+        for (x = [X - 10, X + 10]) translate([x, 11, -40]) cylinder(d = 2.6, h = 40, $fn = 16);
     }
 }
+module TL_servo() { translate([L2 + TILT_OFF, 0, -TILT_DROP]) JS_place() children(); }   // link2 frame
 
 // =====================================================================
 // HEAD  (frame: origin on tilt axis, +X forward, tilt 0 = level)

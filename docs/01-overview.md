@@ -26,18 +26,19 @@ Every Claude reply starts with a mood tag. The tag drives pose, shutters and lig
 |---|---|---|---|
 | `[approve]` | praise, task done | nod, eye wide open | amber, **OK** lamp lights |
 | `[neutral]` | normal answers | head level | amber, brightness follows speech |
-| `[infraction]` | playful scolding | shutters squint, stamp snap + THUNK | amber flicker |
-| `[concern]` | Employee genuinely upset | shutters locked open, slow and still | dim tungsten, gentle flicker |
-| `[sulk]` | mock offence | turns away to the side, head down | dim; returns after 6 s |
+| `[infraction]` | playful scolding | shutters squint, the whole head drops about 2 in with a nose-down snap + THUNK | amber flicker |
+| `[concern]` | Employee genuinely upset | comes down lower and closer, shutters locked open, slow and still | dim tungsten, gentle flicker |
+| `[sulk]` | mock offence | swings away to the side, head drooped | dim; returns after 6 s |
 
 Other states:
-- **Listening:** turns toward the talker (direction of arrival), eye bright, REC brighter.
-- **Thinking:** head dips slightly, light sweeps around the eye ring, AUD pulses.
+- **Listening:** swings toward the talker (direction of arrival) and leans in, eye bright, REC brighter.
+- **Thinking:** rises and tips her head down slightly, light sweeps around the eye ring, AUD pulses.
 - **Filing:** a rapid shutter flutter plus a relay click when she saves a note.
-- **Rest:** after 45 s idle the arm homes, the head hangs level, and the servos go limp
-  and silent. The pendulum head stays level on its own.
+- **Rest:** after 45 s idle the arm folds upright and the head levels. Yaw, tilt and shutter
+  servos then go limp and silent; the pendulum head stays level on its own. The shoulder and
+  elbow keep holding the arm.
 
-![Moods](img/06_stamp.png)
+![Stamp](img/06_stamp.png)
 
 ## The head design
 
@@ -70,6 +71,6 @@ The head is an oversized punch-card reader crossed with a microfiche machine and
 |---|---|---|
 | 20 × 8 in head | ~12 × 5.5 in (300 × 140 mm) | Torque, arm stiffness and budget limits |
 | Ball-and-socket gimbal | Single tilt axis plus a cosmetic bellows boot | One servo, simple and stiff |
-| Sideways "over-the-shoulder" lean | Pitch tilt plus arm pose | A roll axis would need a fourth servo |
-| Pneumatic 2 in "stamp" drop | Fast nose-down snap plus a THUNK sound | No vertical axis |
+| Sideways "over-the-shoulder" lean | Yaw swing plus head pitch | A roll axis would need a fifth servo |
+| Pneumatic 2 in "stamp" drop | **Real** ~50 mm drop of the whole head (shoulder + elbow) with a nose-down snap and a THUNK sound | — |
 | Matrix printer in the chin | Cosmetic slot; the real printer is in the housing | Weight and wiring |

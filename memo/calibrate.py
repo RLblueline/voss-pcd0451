@@ -1,22 +1,22 @@
 """Bring-up and calibration tool.
 
-  python -m memo.calibrate zero                  all joints to zero pose (fit horns here)
-  python -m memo.calibrate set tilt 15           move one joint (degrees, shutter 0..1)
+  python -m memo.calibrate zero                  zero pose: yaw 90, link1 level, links in line, head level
+  python -m memo.calibrate set shoulder 30       move one joint: yaw|shoulder|elbow|pitch|shutter
   python -m memo.calibrate us 2 1500             raw pulse on a PCA9685 channel
-  python -m memo.calibrate trim elbow -3         nudge a joint's offset_deg and save
+  python -m memo.calibrate trim elbow -3         nudge a channel's offset_deg (yaw|shoulder|elbow|tilt) and save
   python -m memo.calibrate shutter 40 130        set shutter closed/open servo degrees and save
   python -m memo.calibrate demo                  cycle every mood (pose + lights)
   python -m memo.calibrate say "text" [mood]     speak a line with pose and lights
   python -m memo.calibrate leds                  LED test pattern
   python -m memo.calibrate print                 print a test memo
   python -m memo.calibrate doa                   live direction-of-arrival readout
-  python -m memo.calibrate off                   release all servos
+  python -m memo.calibrate off                   release ALL servos (support the arm first!)
 """
 import sys
 import time
 
 from . import config
-from .body import HOME, JOINTS, Body, PCA9685, ServoOutputs, load_calibration, save_calibration
+from .body import ZERO, JOINTS, Body, PCA9685, ServoOutputs, load_calibration, save_calibration
 
 
 def _body():
@@ -33,18 +33,18 @@ def main(argv=None):
     cmd = a[0]
     if cmd == "zero":
         b = _body()
-        b.move(HOME, 0.5)
+        b.move(ZERO, 0.5)
         b.wait(10)
-        print("Zero pose:", {j: HOME[j] for j in JOINTS}, "pulses:", b.out.last_us)
-        input("Fit horns now. Enter to release...")
-        b.stop()
+        print("Zero pose:", {j: ZERO[j] for j in JOINTS}, "pulses:", b.out.last_us)
+        input("Fit horns now. Enter to release (support the arm)...")
+        b.stop(park=False)
     elif cmd == "set":
         b = _body()
         b.move({a[1]: float(a[2])}, 0.5)
         b.wait(10)
         print(a[1], "->", a[2], "pulses:", b.out.last_us)
-        input("Enter to release...")
-        b.stop()
+        input("Enter to release (support the arm)...")
+        b.stop(park=False)
     elif cmd == "us":
         pca = PCA9685()
         pca.set_us(int(a[1]), float(a[2]))

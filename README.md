@@ -1,23 +1,23 @@
 # M.E.M.O. — PCD-0451
 
 **Mandatory Employee Monitoring & Oversight.** A wall-mounted, Claude-powered home
-assistant with a folding two-link arm and a tall, late-'70s Aperture Science
-HR-terminal head. She hears a wake word, turns toward you, answers out loud through an
+assistant on a classic robot arm (base swivel, shoulder, elbow, head tilt) with a tall,
+late-'70s Aperture Science HR-terminal head. She hears a wake word, turns toward you, answers out loud through an
 intercom filter, squints her mechanical eyelids at infractions, and prints memos.
 
 > Personal, non-commercial fan build. Aperture Science and Portal belong to Valve.
 > M.E.M.O. and Dr. Harriet Voss are original fan characters.
 
-| | |
-|---|---|
-| ![Hero](docs/img/01_hero.png) | ![Audit squint](docs/img/05_audit_squint.png) |
-| Home pose on the wall | Audit mode: shutters squint the amber eye |
+| | | |
+|---|---|---|
+| ![Hero](docs/img/01_hero.png) | ![Side](docs/img/03_side.png) | ![Audit squint](docs/img/05_audit_squint.png) |
+| Home pose on the wall | Classic arm, side view | Audit mode: the shutters squint |
 
-## Status (v0.3)
+## Status (v0.4)
 
 | Area | State |
 |---|---|
-| Software | Complete pipeline; 20 offline tests pass; **not yet run on hardware** |
+| Software | Complete pipeline; 22 offline tests pass; **not yet run on hardware** |
 | CAD | Full parametric OpenSCAD model; every part exported; joint sweeps collision-checked (all clear) |
 | Hardware | Not built. Servo, printer and speaker dimensions are datasheet values to verify with calipers |
 
@@ -59,12 +59,12 @@ MEMO_SIM=1 MEMO_DATA=/tmp/memo ANTHROPIC_API_KEY=sk-ant-... python -m memo.main 
 
 | | |
 |---|---|
-| Budget | ~$150 target in parts (see the BOM for the honest total); Claude API billed separately |
+| Budget | ~$210–220 at list prices, ~$180–190 with parts on hand (see the BOM); Claude API billed separately |
 | Housing | 144 W × 70 D × 226 H mm, keyhole back plate on one stud |
-| Arm | L1 120 + L2 100 mm, horizontal-plane joints (servos never fight gravity) |
-| Head | ~300 × 140 × 90 mm, hangs from a tilt axis near its top, ~600 g |
-| Reach | head front ~390 mm from the wall when straight out |
-| Servos | MG996R shoulder + elbow, DS3218 tilt, SG90 eye shutters, PCA9685 |
+| Arm | Classic yaw + shoulder + elbow + head tilt; L1 120, L2 100 mm; head rises and drops ~155 mm |
+| Head | ~300 × 140 × 90 mm, kept level automatically, ~535 g |
+| Reach | head front ~385 mm from the wall at home |
+| Servos | MG996R yaw, 35 kg·cm shoulder, DS3218 elbow + tilt, SG90 eye shutters, PCA9685 |
 | Brain | Pi Zero 2 W, local wake word + STT, Claude Haiku 4.5, Piper TTS |
 
 See [CHANGELOG.md](CHANGELOG.md) for what changed from v0.2.

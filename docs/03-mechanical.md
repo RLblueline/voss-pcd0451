@@ -5,67 +5,82 @@ parameter at the top of that file.
 
 ## Frame
 
-X along the wall, Y out of the wall, Z up. Wall face is y = 0. The shoulder axis is at
-**(0, 108, 0)**. The firmware uses the same frame (`memo/config.py`).
+X along the wall, Y out of the wall, Z up. Wall face is y = 0. The yaw axis is vertical at
+**(0, 112)**. The shoulder pitch axis crosses it at z = 0. The firmware uses the same frame
+(`memo/config.py`).
 
 ![Side view](img/03_side.png)
 
-## Joints
+## Arm layout: classic yaw, pitch, pitch
 
 | Joint | Axis | Servo | Range (checked) | Zero |
 |---|---|---|---|---|
-| Shoulder | vertical, (0, 108) | MG996R | 5–175° | 90 = link1 straight out |
-| Elbow | vertical, end of link1 | MG996R | −50…+125° | 0 = links in line |
-| Tilt | horizontal (link2 Y), 14 mm past link2's end, z −184 | DS3218 | −35…+40° (+ = nose down) | head level |
-| Shutters | rack and pinion | SG90 | aperture 0–1 (about 172° of servo) | 1 = open |
+| Yaw (base) | vertical, (0, 112) | MG996R | 5–175° | 90 = straight out from the wall |
+| Shoulder | horizontal, on the yaw axis at z 0 | 35 kg·cm standard size (DS3235 class) | −20…+75° | 0 = link1 level, + lifts |
+| Elbow | horizontal, 120 mm along link1 | DS3218 | −110…+40° | 0 = links in line |
+| Head tilt | horizontal, 14 mm past link2 and 72 mm below it | DS3218 | −35…+40° relative to link2 | 0 = head in line with link2 |
+| Shutters | rack and pinion | SG90 | aperture 0–1 | 1 = open |
 
-The shoulder and elbow move only in the horizontal plane, so those servos never hold
-the arm up against gravity. The head hangs below its tilt axis like a pendulum. When
-the servos go limp at rest, it settles level on its own.
+**Head pitch.** The firmware works in absolute head pitch and derives the tilt servo as
+`tilt = pitch + shoulder + elbow`. Lifting the arm doesn't tip the head unless she means it to.
+Because tilt is limited to −35…+40°, link2 stays near level for a level head. The
+shoulder does most of the raising and lowering:
+- head height range about 155 mm
+- the infraction "stamp" drops the head about 50 mm (2 in) with a nose-down snap
 
-## Vertical stack
+| Raised (rest pose) | Stamp (dropped) |
+|---|---|
+| ![raised](img/04_raised.png) | ![stamp](img/06_stamp.png) |
 
-Each joint is a **fork**: the top plate sits on the servo horn and the bottom plate
-rides a coaxial M8 pin in a 608 bearing. The servo and its bracket sit between the
-plates. Brackets enter only from the back sector the link never sweeps. The fork webs
-start ≥ 28 mm from the axis.
+## How the joints are built
 
-| z (mm) | Shoulder (world) | | z (mm) | Elbow (link1 frame) |
-|---|---|---|---|---|
-| 7…11 | link1 top plate | | −62…−58 | link2 top plate |
-| 4…7 | MG996R horn | | −65…−62 | MG996R horn |
-| −37…0 | MG996R body (top face z 0) | | −106…−69 | MG996R body |
-| −13.5…−10.5 | bracket shelf (flange screws) | | −82.5…−79.5 | hanger shelf |
-| −48…−40 | bracket floor + 608 | | −116…−108 | hanger floor + 608 |
-| −56…−52 | link1 bottom plate + M8 pin | | −124…−120 | link2 bottom plate + M8 pin |
+Every pitch joint uses the same **joint bracket**:
+- the servo is mounted through a flange plate
+- a pivot plate holds a 624 bearing on the servo's far side, coaxial with the shaft
+- two side bars tie the plates together
 
-Link2 passes **under** link1: there's a 2 mm gap between link1's bottom plate at −56
-and link2's top plate at −58.
+The next link wraps the bracket with two **side plates**:
+- one plate sits on the servo horn (y 27.25–30.75)
+- the other rides an M4 shoulder bolt in the 624 (y −31…−27.5)
 
-## Tilt joint
+At 36–44 mm from the axis, a cross block joins the side plates to a hollow 20 × 24 mm
+centre beam. The beam has a cable slot.
 
-- **Servo:** the DS3218 is mounted on the tilt post with its shaft along +Y and its body
-  pointing up.
-- **Head ears:**
-  - The **+ ear** (y 27.25–30.75) bolts to the horn.
-  - The **− ear** (y −31…−27.5) rides an M4 bolt through a 624 bearing in the post's pivot plate.
-- **Post neck:** above the servo flange, the post narrows to clear the head crown at
-  −35° nose-up.
-- **Crown slot:** the post and servo enter the head through a slot in the crown and
-  upper back. A TPU bellows boot hides the slot.
+![Arm detail](img/10_arm_detail.png)
+
+| Assembly | What it is |
+|---|---|
+| Yaw tower (world) | Bolted to the housing front. An 8 mm steel shaft runs in two 608 bearings 52 mm apart, so the bearings carry the arm's moment, not the servo. The MG996R below drives the shaft through a horn coupler |
+| Turret (yaw frame) | Clamped to the top of the shaft. Joint bracket with the shoulder servo body pointing down |
+| Link1 | Side plates around the turret, centre beam, and the elbow joint bracket at its end (servo body lies back along the beam). Has an anchor for an optional counterbalance spring |
+| Link2 | Side plates around the elbow bracket, centre beam, and an end block that carries the tilt post |
+| Tilt post | Joint bracket with the DS3218 body pointing up. The neck narrows above the servo flange to clear the head crown at −35° nose-up |
+
+## Loads
+
+Masses come from the CAD volumes, roughly 535 g for the head. Values are static torques.
+
+| Pose | Shoulder | Elbow |
+|---|---|---|
+| Arm straight out (worst) | 16.0 kg·cm | 7.4 kg·cm |
+| Home (shoulder 20, elbow −20) | 15.5 kg·cm | 7.4 kg·cm |
+| Rest (shoulder 60, elbow −60) | about 11.5 kg·cm | 7.4 kg·cm |
+
+That gives about 2.2× margin on a 35 kg·cm shoulder servo and 2.7× on the DS3218 elbow.
+
+The yaw servo carries no gravity load. The 608 pair takes about 35 N each from the arm's
+moment.
 
 ## Head
 
 ![Front](img/02_front.png)
 
-- **Envelope:** 300 tall (z +30 to −270 relative to the tilt axis), 90 deep, 140 wide
-  at the top, tapering to 128 at z −230. The chin then tapers to 66 × 92.
-- **Shell:** 2.4 mm walls. It splits into three pieces at z −40 and z −195. Each upper
-  piece has a 5 mm alignment skirt and four M3 bosses, plus visible hex screws on the
-  front at each seam.
-- **Eye cavity:** an 80 × 136 mm rounded recess, 15 mm deep, centred at z −116.
-- **Status windows:** three 15 × 9 mm windows at z +12, with WS2812 boards behind them.
-- **Chin slot:** 92 × 4 mm at z −210.
+The head is unchanged from v0.3:
+- **Size:** 300 tall × 90 deep × 140 wide, hanging from the tilt axis near its top.
+- **Shell:** 2.4 mm, three pieces split at z −40 and −195.
+- **Eye recess:** 80 × 136.
+- **Status windows:** three, at the top.
+- **Chin slot:** 92 × 4.
 
 ### Eye mechanism
 
@@ -73,76 +88,76 @@ and link2's top plate at −58.
 |---|---|
 | ![open](img/08_eye_mechanism_s1.png) | ![closed](img/08_eye_mechanism_s0.png) |
 
-Layers from front to back (x in the head frame):
-
-| x | Part |
+| x (head frame) | Part |
 |---|---|
 | 45 | front face |
 | 28–45 | charcoal recess |
 | 26–28 | bezel, Ø66 opening |
 | 23.6–25.6 | shutter plates (84 × 40) |
-| 19.8–23.4 | racks + pinion (module 1, 18 T, r 9) |
+| 19.8–23.4 | racks + pinion (module 1, 18 T) |
 | 16.4–19.6 | rack backing rails |
-| 14–22 | Ø60 amber lens dome |
+| 14–22 | Ø60 amber lens |
 | 9–12 | 16-LED ring |
 | 4–7 | rear plate |
 
-How the shutters move:
-- **Rack and pinion.** The pinion sits between two racks: the top plate's rack on the
-  −Y side and the bottom plate's rack on the +Y side. Rotating the pinion moves the
-  plates in opposite directions.
-- **Travel.** Each plate travels 27 mm, which takes about 172° of SG90 rotation.
-  Calibration defaults are `closed_deg 4`, `open_deg 176`.
-- **Guides.** A grooved rail on the −Y side guides both plates' tongues.
-- **Squint.** When closed, a 12 mm slit is left across the lens.
+The pinion sits between the two racks, so the plates move in opposite directions. Each
+travels 27 mm, which takes about 172° of SG90 rotation. When closed, a 12 mm slit is left
+across the lens.
 
-## Housing
+## Housing and tower
 
 ![Housing interior](img/09_housing_cut.png)
 
-- **Size:** 144 × 70 × 226 (z −190…36), open back.
-- **Front features:**
-  - mic holes 80 mm apart at z 20
-  - 40 mm speaker grille at z −45
-  - printer paper exit and tear-bar recess at z −137
-  - lettering
-  - four M3 holes plus a cable hole for the shoulder bracket
-- **Bottom:** two DC jacks and vents.
-- **Back plate:** two keyholes on the centreline (z 0 and −150) for one stud, standoffs
-  for the Pi and PCA9685, and heat-set inserts in its edges.
+- **Housing:** 144 × 70 × 226, open back. Front features:
+  - mics 80 mm apart
+  - 40 mm speaker grille
+  - printer exit at z −137
+  - four M3 holes and a 12 mm cable hole for the yaw tower
+- **Back plate:** keyholes for one stud.
+- **Yaw tower:** from z −162 (servo bottom) to −46, centred on x = 0 in front of the housing.
 
 ## Collision check results
 
-`cad/tools/collide.py` sweeps each joint through its full range in 5° steps (shutters
-at 0, 0.5 and 1) and intersects the real part meshes. It also checks every pose the
-firmware's workspace check accepts against the housing and the wall.
+`cad/tools/collide.py` sweeps each joint through its full range and intersects the real part
+meshes:
+- **yaw:** 5° steps with the arm at home
+- **shoulder:** 5° steps with link2 level
+- **elbow:** 5° steps, with the head included
+- **tilt:** 5° steps with shutters open and closed
+- **shutters:** at 0, 0.5 and 1
+
+It then checks a grid of yaw, shoulder, elbow and head-pitch poses. Every pose the
+firmware accepts is tested for head, links and servos against the housing, tower, wall and
+the arm itself.
 
 ```
-shoulder 5..175 : link1 vs housing/bracket   OK
-elbow -50..125 : link2/head vs link1         OK
-tilt -35..40 : head vs link2/post            OK
-shutters 0..1 : plates vs head internals     OK
-firmware workspace: 185 poses accepted, 31 rejected (grid 10 x 15 deg)
-accepted poses : arm/head vs housing + wall  OK
+yaw 5..175 : turret/link1 vs housing/tower         OK
+shoulder -20..75 : link1/link2 vs turret/tower     OK
+elbow -110..40 : link2/head vs link1/turret        OK
+tilt -35..40 : head vs link2/post                  OK
+shutters 0..1 : plates vs head internals           OK
+firmware workspace: 260 poses accepted, 1126 rejected
+accepted poses : arm/head vs housing, tower, wall, arm OK
 ```
 
-Two caveats:
-- The pinion-to-rack mesh is excluded, because the tooth profiles are approximate.
-- Moving between two accepted poses isn't swept here. The firmware checks
-  intermediate poses itself and reroutes through home when needed.
+One finding fed back into the firmware: pitching the head nose-down swings its bottom up
+to about 135 mm back toward the wall. The workspace check therefore treats the head as a
+plan-view capsule along that swing.
 
 ## Known risks
 
-1. **Shoulder load.** The head is about 600 g. About 2.4 N·m of bending at the shoulder
-   becomes roughly 38 N of side load shared by the MG996R spline and the 608 bearing.
-   That's acceptable short-term but a wear risk. Two ways to reduce it:
-   - Lighten the head: 1.6 mm walls and 15% infill bring it to about 400 g.
-   - Add a 608 bearing cap above link1's top plate (there's room above z 11).
-2. **Speed.** Firmware limits the shoulder to 90°/s and the elbow to 120°/s with eased
-   moves, because of the head's inertia.
-3. **Unverified dimensions.** MG996R, DS3218, SG90, printer module and speaker sizes are
-   datasheet values. Measure yours and edit `MG`, `DS`, `SG` and the printer box first.
-4. **Projection.** The head front sits about 390 mm off the wall when the arm is straight
-   out. Mount it where nobody walks into it.
-5. **Print bed.** The housing needs a bed of at least 230 mm in one axis (see
-   [Printing](04-printing.md)).
+1. **Holding torque.** The shoulder and elbow hold the arm up all the time, so they can't go
+   limp at rest. At home the shoulder servo works at about 45% of its rating, which means
+   heat and hum over long idle periods. Mitigations:
+   - The rest pose folds the arm up (about 25% less load).
+   - The **recommended fix** is a tension spring from the turret top to the anchor on link1's
+     beam, sized to cancel about 10 kg·cm. With it, the servo mostly just steers.
+2. **Power loss.** If power is lost, the arm sags to its mechanical stop. On a normal
+   shutdown the firmware lowers it gently first. Don't stand under the head, and use the
+   spring.
+3. **Unverified dimensions.** Servo, printer and speaker dimensions are datasheet values.
+   The shoulder servo is modelled with standard-size (DS3218) dimensions; check your
+   35 kg·cm servo's flange and height.
+4. **Projection.** At home the head front sits about 385 mm off the wall, and reach changes
+   with pose. Mount it away from walkways.
+5. **Print bed.** The housing needs a bed of at least 230 mm in one axis.

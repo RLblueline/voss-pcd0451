@@ -4,16 +4,18 @@ include <../memo.scad>
 PART = "link1"; S = 1;
 if (PART == "housing")     housing_shell();
 if (PART == "back_plate")  back_plate();
-if (PART == "bracket")     shoulder_bracket();
-if (PART == "s1_body")     S1_place() servo(MG, horn = false, spline = false);
+if (PART == "tower")       yaw_tower();
+if (PART == "yaw_body")    YAW_place() servo(MG, horn = false, spline = false);
+if (PART == "turret")      turret();
+if (PART == "coupler")     { translate([0, 0, -121]) cylinder(d = HORN_D, h = HORN_T); translate([0, 0, -118]) cylinder(d = 18, h = 5); }
+if (PART == "sh_body")     SH_servo() servo(DS, horn = false, spline = false);
 if (PART == "link1")       link1();
-if (PART == "hanger")      elbow_hanger();
-if (PART == "s2_body")     S2_place() servo(MG, horn = false, spline = false);
-if (PART == "s1_horn")     translate([0, 0, HORN_Z]) cylinder(d = HORN_D, h = HORN_T);
+if (PART == "el_body")     EL_servo() servo(DS, horn = false, spline = false);
+if (PART == "sh_horn")     translate([0, DS[2] / 2 + HORN_Z, 0]) rotate([-90, 0, 0]) cylinder(d = HORN_D, h = HORN_T);
 if (PART == "link2")       link2();
 if (PART == "post")        tilt_post();
-if (PART == "s3_body")     S3_place() servo(DS, horn = false, spline = false);
-if (PART == "s2_horn")     translate([0, 0, -69 + HORN_Z]) cylinder(d = HORN_D, h = HORN_T);
+if (PART == "tl_body")     TL_servo() servo(DS, horn = false, spline = false);
+if (PART == "el_horn")     translate([0, DS[2] / 2 + HORN_Z, 0]) rotate([-90, 0, 0]) cylinder(d = HORN_D, h = HORN_T);
 if (PART == "head_top")    head_piece(0);
 if (PART == "head_mid")    head_piece(1);
 if (PART == "head_chin")   head_piece(2);

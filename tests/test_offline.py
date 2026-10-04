@@ -168,43 +168,56 @@ class TestDOA(unittest.TestCase):
 
 class TestWorkspace(unittest.TestCase):
     def test_presets(self):
-        self.assertTrue(body.workspace_ok(body.HOME["shoulder"], body.HOME["elbow"]))
-        self.assertTrue(body.workspace_ok(body.SULK["shoulder"], body.SULK["elbow"]))
+        for p in (body.HOME, body.SULK, body.ZERO, body.REST):
+            self.assertTrue(body.workspace_ok(p), p)
         for a in range(-60, 61, 10):
-            p = body.look_pose(a)
-            self.assertTrue(body.workspace_ok(p["shoulder"], p["elbow"]), a)
+            self.assertTrue(body.workspace_ok(dict(body.HOME, **body.look_pose(a))), a)
+        stamp = dict(body.HOME, shoulder=-5.0, elbow=5.0, pitch=15.0)
+        self.assertTrue(body.workspace_ok(stamp))
 
     def test_rejects(self):
-        self.assertFalse(body.workspace_ok(5, 125 + 1))       # past elbow limit
-        self.assertFalse(body.workspace_ok(150, 100))          # head folded into the wall
-        self.assertFalse(body.workspace_ok(180, 0))            # shoulder limit
+        self.assertFalse(body.workspace_ok(dict(body.HOME, yaw=180)))                 # yaw limit
+        self.assertFalse(body.workspace_ok(dict(body.HOME, shoulder=75, elbow=0)))    # tilt servo out of range
+        self.assertFalse(body.workspace_ok(dict(body.HOME, yaw=5, shoulder=75, elbow=-75)))  # head into housing
+
+    def test_level_head(self):
+        self.assertEqual(body.tilt_of(body.HOME), 0.0)
+        p = body.clamp_pose(dict(body.HOME, shoulder=60, elbow=0, pitch=0))
+        self.assertLessEqual(body.tilt_of(p), config.LIMITS["tilt"][1])
+
+    def test_stamp_drop(self):
+        _, (_, _, z_hi) = body.fk(90, 15, -15)
+        _, (_, _, z_lo) = body.fk(90, -5, 5)
+        self.assertGreater(z_hi - z_lo, 40)                                          # ~2 in drop
 
     def test_pulse_mapping(self):
         cal = body.load_calibration()
-        self.assertAlmostEqual(body.joint_to_us(cal, "shoulder", 90), 1500)
-        self.assertAlmostEqual(body.joint_to_us(cal, "elbow", -55), 500)
+        self.assertAlmostEqual(body.joint_to_us(cal, "yaw", 90), 1500)
+        self.assertAlmostEqual(body.joint_to_us(cal, "shoulder", 0), 1500)
         self.assertAlmostEqual(body.joint_to_us(cal, "tilt", 0), 1500)
-        lo = body.joint_to_us(cal, "shutter", 0)
-        hi = body.joint_to_us(cal, "shutter", 1)
-        self.assertLess(lo, hi)
+        self.assertLess(body.joint_to_us(cal, "shutter", 0), body.joint_to_us(cal, "shutter", 1))
 
     def test_motion_and_quiesce(self):
         b = body.Body()
         b.start()
-        b.move({"tilt": 20, "shutter": 0.5}, speed=4)
+        b.move({"pitch": 20, "shutter": 0.5}, speed=4)
         with b.quiesce():
             self.assertFalse(b.moving)
-            self.assertFalse(b.out.enabled)
-            self.assertAlmostEqual(b.current["tilt"], 20, delta=0.01)
-        self.assertTrue(b.out.enabled)
-        b.move({"shoulder": 150, "elbow": 100})                # invalid -> arm ignored
+            self.assertTrue(b.out.enabled)                                           # arm keeps holding
+            self.assertAlmostEqual(b.current["pitch"], 20, delta=0.01)
+        b.move({"yaw": 5, "shoulder": 75, "elbow": -75})                             # invalid -> arm ignored
         b.wait(5)
-        self.assertEqual((b.current["shoulder"], b.current["elbow"]), (90, 0))
+        self.assertEqual((b.current["yaw"], b.current["shoulder"]), (90, 20))
         b.rest()
-        b.wait(5)
+        b.wait(8)
         time.sleep(0.1)
-        self.assertFalse(b.out.enabled)
+        self.assertTrue(b.out.enabled)
+        self.assertEqual(b.out.released, set(body.RELEASABLE))
+        b.move({"pitch": 5})
+        b.wait(5)
+        self.assertFalse(b.out.released)
         b.stop()
+        self.assertFalse(b.out.enabled)
 
 
 class TestLights(unittest.TestCase):
