@@ -16,6 +16,10 @@ on a spring-balanced robot arm, with a deep, late-'70s HR-terminal head:
 | ![Hero](docs/img/01_hero.png) | ![Side](docs/img/03_side.png) | ![Audit squint](docs/img/05_audit_squint.png) |
 | Home pose on the wall | Arm and deep head, side view | Audit mode: eye low, lids squinted |
 
+![V.O.S.S. routine](docs/img/voss_routine.gif)
+
+*A 17 s routine rendered from the CAD with the firmware's own poses, easing and idle sway (MP4: `docs/img/voss_routine.mp4`).*
+
 ## Status (v0.5)
 
 | Area | State |
