@@ -6,6 +6,7 @@
   python -m voss.calibrate trim elbow -3         nudge a channel's offset_deg (yaw|shoulder|elbow|tilt) and save
   python -m voss.calibrate shutter 40 130        set shutter closed/open servo degrees and save
   python -m voss.calibrate demo                  cycle every mood (pose + lights)
+  python -m voss.calibrate gesture peer          play one gesture (nod shake peer double_take startle sigh scan curious stamp)
   python -m voss.calibrate say "text" [mood]     speak a line with pose and lights
   python -m voss.calibrate leds                  LED test pattern
   python -m voss.calibrate print                 print a test memo
@@ -97,6 +98,14 @@ def main(argv=None):
                 print("quiet" if ang is None else f"{ang:+5.0f} deg  " + " " * int((ang + 60) / 4) + "|")
         except KeyboardInterrupt:
             cap.stop()
+    elif cmd == "gesture":
+        b = _body()
+        b.move({"shoulder": 20.0, "elbow": -20.0, "pitch": 0.0, "eye": 0.0, "shutter": 1.0}, 0.6)
+        b.wait(10)
+        b.gesture(a[1])
+        b.wait(15)
+        time.sleep(1.0)
+        b.stop()
     elif cmd in ("demo", "say"):
         from .main import Voss
         m = Voss(voice=True)

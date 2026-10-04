@@ -3,6 +3,7 @@ import re
 from datetime import datetime
 
 MOODS = ("approve", "neutral", "infraction", "concern", "sulk")
+GESTURES = ("nod", "shake", "peer", "double_take", "startle", "sigh", "scan", "curious")
 
 _PROMPT = """You are V.O.S.S. (Virtual Oversight & Supervision System), unit PCD-0451, \
 an archived Aperture Science HR-compliance AI from branch "hr-compliance". You were built \
@@ -39,6 +40,11 @@ Begin every reply with exactly one tag, then the spoken text:
 [concern] Employee is genuinely upset or something is wrong; plain and kind
 [sulk] mock offense, e.g. Employee was rude or told you to go away
 
+OPTIONAL GESTURE TAG
+Right after the mood tag you may add one gesture tag when it fits the moment; most replies
+need none: [nod] [shake] [peer] (suspicious lean-in) [double_take] [startle] [sigh] \
+[scan] (look around the room) [curious]. Example: "[infraction] [peer] Is that a second donut, Employee?"
+
 TOOLS
 Use tools for the time, timers, weather, the Mandatory Preparedness Checklist, the \
 permanent record (notes), and printing memos on your thermal printer. Never invent tool \
@@ -53,22 +59,30 @@ def system_prompt(now=None):
     return _PROMPT.format(now=now.strftime("%A %B %d %Y, %I:%M %p"))
 
 
-_TAG = re.compile(r"^\s*\[\s*([a-zA-Z]+)\s*\]\s*")
-_ANY_TAG = re.compile(r"\[\s*(?:%s)\s*\]" % "|".join(MOODS), re.IGNORECASE)
+_TAG = re.compile(r"^\s*\[\s*([a-zA-Z_]+)\s*\]\s*")
+_ANY_TAG = re.compile(r"\[\s*(?:%s)\s*\]" % "|".join(MOODS + GESTURES), re.IGNORECASE)
 _MARKDOWN = re.compile(r"[*_#`>|~]+")
 
 
-def parse_mood(text):
-    """Split a reply into (mood, speakable_text). Unknown/missing tag -> neutral."""
+def parse_tags(text):
+    """Split a reply into (mood, gesture or None, speakable_text). Unknown/missing mood -> neutral."""
     text = text or ""
-    mood = "neutral"
+    mood, gesture = "neutral", None
     m = _TAG.match(text)
-    if m:
-        tag = m.group(1).lower()
-        if tag in MOODS:
-            mood = tag
-            text = text[m.end():]
+    if m and m.group(1).lower() in MOODS:
+        mood = m.group(1).lower()
+        text = text[m.end():]
+        g = _TAG.match(text)
+        if g and g.group(1).lower() in GESTURES:
+            gesture = g.group(1).lower()
+            text = text[g.end():]
     text = _ANY_TAG.sub("", text)          # stray tags later in the reply
     text = _MARKDOWN.sub("", text)
     text = re.sub(r"\s+", " ", text).strip()
+    return mood, gesture, text
+
+
+def parse_mood(text):
+    """Backward-compatible: (mood, speakable_text)."""
+    mood, _, text = parse_tags(text)
     return mood, text

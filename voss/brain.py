@@ -34,7 +34,7 @@ class Brain:
         self.history = []
 
     def ask(self, user_text, on_tool=None):
-        """Return (mood, spoken_text, tools_used)."""
+        """Return (mood, gesture, spoken_text, tools_used)."""
         messages = self.history + [{"role": "user", "content": user_text}]
         used = []
         final = None
@@ -65,8 +65,8 @@ class Brain:
             log.exception("Claude request failed")
             final = None
         if not final:
-            mood, spoken = persona.parse_mood(FALLBACK)
-            return mood, spoken, used
-        mood, spoken = persona.parse_mood(final)
-        self._remember(user_text, f"[{mood}] {spoken}")
-        return mood, spoken, used
+            mood, gesture, spoken = persona.parse_tags(FALLBACK)
+            return mood, gesture, spoken, used
+        mood, gesture, spoken = persona.parse_tags(final)
+        self._remember(user_text, f"[{mood}]" + (f" [{gesture}]" if gesture else "") + f" {spoken}")
+        return mood, gesture, spoken, used

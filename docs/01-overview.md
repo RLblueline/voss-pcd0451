@@ -32,6 +32,19 @@ While she's awake and idle, she "breathes":
 
 While she talks, the head lifts slightly on stressed syllables.
 
+## Expression
+
+![Expressive routine](img/voss_expressive.gif)
+
+She moves like an animated character:
+- **Anticipation:** she dips before she rises.
+- **Overshoot:** looks and nods overshoot and settle.
+- **Blinks:** her eyelids blink.
+- **Moods:** her mood changes how she idles.
+- **Gestures:** Claude can add a gesture to any reply: nod, shake, peer, double take, startle, sigh, scan or curious.
+
+See [Software → Expression engine](06-software.md#expression-engine).
+
 ## Moods
 
 Every Claude reply starts with a mood tag. The tag drives pose, eye, eyelids and lights.

@@ -101,6 +101,7 @@ LIMITS = {
 MAX_SPEED = {"yaw": 90.0, "shoulder": 70.0, "elbow": 90.0, "pitch": 150.0, "shutter": 4.0, "eye": 2.5}  # deg/s, aperture/s
 SWAY = {"yaw": 4.0, "shoulder": 2.5, "pitch": 2.0, "eye": 0.12}   # idle "breathing" amplitude (deg; eye in slot units)
 SPEECH_BOB = 3.0                                    # deg of head lift at full speech level
+SPEECH_EMPHASIS = 4.0                               # deg of quick nod on stressed-syllable onsets
 
 # ---------------------------------------------------------------- geometry (mm), matches cad/voss.scad
 YAW_XY = (0.0, 112.0)            # yaw axis; the shoulder pitch axis sits on it at z = 0

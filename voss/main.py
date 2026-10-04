@@ -67,9 +67,9 @@ class Voss:
         self.lights.set_level(level)
         self.body.speech(level)
 
-    def speak(self, mood, text):
-        print(f"V.O.S.S. [{mood}]: {text}", flush=True)
-        self.body.mood(mood)
+    def speak(self, mood, text, gesture=None):
+        print(f"V.O.S.S. [{mood}]" + (f"[{gesture}]" if gesture else "") + f": {text}", flush=True)
+        self.body.mood(mood, gesture)
         self.lights.set_mode("speak", mood)
         sfx = (["click"] if self._filed else []) + (["thunk"] if mood == "infraction" else [])
         self._filed = False
@@ -92,8 +92,8 @@ class Voss:
         self.body.set_awake(True)
         self.lights.set_mode("think")
         self.body.think()
-        mood, reply, _ = self.brain.ask(text, on_tool=self._on_tool)
-        self.speak(mood, reply)
+        mood, gesture, reply, _ = self.brain.ask(text, on_tool=self._on_tool)
+        self.speak(mood, reply, gesture)
 
     def handle_events(self):
         while True:

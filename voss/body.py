@@ -12,11 +12,12 @@ import contextlib
 import json
 import logging
 import math
+import random
 import threading
 import time
 from collections import deque
 
-from . import config
+from . import config, gestures
 
 log = logging.getLogger("voss.body")
 
@@ -233,17 +234,31 @@ class ServoOutputs:
 
 # ------------------------------------------------------------------ motion
 class _Seg:
-    __slots__ = ("end", "dur", "t0", "start")
+    __slots__ = ("end", "dur", "style", "t0", "start")
 
-    def __init__(self, end, dur):
-        self.end, self.dur, self.t0, self.start = end, dur, None, None
+    def __init__(self, end, dur, style="ease"):
+        self.end, self.dur, self.style, self.t0, self.start = end, dur, style, None, None
+
+
+def _styled_ok(a, b, style, steps=20):
+    """Path check that follows the easing curve (a spring overshoots past b)."""
+    for i in range(steps + 1):
+        e = gestures.curve(style, i / steps)
+        if not workspace_ok({j: a[j] + (b[j] - a[j]) * e for j in JOINTS}):
+            return False
+    return True
 
 
 class Body:
-    def __init__(self, outputs=None):
+    """Motion engine. Runs a 50 Hz thread on hardware; tests and the animation tool drive
+    tick(now) directly with a virtual clock."""
+
+    def __init__(self, outputs=None, clock=time.monotonic, seed=451):
+        self.clock = clock
         self.out = outputs or ServoOutputs()
         self.current = dict(HOME)
         self.goal = dict(HOME)
+        self.output_pose = dict(HOME)
         self._segs = deque()
         self._lock = threading.RLock()
         self._idle = threading.Event()
@@ -252,11 +267,16 @@ class Body:
         self._release_when_idle = False
         self._stop = threading.Event()
         self._thread = None
-        self._gesture_gen = 0
         self._awake = True
+        self._mood = "neutral"
         self._sway_amp = 0.0
         self._speech = 0.0
-        self._t0 = time.monotonic()
+        self._bob = 0.0
+        self._t0 = clock()
+        self._last = None
+        self._rng = random.Random(seed)
+        self._blink_at = self._t0 + 2.0
+        self._blinks = []                   # start times of scheduled blinks
 
     # ---------------------------------------------------------- lifecycle
     def start(self):
@@ -266,7 +286,6 @@ class Body:
     def stop(self, park=True):
         """Move to the spring's balance point before cutting power, so the arm barely drifts."""
         if park and self.out.enabled:
-            self.cancel_gesture()
             self.move(PARK, 0.4)
             self.wait(6.0)
         self._stop.set()
@@ -276,32 +295,97 @@ class Body:
 
     def _run(self):
         while not self._stop.is_set():
-            now = time.monotonic()
-            with self._lock:
-                if not self._frozen and self._segs:
-                    seg = self._segs[0]
-                    if seg.t0 is None:
-                        seg.t0, seg.start = now, dict(self.current)
-                    a = 1.0 if seg.dur <= 0 else min(1.0, (now - seg.t0) / seg.dur)
-                    e = a * a * a * (a * (6 * a - 15) + 10)       # minimum-jerk
-                    self.current = {j: seg.start[j] + (seg.end[j] - seg.start[j]) * e for j in JOINTS}
-                    if not self.out.enabled:
-                        self.out.enable(self.current)
-                    elif self.out.released:
-                        self.out.hold(self.current)
-                    if a >= 1.0:
-                        self._segs.popleft()
-                moving = bool(self._segs)
-                target_amp = 1.0 if (self._awake and not moving and not self._release_when_idle) else 0.0
-                self._sway_amp += max(-0.04, min(0.02, target_amp - self._sway_amp))   # fade in 1 s, out 0.5 s
-                if not self._frozen and self.out.enabled and not self.out.released:
-                    self.out.write(self.alive_pose(now))
-                if not self._segs:
-                    if self._release_when_idle and self.out.enabled and not self._frozen and self._sway_amp <= 0.0:
-                        self.out.release()
-                        self._release_when_idle = False
-                    self._idle.set()
+            self.tick(self.clock())
             time.sleep(0.02)
+
+    def tick(self, now):
+        with self._lock:
+            dt = 0.02 if self._last is None else max(0.0, now - self._last)
+            self._last = now
+            seg_moving = False
+            if not self._frozen and self._segs:
+                seg = self._segs[0]
+                if seg.t0 is None:
+                    seg.t0, seg.start = now, dict(self.current)
+                a = 1.0 if seg.dur <= 0 else min(1.0, (now - seg.t0) / seg.dur)
+                e = gestures.curve(seg.style, a)
+                self.current = {j: seg.start[j] + (seg.end[j] - seg.start[j]) * e for j in JOINTS}
+                seg_moving = any(abs(seg.end[j] - seg.start[j]) > 1e-6 for j in JOINTS)
+                if not self.out.enabled:
+                    self.out.enable(self.current)
+                elif self.out.released:
+                    self.out.hold(self.current)
+                if a >= 1.0:
+                    self.current = dict(seg.end)
+                    self._segs.popleft()
+            prof = gestures.MOOD_IDLE.get(self._mood, gestures.MOOD_IDLE["neutral"])
+            target = prof["amp"] if (self._awake and not seg_moving and not self._release_when_idle) else 0.0
+            self._sway_amp += max(-2.0 * dt, min(1.0 * dt, target - self._sway_amp))
+            self._bob *= math.exp(-dt / 0.15)
+            self.output_pose = self.alive_pose(now)
+            if not self._frozen and self.out.enabled and not self.out.released:
+                self.out.write(self.output_pose)
+            if not self._segs:
+                if self._release_when_idle and self.out.enabled and not self._frozen and self._sway_amp <= 0.0:
+                    self.out.release()
+                    self._release_when_idle = False
+                self._idle.set()
+
+    # ---------------------------------------------------------- alive overlay
+    def _blink(self, now):
+        """Eyelid factor 0..1 (1 = open). Natural blinks, rate depends on mood; some doubles."""
+        prof = gestures.MOOD_IDLE.get(self._mood, gestures.MOOD_IDLE["neutral"])
+        if self._awake and now >= self._blink_at:
+            self._blinks.append(now)
+            if self._rng.random() < 0.15:
+                self._blinks.append(now + 0.28)
+            self._blink_at = now + self._rng.uniform(2.5, 6.0) / max(0.1, prof["blink"])
+        self._blinks = [b for b in self._blinks if now - b < 0.25]
+        f = 1.0
+        for b in self._blinks:
+            ph = now - b
+            if 0 <= ph < 0.06:
+                c = ph / 0.06
+            elif 0.06 <= ph < 0.10:
+                c = 1.0
+            elif 0.10 <= ph < 0.21:
+                c = 1 - (ph - 0.10) / 0.11
+            else:
+                c = 0.0
+            f = min(f, 1 - 0.95 * c)
+        return f
+
+    def alive_pose(self, now):
+        """Planned pose + idle sway, eye flicks, speech bob and blinks (only if still valid)."""
+        prof = gestures.MOOD_IDLE.get(self._mood, gestures.MOOD_IDLE["neutral"])
+        t = (now - self._t0) * prof["speed"]
+        k = self._sway_amp
+        p = dict(self.current)
+        p["yaw"] += k * config.SWAY["yaw"] * math.sin(2 * math.pi * t / 11.0)
+        p["shoulder"] += k * config.SWAY["shoulder"] * math.sin(2 * math.pi * t / 8.3 + 1.0)
+        p["pitch"] += (k * config.SWAY["pitch"] * math.sin(2 * math.pi * t / 6.1 + 2.0)
+                       - config.SPEECH_BOB * self._speech + config.SPEECH_EMPHASIS * self._bob)
+        p["eye"] += k * config.SWAY["eye"] * _saccade(t)
+        p["shutter"] *= self._blink(now)
+        p = clamp_pose(p)
+        if workspace_ok(p):
+            return p
+        q = dict(self.current)
+        q["shutter"] = p["shutter"]
+        return q
+
+    def speech(self, level):
+        """Speech envelope 0..1: the head lifts on loud syllables and gives a little nod on onsets."""
+        level = max(0.0, min(1.0, level))
+        if level - self._speech > 0.3 and level > 0.5:
+            self._bob = 1.0
+        self._speech = level
+
+    def set_awake(self, awake):
+        self._awake = awake
+
+    def set_mood(self, mood):
+        self._mood = mood if mood in gestures.MOOD_IDLE else "neutral"
 
     # ---------------------------------------------------------- moves
     @staticmethod
@@ -309,7 +393,7 @@ class Body:
         t = max(abs(b[j] - a[j]) / (config.MAX_SPEED[j] * speed) for j in JOINTS)
         return max(0.05, t * 1.875)          # quintic peaks at 1.875x mean speed
 
-    def move(self, target, speed=1.0, replace=True):
+    def move(self, target, speed=1.0, replace=True, style="ease", duration=None):
         """Move to a (partial) pose. Arm parts that fail the workspace check are ignored."""
         with self._lock:
             new = dict(self.goal)
@@ -317,11 +401,12 @@ class Body:
             new = clamp_pose(new)
             if not workspace_ok(new):
                 log.warning("pose rejected by workspace check: %s", new)
-                arm = ("yaw", "shoulder", "elbow", "pitch")
-                new = clamp_pose(dict(new, **{j: self.goal[j] for j in arm}))
+                new = clamp_pose(dict(new, **{j: self.goal[j] for j in ("yaw", "shoulder", "elbow", "pitch")}))
             if replace:
                 self._segs.clear()
             start = dict(self.current) if replace else dict(self.goal)
+            if style != "ease" and not _styled_ok(start, new, style):
+                style = "ease"
             path = [new]
             if not path_ok(start, new):
                 via = dict(new, yaw=new["yaw"] if path_ok(start, dict(start, yaw=new["yaw"])) else HOME["yaw"],
@@ -329,30 +414,62 @@ class Body:
                 path = [via, new]
             prev = start
             for p in path:
-                self._segs.append(_Seg(p, self._duration(prev, p, speed)))
+                dur = duration if (duration and len(path) == 1) else self._duration(prev, p, speed)
+                self._segs.append(_Seg(p, dur, style))
                 prev = p
             self.goal = new
             self._release_when_idle = False
             self._idle.clear()
 
-    def alive_pose(self, now):
-        """Planned pose plus the idle sway and speech bob, if that stays inside the workspace."""
-        t = now - self._t0
-        k = self._sway_amp
-        p = dict(self.current)
-        p["yaw"] += k * config.SWAY["yaw"] * math.sin(2 * math.pi * t / 11.0)
-        p["shoulder"] += k * config.SWAY["shoulder"] * math.sin(2 * math.pi * t / 8.3 + 1.0)
-        p["pitch"] += k * config.SWAY["pitch"] * math.sin(2 * math.pi * t / 6.1 + 2.0) - config.SPEECH_BOB * self._speech
-        p["eye"] += k * config.SWAY["eye"] * _saccade(t)
-        p = clamp_pose(p)
-        return p if workspace_ok(p) else self.current
+    def perform(self, steps, replace=True, scale=1.0):
+        """Queue a gesture: each step goes to absolute joints ("to") or an offset from the anchor
+        ("rel"), with its own duration, easing and hold. Steps that would leave the workspace are
+        held in place instead; springs that would overshoot out of it become plain eases."""
+        with self._lock:
+            if replace:
+                self._segs.clear()
+            prev = dict(self.current) if replace else dict(self.goal)
+            anchor = dict(self.goal)
+            for st in steps:
+                tgt = dict(prev)
+                if st["to"]:
+                    tgt.update(st["to"])
+                    anchor = clamp_pose(dict(anchor, **st["to"]))
+                for j, d in st["rel"].items():
+                    tgt[j] = anchor[j] + d * scale
+                tgt = clamp_pose(tgt)
+                style = st["style"]
+                if not workspace_ok(tgt) or not path_ok(prev, tgt):
+                    tgt = dict(prev)
+                elif style != "ease" and not _styled_ok(prev, tgt, style):
+                    style = "ease"
+                if st["t"] > 0:
+                    self._segs.append(_Seg(tgt, st["t"], style))
+                if st["hold"] > 0:
+                    self._segs.append(_Seg(tgt, st["hold"], "hold"))
+                prev = tgt
+            self.goal = prev
+            self._release_when_idle = False
+            self._idle.clear()
 
-    def speech(self, level):
-        """Feed the speech envelope (0..1); lifts the head slightly on stressed syllables."""
-        self._speech = max(0.0, min(1.0, level))
+    def gesture(self, name, scale=1.0, replace=True):
+        if name in gestures.GESTURES:
+            self.perform(gestures.GESTURES[name], replace=replace, scale=scale)
 
-    def set_awake(self, awake):
-        self._awake = awake
+    def express(self, mood, gesture=None):
+        """Mood entry pose + the mood's signature gesture (or the gesture Claude asked for)."""
+        self.set_mood(mood)
+        self._awake = True
+        steps = []
+        entry = gestures.MOOD_ENTRY.get(mood)
+        if entry:
+            pose, t, style = entry
+            steps.append(gestures.S(to=pose, t=t, style=style))
+        name = gesture if gesture in gestures.GESTURES else gestures.MOOD_GESTURE.get(mood)
+        if name:
+            steps += gestures.GESTURES[name]
+        if steps:
+            self.perform(steps)
 
     def wait(self, timeout=5.0):
         return self._idle.wait(timeout)
@@ -374,78 +491,55 @@ class Body:
             with self._lock:
                 self._frozen = False
 
-    # ---------------------------------------------------------- gestures
-    def perform(self, steps):
-        """Run [(pose, speed, hold_s), ...] in the background; a newer gesture cancels it."""
-        self._gesture_gen += 1
-        gen = self._gesture_gen
-
-        def run():
-            for pose, speed, hold in steps:
-                if gen != self._gesture_gen:
-                    return
-                self.move(pose, speed)
-                self.wait(3.0)
-                time.sleep(hold)
-
-        threading.Thread(target=run, name="gesture", daemon=True).start()
-
     def cancel_gesture(self):
-        self._gesture_gen += 1
+        with self._lock:
+            self._segs.clear()
+            self.goal = dict(self.current)
 
+    # ---------------------------------------------------------- behaviours
     def home(self, speed=0.7):
-        self.cancel_gesture()
+        self.set_mood("neutral")
         self.move(HOME, speed)
 
     def rest(self):
-        """Settle at the spring's balance point, head level, stop swaying, then yaw/tilt/shutters
+        """Settle at the spring's balance point, head level, stop swaying, then yaw/tilt/eyelids
         go limp. The shoulder holds almost nothing here; the elbow holds the head."""
-        self.cancel_gesture()
+        self.set_mood("neutral")
         self._awake = False
         self.move(REST, 0.5)
         with self._lock:
             self._release_when_idle = True
 
     def look(self, angle_deg):
-        """Swing toward the talker with a small overshoot and settle, leaning in."""
-        self.cancel_gesture()
+        """Eye flicks first, then the arm swings toward the talker with a springy settle, leaning in."""
         self._awake = True
         yaw = look_pose(angle_deg)["yaw"]
-        over = max(config.LIMITS["yaw"][0], min(config.LIMITS["yaw"][1], yaw + (6.0 if yaw > self.current["yaw"] else -6.0)))
-        self.perform([({"yaw": over, "shoulder": 14.0, "elbow": -10.0, "pitch": -6.0, "shutter": 1.0, "eye": 0.3}, 1.2, 0.0),
-                      ({"yaw": yaw, "shoulder": 12.0, "elbow": -8.0, "pitch": -4.0, "eye": 0.2}, 0.5, 0.0)])
+        self.perform([gestures.S(to={"eye": 0.35}, t=0.12, style="snap"),
+                      gestures.S(to={"yaw": yaw, "shoulder": 12.0, "elbow": -8.0, "pitch": -4.0, "shutter": 1.0},
+                                 t=max(0.5, abs(yaw - self.current["yaw"]) / 70.0), style="spring"),
+                      gestures.S(to={"eye": 0.2}, t=0.3)])
 
     def listen(self):
-        self.move({"shoulder": 12.0, "elbow": -8.0, "pitch": -4.0, "shutter": 1.0, "eye": 0.2}, 1.0)
+        self._awake = True
+        self.perform([gestures.S(to={"shoulder": 12.0, "elbow": -8.0, "pitch": -4.0, "shutter": 1.0, "eye": 0.2},
+                                 t=0.6, style="spring")])
 
     def think(self):
-        self.move({"shoulder": 30.0, "elbow": -34.0, "pitch": 8.0, "shutter": 0.7, "eye": 0.6}, 0.6)   # eye rolls up
+        """Rise, eye rolls up, lids narrow a touch, then a slow drift as if reading a file."""
+        self.perform([gestures.S(to={"shoulder": 30.0, "elbow": -34.0, "pitch": 8.0, "shutter": 0.7, "eye": 0.6},
+                                 t=0.8, style="slow"),
+                      gestures.S({"yaw": 6, "eye": -0.15}, t=1.2, style="slow"),
+                      gestures.S({"yaw": -4, "eye": 0.1}, t=1.4, style="slow")])
 
     def filing(self):
-        """Rapid shutter pulse while 'logging' something."""
-        steps = [({"shutter": 0.35}, 4.0, 0.03), ({"shutter": 1.0}, 4.0, 0.03)] * 3
-        self.perform(steps)
+        """Rapid eyelid flutter while 'logging' something (doesn't interrupt the current move)."""
+        self.perform(gestures.GESTURES["flutter"], replace=False)
 
     def stamp(self):
-        """Loom: rise and squint, then the whole head drops ~80 mm with a nose-down snap (THUNK)."""
-        self.perform([({"shoulder": 35.0, "elbow": -35.0, "pitch": 10.0, "shutter": 0.25, "eye": -0.4}, 1.0, 0.35),
-                      ({"shoulder": -5.0, "elbow": 5.0, "pitch": 15.0}, 4.0, 0.3),
-                      ({"shoulder": 15.0, "elbow": -15.0, "pitch": 8.0}, 0.6, 0.0)])
+        self.gesture("stamp")
 
     def nod(self):
-        self.perform([({"pitch": 12.0, "shutter": 1.0, "eye": 0.3}, 1.5, 0.05), ({"pitch": 0.0, "eye": 0.0}, 1.2, 0.0)])
+        self.gesture("nod")
 
-    def mood(self, mood):
-        if mood == "approve":
-            self.nod()
-        elif mood == "infraction":
-            self.stamp()
-        elif mood == "concern":
-            self.cancel_gesture()
-            self.move({"shoulder": 8.0, "elbow": -10.0, "pitch": -3.0, "shutter": 1.0, "eye": 0.0}, 0.4)  # low, close, still
-        elif mood == "sulk":
-            self.cancel_gesture()
-            self.move(SULK, 0.5)
-        else:
-            self.cancel_gesture()
-            self.move({"pitch": 0.0, "shutter": 1.0, "eye": 0.0}, 0.8)
+    def mood(self, mood, gesture=None):
+        self.express(mood, gesture)

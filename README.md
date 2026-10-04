@@ -16,15 +16,15 @@ on a spring-balanced robot arm, with a deep, late-'70s HR-terminal head:
 | ![Hero](docs/img/01_hero.png) | ![Side](docs/img/03_side.png) | ![Audit squint](docs/img/05_audit_squint.png) |
 | Home pose on the wall | Arm and deep head, side view | Audit mode: eye low, lids squinted |
 
-![V.O.S.S. routine](docs/img/voss_routine.gif)
+![V.O.S.S. expressive routine](docs/img/voss_expressive.gif)
 
-*A 17 s routine rendered from the CAD with the firmware's own poses, easing and idle sway (MP4: `docs/img/voss_routine.mp4`).*
+*36 s rendered from the CAD while the real firmware motion engine runs on a virtual clock: gestures, springy settles, blinks, speech bobs (MP4: `docs/img/voss_expressive.mp4`).*
 
-## Status (v0.5)
+## Status (v0.6)
 
 | Area | State |
 |---|---|
-| Software | Complete pipeline; 23 offline tests pass; **not yet run on hardware** |
+| Software | Complete pipeline with an expression engine; 28 offline tests pass; **not yet run on hardware** |
 | CAD | Full parametric OpenSCAD model. Every part is exported, and every joint plus the moving eye is collision-checked (all clear) |
 | Hardware | Not built. Servo, printer and speaker dimensions are datasheet values to verify |
 

@@ -1,5 +1,35 @@
 # Changelog
 
+## v0.6 — expression engine (2026-10)
+
+**Motion engine**
+- Rebuilt as a queue of timed segments with easing styles (`ease`, `spring`, `snap`,
+  `slow`, `hold`). There are no gesture threads any more. Tests and the animation tool
+  drive it on a virtual clock.
+
+**Gestures**
+- New `voss/gestures.py` with 13 data-defined gestures: nod, bounce_nod, shake, peer,
+  double_take, startle, sigh, scan, curious, stamp, glance_back, flutter, ack.
+- Uses anticipation, overshoot-and-settle, holds, and eye/lid secondary motion.
+
+**Claude control**
+- Replies can carry an optional gesture tag after the mood. The persona prompt lists them,
+  and `persona.parse_tags()` parses them.
+
+**Moods**
+- Each mood has an entry pose, a signature gesture and an idle profile (sway amplitude and
+  speed, blink rate).
+
+**Secondary motion**
+- Natural blinks with doubles, speech-onset emphasis nods, and eye-led looks.
+
+**Tooling and docs**
+- New `calibrate gesture <name>`.
+- New 36 s animation (`docs/img/voss_expressive.mp4/.gif`) rendered from the CAD with the
+  real motion engine.
+- 28 tests, all passing.
+
+
 ## v0.5 — V.O.S.S. (2026-10)
 
 **Rename**

@@ -19,7 +19,7 @@ Tools:
 | `cad/tools/loads.py` | Static joint torques and the best counterbalance spring |
 | `cad/tools/head_mass.py` | Head mass and centre of gravity (for choosing `HS`) |
 | `cad/tools/reach.py` | Reach envelope over firmware-accepted poses |
-| `cad/tools/animate.py`, `compose_anim.py` | Renders the routine animation (every frame checked by the firmware workspace check); `python3 cad/tools/animate.py [N]` renders N more frames, then compose |
+| `cad/tools/animate.py`, `compose_anim.py` | Renders the expressive routine: the firmware `Body` runs on a virtual clock and every frame is a sample of its output. `python3 cad/tools/animate.py [N]` renders N more frames; then compose |
 
 ## Frames and transforms
 

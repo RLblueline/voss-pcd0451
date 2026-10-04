@@ -29,6 +29,9 @@ class TestPersona(unittest.TestCase):
         self.assertEqual(persona.parse_mood("No tag here."), ("neutral", "No tag here."))
         self.assertEqual(persona.parse_mood("[bogus] Hi"), ("neutral", "[bogus] Hi"))
         self.assertEqual(persona.parse_mood("[sulk] Fine. [sulk]"), ("sulk", "Fine."))
+        self.assertEqual(persona.parse_tags("[infraction] [peer] Second donut?"), ("infraction", "peer", "Second donut?"))
+        self.assertEqual(persona.parse_tags("[neutral] [wiggle] Hi"), ("neutral", None, "[wiggle] Hi"))
+        self.assertEqual(persona.parse_tags("[approve][double_take] Wow."), ("approve", "double_take", "Wow."))
 
     def test_prompt(self):
         self.assertIn("PCD-0451", persona.system_prompt())
@@ -56,7 +59,8 @@ class TestBrain(unittest.TestCase):
         client = FakeClient()
         brain = Brain(tb, client=client)
         seen = []
-        mood, text, used = brain.ask("set a pasta timer for ten minutes", on_tool=lambda n, a: seen.append(n))
+        mood, gesture, text, used = brain.ask("set a pasta timer for ten minutes", on_tool=lambda n, a: seen.append(n))
+        self.assertIsNone(gesture)
         self.assertEqual((mood, text), ("approve", "Pasta timer filed, Employee."))
         self.assertEqual(used, ["set_timer"])
         self.assertEqual(seen, ["set_timer"])
@@ -83,7 +87,7 @@ class TestBrain(unittest.TestCase):
 
             def create(self, **kw):
                 raise RuntimeError("offline")
-        mood, text, _ = Brain(tools.ToolBox(queue.Queue()), client=Boom()).ask("hi")
+        mood, _, text, _ = Brain(tools.ToolBox(queue.Queue()), client=Boom()).ask("hi")
         self.assertIn("head office", text)
 
 
@@ -230,6 +234,63 @@ class TestWorkspace(unittest.TestCase):
         self.assertFalse(b.out.released)
         b.stop()
         self.assertFalse(b.out.enabled)
+
+
+class FakeClock:
+    def __init__(self):
+        self.t = 1000.0
+
+    def __call__(self):
+        return self.t
+
+
+def run_virtual(b, clock, seconds, fps=50):
+    poses = []
+    for _ in range(int(seconds * fps)):
+        clock.t += 1.0 / fps
+        b.tick(clock.t)
+        poses.append(dict(b.output_pose))
+    return poses
+
+
+class TestExpression(unittest.TestCase):
+    def test_every_gesture_stays_valid(self):
+        from voss import gestures
+        for name in list(gestures.GESTURES) + ["MOOD:" + m for m in gestures.MOOD_ENTRY]:
+            clock = FakeClock()
+            b = body.Body(clock=clock)
+            if name.startswith("MOOD:"):
+                b.express(name[5:])
+            else:
+                b.gesture(name)
+            poses = run_virtual(b, clock, 9.0)
+            self.assertTrue(all(body.workspace_ok(p) for p in poses), name)
+            self.assertFalse(b._segs, name)                      # finished within 9 s
+
+    def test_spring_overshoots_then_settles(self):
+        from voss import gestures
+        vals = [gestures.curve("spring", i / 100) for i in range(101)]
+        self.assertGreater(max(vals), 1.05)
+        self.assertAlmostEqual(vals[-1], 1.0, places=6)
+        self.assertEqual(gestures.curve("ease", 1.0), 1.0)
+
+    def test_blinks_happen(self):
+        clock = FakeClock()
+        b = body.Body(clock=clock)
+        poses = run_virtual(b, clock, 20.0)
+        closed = [p["shutter"] for p in poses if p["shutter"] < 0.3]
+        self.assertTrue(closed)                                   # it blinked
+        self.assertGreater(sum(p["shutter"] > 0.95 for p in poses) / len(poses), 0.85)   # mostly open
+
+    def test_infraction_stares(self):
+        from voss import gestures
+        self.assertLess(gestures.MOOD_IDLE["infraction"]["blink"], gestures.MOOD_IDLE["neutral"]["blink"])
+
+    def test_speech_onset_bob(self):
+        b = body.Body(clock=FakeClock())
+        b.speech(0.1)
+        b.speech(0.9)
+        self.assertEqual(b._bob, 1.0)
 
 
 class TestLights(unittest.TestCase):
