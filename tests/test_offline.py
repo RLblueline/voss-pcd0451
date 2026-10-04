@@ -1,4 +1,4 @@
-"""Offline tests (no hardware, no API). Run:  MEMO_SIM=1 python -m unittest discover tests"""
+"""Offline tests (no hardware, no API). Run:  VOSS_SIM=1 python -m unittest discover tests"""
 import json
 import os
 import queue
@@ -12,14 +12,14 @@ from pathlib import Path
 from types import SimpleNamespace as NS
 
 TMP = tempfile.mkdtemp()
-os.environ["MEMO_SIM"] = "1"
-os.environ["MEMO_DATA"] = TMP
+os.environ["VOSS_SIM"] = "1"
+os.environ["VOSS_DATA"] = TMP
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import numpy as np  # noqa: E402
 
-from memo import audio, body, config, lights, persona, printer, tools  # noqa: E402
-from memo.brain import Brain  # noqa: E402
+from voss import audio, body, config, lights, persona, printer, tools  # noqa: E402
+from voss.brain import Brain  # noqa: E402
 
 
 class TestPersona(unittest.TestCase):
@@ -168,7 +168,7 @@ class TestDOA(unittest.TestCase):
 
 class TestWorkspace(unittest.TestCase):
     def test_presets(self):
-        for p in (body.HOME, body.SULK, body.ZERO, body.REST):
+        for p in (body.HOME, body.SULK, body.ZERO, body.REST, body.PARK, dict(body.HOME, shoulder=35, elbow=-35, pitch=10)):
             self.assertTrue(body.workspace_ok(p), p)
         for a in range(-60, 61, 10):
             self.assertTrue(body.workspace_ok(dict(body.HOME, **body.look_pose(a))), a)
@@ -179,6 +179,16 @@ class TestWorkspace(unittest.TestCase):
         self.assertFalse(body.workspace_ok(dict(body.HOME, yaw=180)))                 # yaw limit
         self.assertFalse(body.workspace_ok(dict(body.HOME, shoulder=75, elbow=0)))    # tilt servo out of range
         self.assertFalse(body.workspace_ok(dict(body.HOME, yaw=5, shoulder=75, elbow=-75)))  # head into housing
+
+    def test_alive_overlay(self):
+        b = body.Body()
+        b._sway_amp = 1.0
+        b.speech(1.0)
+        for t in range(0, 30):
+            p = b.alive_pose(b._t0 + t * 0.37)
+            self.assertTrue(body.workspace_ok(p))
+            self.assertLess(abs(p["yaw"] - body.HOME["yaw"]), 4.5)
+            self.assertLessEqual(abs(p["eye"]), 0.13)
 
     def test_level_head(self):
         self.assertEqual(body.tilt_of(body.HOME), 0.0)
@@ -196,6 +206,8 @@ class TestWorkspace(unittest.TestCase):
         self.assertAlmostEqual(body.joint_to_us(cal, "shoulder", 0), 1500)
         self.assertAlmostEqual(body.joint_to_us(cal, "tilt", 0), 1500)
         self.assertLess(body.joint_to_us(cal, "shutter", 0), body.joint_to_us(cal, "shutter", 1))
+        self.assertAlmostEqual(body.joint_to_us(cal, "eye", 0), 1450)
+        self.assertLess(body.joint_to_us(cal, "eye", -1), body.joint_to_us(cal, "eye", 1))
 
     def test_motion_and_quiesce(self):
         b = body.Body()
@@ -210,7 +222,7 @@ class TestWorkspace(unittest.TestCase):
         self.assertEqual((b.current["yaw"], b.current["shoulder"]), (90, 20))
         b.rest()
         b.wait(8)
-        time.sleep(0.1)
+        time.sleep(1.2)
         self.assertTrue(b.out.enabled)
         self.assertEqual(b.out.released, set(body.RELEASABLE))
         b.move({"pitch": 5})
@@ -240,7 +252,7 @@ class TestLights(unittest.TestCase):
 @unittest.skipUnless(shutil.which("sox"), "sox not installed")
 class TestSox(unittest.TestCase):
     def test_chain_and_sfx(self):
-        from memo import tts
+        from voss import tts
         sfx = tts.make_sfx(Path(TMP) / "sfx")
         src = Path(TMP) / "src.wav"
         tts._sox("-n", *tts.FMT, src, "synth", "1.0", "sine", "300")

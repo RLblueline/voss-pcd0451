@@ -1,89 +1,92 @@
 # 5. Assembly
 
-Build in this order so you can test each stage before it gets buried. Do the software
-bring-up checks in [Bring-up](07-bringup.md) at the steps marked ⚡.
+Build in this order so each stage gets tested before it's buried. Do the checks in
+[Bring-up](07-bringup.md) at the steps marked ⚡.
 
 ![Arm detail](img/10_arm_detail.png)
 
 ## 0. Before you print
 
-1. Measure your MG996R, DS3218 and SG90. Note body L × W × H, flange height and length,
-   shaft offset, and mount-hole spacing. Edit `MG`, `DS` and `SG` in `cad/memo.scad`.
-2. Measure the printer module and speaker, and edit `electronics()` and the housing
-   grille and printer bay.
-3. Re-run `./tools/export.sh` and `python3 tools/collide.py`. Only print once it says
-   `ALL CLEAR`.
+1. Measure your MG996R, DS3225, DS3218 and SG90s (body, flange, shaft offset, holes). Edit
+   `MG`, `DS` and `SG` in `cad/voss.scad`.
+2. Measure the printer module and speaker; edit `electronics()` and the housing.
+3. Run `./tools/export.sh` and `python3 tools/collide.py`. Print only after `ALL CLEAR`.
 
 ## 1. Electronics on the bench ⚡
 
 1. Flash Raspberry Pi OS Lite (Bookworm, 64-bit) and run `deploy/install.sh`.
-2. Wire everything on a breadboard exactly as in [Hardware → Wiring](02-hardware.md#wiring).
-3. Test mics, amp, LEDs, printer and PCA9685 with `memo.calibrate` before anything goes
-   into plastic.
+2. Wire everything on a breadboard as in [Hardware → Wiring](02-hardware.md#wiring).
+3. Test mics, amp, LEDs, printer and all six servo channels with `voss.calibrate`.
 
 ## 2. Housing
 
-1. Press M3 heat-set inserts into the back-plate edges and standoffs.
-2. Mount the Pi Zero 2 W (upper standoffs) and PCA9685 (lower standoffs) on the back plate.
-3. Fit the speaker behind the grille, the mics behind their holes (ports facing the holes),
-   the amp beside the speaker, and the printer in its bay with paper exiting the front slot.
-4. Fit the DC jacks in the bottom. Put the 1000 µF capacitor across the PCA9685 V+/GND.
-5. Fasten the yaw tower to the housing front with 4 × M3. Route the servo cables through
-   the 12 mm hole.
+1. Press heat-set inserts into the back-plate edges and standoffs. Mount the Pi and PCA9685.
+2. Fit:
+   - the speaker behind the left grille
+   - the mics behind their holes
+   - the amp beside the speaker
+3. Fit the printer exit-down over the slot in the bottom face.
+4. Fit the DC jacks in the right side, and the 1000 µF capacitor across the PCA9685 V+/GND.
+5. Fasten the yaw tower to the front with 4 × M3. Route the harness through the 12 mm hole.
 
 ## 3. Yaw
 
 1. Press a 608 into each tower shelf.
-2. Mount the MG996R in the tower's servo shelf, shaft up and body toward the wall.
-   ⚡ Run `calibrate zero` (yaw 90).
-3. Push the 8 mm shaft down through both bearings into the coupler on the yaw horn, with the
-   turret facing straight out. Clamp the turret's base on top of the shaft with its M3 screw.
+2. Mount the MG996R shaft up, body toward the wall. ⚡ Run `calibrate zero` (yaw 90).
+3. Push the 8 mm shaft down through both bearings into the horn coupler, with the turret
+   facing straight out. Clamp the turret base with its M3 screw.
 
-## 4. Shoulder
+## 4. Shoulder and counterbalance
 
-1. Mount the 35 kg·cm servo through the turret's flange plate, shaft toward +Y and body down.
-   Press a 624 into the turret's pivot plate.
-2. ⚡ Zero the servo (shoulder 0 = link1 level).
-3. Fit link1's horn-side plate to the horn and its other plate onto an M4 shoulder bolt through
-   the 624, with link1 level.
-4. **Support the arm by hand or with a prop from here on** whenever the servos are unpowered.
-5. Optional but recommended: hook a tension spring from the top of the turret to the anchor on
-   link1's beam.
+1. Mount a DS3225 in the turret, shaft +Y, body down. Press a 624 into the pivot plate.
+2. ⚡ Zero it. Fit link1 level: horn-side plate on the horn, other plate on the M4 bolt.
+3. **Support the arm whenever the servos are unpowered until the spring is in.**
+4. Drop the spring into the mast column and hook it to the tensioner screw at the bottom.
+5. Run the cable up the column, over both pulleys, and down to the eye on link1. Crimp it
+   with the spring just taut at shoulder 75°.
+6. ⚡ Tune with `calibrate float` (see [Bring-up](07-bringup.md#tuning-the-spring)).
 
 ## 5. Elbow and tilt post
 
-1. Mount a DS3218 in link1's elbow bracket, body lying back along the beam. Press in a 624.
-2. ⚡ Zero it. Fit link2's side plates on the horn and the pivot bolt with the links in line.
-3. Bolt the tilt post under link2's end block (2 × M3). Mount the second DS3218, body up,
-   and press in a 624. ⚡ Zero it.
+1. Mount a DS3225 in link1's elbow bracket, body lying back along the beam. Press in a 624.
+2. ⚡ Zero it. Fit link2 with the links in line.
+3. Bolt the tilt post under link2's end block. Mount the DS3218 body up, press in a 624, and ⚡ zero it.
 
-## 6. Eye cartridge
+## 6. Eye
 
-1. Glue or screw the bezel to the cartridge frame's front standoffs.
-2. Mount the LED ring (LEDs facing forward) on the rear plate. Fit the lens dome into the holder.
-3. Mount the SG90 on its plate. ⚡ Run `calibrate set shutter 1`, then press the pinion
-   on with both shutters fully open.
-4. Slide both shutter tongues into the left rail groove and mesh the racks with the
-   pinion. ⚡ Sweep `calibrate set shutter 0` and back, then tune
-   `calibrate shutter <closed> <open>` until the slit is 12 mm and the open plates
-   disappear behind the bezel.
+1. Fit the LED ring (LEDs forward) and the lens dome into the carriage.
+2. Mount the eyelid SG90. ⚡ Run `set shutter 1`, then press its pinion on with both lids open.
+3. Slide the lid tongues into the left rail groove and mesh the racks.
+   ⚡ Run `set shutter 0` and back, then `shutter <closed> <open>`, until you get a 12 mm slit.
+4. Push the two 3 mm rods through the carriage bushings and into the top and bottom mount bars.
+5. Mount the lift SG90 on its strut. ⚡ Run `set eye 0`, then press the 36 T pinion onto the
+   carriage rack with the eye centred.
+6. ⚡ Run `set eye 1` and `set eye -1`. The eye should glide the full slot with no binding.
 
 ## 7. Head
 
-1. Fit the status-bar WS2812 boards behind the three windows and chain them after the
-   eye ring.
-2. Slide the eye cartridge into the middle shell, then join top, middle and chin with
-   M3 screws through the seam bosses.
-3. Bolt the + ear to the DS3218 horn and pass the M4 pivot bolt through the − ear into
-   the 624. Fit the ears into the head crown and screw them to the top shell.
-4. Fit the TPU neck boot over the crown slot. Glue a printed paper strip into the chin
-   slot and add the bumper.
+1. Fit the status-bar LEDs behind the three windows and chain them after the eye ring.
+2. Slide the eye assembly into the middle shell and screw the rod mounts to the walls.
+   Fit the slot plate behind the recess.
+3. Join top, middle and chin with M3 screws through the seam bosses.
+4. Bolt the + ear to the DS3218 horn and pass the M4 pivot through the − ear into the 624.
+   Screw the ears to the crown.
+5. Fit the TPU neck boot, the bumper, and a printed paper strip in the chin slot.
 
-## 8. Wall
+## 8. Harness and covers
 
-1. Find a stud. Drive two #8 screws 150 mm apart vertically, leaving the heads 4 mm proud.
-2. Hang the back plate on the keyholes, slide the housing over it, and fix it with the
-   four side screws.
-3. Check that the arm at full reach is clear of door swings and walkways (the head front
-   sits about 390 mm off the wall).
-4. ⚡ Run the full bring-up and then `sudo systemctl start memo`.
+1. Bundle the elbow, tilt, eyelid and eye-lift leads plus the LED line, then route them:
+   - housing → corrugated loop → turret
+   - top of link1 → loop over the elbow → top of link2
+   - two neck tubes → open back of the head
+2. Leave about 30 mm of slack at every loop. Run the arm through its range with
+   `calibrate demo` and watch for snags.
+3. Zip-tie the bundle to the beam tops and snap the covers on (2 × M3 each).
+
+## 9. Wall
+
+1. Find a stud. Drive two #8 screws 150 mm apart vertically, heads 4 mm proud.
+2. Hang the back plate on the keyholes, slide the housing on, and fix the four side screws.
+3. Check the reach envelope: the head swings up to about 430 mm out and about 255 mm to
+   each side (see [Software → Reach](06-software.md#reach)).
+4. ⚡ Run the full bring-up, then `sudo systemctl start voss`.

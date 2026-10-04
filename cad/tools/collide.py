@@ -19,17 +19,20 @@ warnings.filterwarnings("ignore")
 HERE = Path(__file__).resolve().parent
 STL = HERE.parent / "stl"
 sys.path.insert(0, str(HERE.parent.parent))
-os.environ.setdefault("MEMO_SIM", "1")
-from memo import body as fw  # noqa: E402
+os.environ.setdefault("VOSS_SIM", "1")
+from voss import body as fw  # noqa: E402
 
 SY, L1, L2, TILT_OFF, TILT_DROP = 112, 120, 100, 14, 72
 TOL = 1.0   # mm^3 of overlap tolerated (coplanar contact faces)
 
 WORLD = ["housing", "back_plate", "tower", "yaw_body"]
 TURRET = ["turret", "sh_body", "coupler"]
-LINK1 = ["link1", "el_body", "sh_horn"]
-LINK2 = ["link2", "post", "tl_body", "el_horn"]
-HEAD = ["head_top", "head_mid", "head_chin", "ears", "cartridge", "sg90", "leds", "bumper", "paper", "s3_horn"]
+LINK1 = ["link1", "el_body", "sh_horn", "cover1"]
+LINK2 = ["link2", "post", "tl_body", "el_horn", "cover2"]
+HEAD_STATIC = ["head_top", "head_mid", "head_chin", "ears", "eye_plate", "eye_rods", "lift_sg90", "leds", "bumper", "paper"]
+HEAD = HEAD_STATIC + ["s3_horn", "carriage_0"]
+EYES = ("-1", "0", "1")
+TILT_RANGE = (-40, 50)
 
 _cache = {}
 
@@ -124,28 +127,30 @@ def main():
     for el in range(-110, 41, 5):
         pairs += [(a, T_l2(90, 20, el), b, T_l1(90, 20), f"el={el}") for a in LINK2 for b in LINK1]
         pairs += [(a, T_l2(90, 20, el), b, T_t(90), f"el={el}") for a in LINK2 for b in TURRET]
-        t = max(-35, min(40, 20 + el))
+        t = max(TILT_RANGE[0], min(TILT_RANGE[1], 20 + el))
         pairs += [(a, T_h(90, 20, el, t), b, T_l1(90, 20), f"el={el} t={t}") for a in HEAD for b in LINK1]
     ok &= check("elbow -110..40 : link2/head vs link1/turret", pairs)
-    # D: tilt sweep, shutters open and closed
-    head_s = lambda s: HEAD + [f"shut_top_{s}", f"shut_bot_{s}", "pinion"]
-    pairs = [(a, T_h(90, 20, -20, t), b, T_l2(90, 20, -20), f"t={t} s={s}") for t in range(-35, 41, 5)
-             for s in (0, 1) for a in head_s(s) for b in LINK2]
-    ok &= check("tilt -35..40 : head vs link2/post", pairs)
-    # E: shutters vs head internals (pinion/rack mesh excluded)
-    static = [h for h in HEAD if h != "s3_horn"]
+    # D: tilt sweep, eye at its extremes, shutters open and closed
+    head_s = lambda e, s: HEAD_STATIC + ["s3_horn", f"carriage_{e}", f"shut_top_{e}_{s}", f"shut_bot_{e}_{s}", f"pinion_{e}"]
+    pairs = [(a, T_h(90, 20, -20, t), b, T_l2(90, 20, -20), f"t={t} eye={e} s={s}") for t in range(TILT_RANGE[0], TILT_RANGE[1] + 1, 5)
+             for e in ("-1", "1") for s in ("0", "1") for a in head_s(e, s) for b in LINK2]
+    ok &= check(f"tilt {TILT_RANGE[0]}..{TILT_RANGE[1]} : head vs link2/post", pairs)
+    # E: moving eye (carriage, eyelids, pinions) vs head internals; gear meshes excluded
     pairs = []
-    for s in ("0", "0.5", "1"):
-        for sh_ in (f"shut_top_{s}", f"shut_bot_{s}"):
-            pairs += [(sh_, I, b, I, f"s={s}") for b in static]
-        pairs += [(f"shut_top_{s}", I, f"shut_bot_{s}", I, f"s={s}")]
-    pairs += [("pinion", I, b, I, "") for b in static]
-    ok &= check("shutters 0..1 : plates vs head internals", pairs)
+    for e in EYES:
+        moving = [f"carriage_{e}", f"pinion_{e}"]
+        pairs += [(m, I, b, I, f"eye={e}") for m in moving for b in HEAD_STATIC if not (m == f"carriage_{e}" and b == "lift_pinion")]
+        pairs += [("lift_pinion", I, f"carriage_{e}", I, f"eye={e} (non-rack)")] if False else []
+        for s in ("0", "0.5", "1"):
+            for sh_ in (f"shut_top_{e}_{s}", f"shut_bot_{e}_{s}"):
+                pairs += [(sh_, I, b, I, f"eye={e} s={s}") for b in HEAD_STATIC + [f"carriage_{e}"]]
+            pairs += [(f"shut_top_{e}_{s}", I, f"shut_bot_{e}_{s}", I, f"eye={e} s={s}")]
+    ok &= check("eye -1..1, shutters 0..1 : vs head internals", pairs)
     # F: firmware-accepted poses vs housing, tower, wall, and the arm itself
     _cache["wall"] = [trimesh.creation.box(extents=[2000, 20, 2000], transform=tr(0, -10, 0))]
     accepted = rejected = 0
     pairs = []
-    for yw, sh, el, pt in itertools.product(range(5, 176, 17), range(-20, 76, 19), range(-110, 41, 25), (-30, 0, 30)):
+    for yw, sh, el, pt in itertools.product(range(5, 176, 17), range(-20, 76, 19), range(-110, 41, 25), (-40, -20, 0, 20, 45)):
         p = dict(yaw=yw, shoulder=sh, elbow=el, pitch=pt, shutter=1.0)
         if not fw.workspace_ok(p):
             rejected += 1

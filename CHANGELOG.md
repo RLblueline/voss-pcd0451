@@ -1,6 +1,49 @@
 # Changelog
 
-## v0.4 — classic arm (2026-10)
+## v0.5 — V.O.S.S. (2026-10)
+
+**Rename**
+- M.E.M.O. → **V.O.S.S.** (Virtual Oversight & Supervision System) everywhere: package
+  `voss`, service `voss`, `VOSS_*` settings, persona, lettering, printed memos.
+- New personnel-record bio (`docs/00-bio.md`).
+
+**Arm**
+- Desk-lamp counterbalance: a gooseneck spring mast on the turret, with the cable eye on
+  link1's axis line. The shoulder load drops from ~20 to ≤5.4 kg·cm, and the arm floats
+  at ~51° unpowered.
+- Shoulder and elbow servos are now DS3225; the servo supply drops to 6 V 6 A.
+- Top-only arm covers with the wire harness underneath. Corrugated service tubes at the
+  base, over the elbow, and into the head.
+
+**Head**
+- Deeper head: 151 mm at the crown, 125 mm lower down, chin tapered. It's shifted 15 mm on
+  the tilt axis so its CG hangs under the axis.
+- Open upper back, widened behind the ears. Tilt range grows from −35…+40° to **−40…+50°**.
+- **Moving eye:** lens, LED ring and eyelids ride a carriage ±24 mm up and down the slot
+  on two 3 mm rods. A second SG90 drives it with a 36 T rack and pinion. A sliding mask
+  hides the open lids at any height.
+- Original "Personnel Compliance • Branch 04" department seal on the housing and the head's
+  left side.
+
+**Housing**
+- Printer mounted exit-down (memos drop out of the bottom); the yaw tower blocked the old
+  front slot.
+- Speaker moved to the left; jacks and vents moved to the sides; lettering moved to the bottom.
+
+**Firmware**
+- New `eye` joint (channel 5) and mood-specific eye heights.
+- GLaDOS-style motion: minimum-jerk easing, idle sway, eye saccades, a speech-driven head
+  bob, overshoot-and-settle looks, and the loom-and-drop stamp.
+- Workspace check models the tapered head as four depth sections that swing with pitch.
+- Rest and park at the spring's balance point. New `calibrate float` for spring tuning.
+
+**CAD tools**
+- New `loads.py`, `head_mass.py` and `reach.py`.
+- The collision sweep now covers the moving eye (3 heights × 3 lid positions) and the new
+  tilt range: all clear.
+
+
+## v0.4 — classic arm (2026-10, as M.E.M.O.)
 
 **Arm**
 - Replaced the fold-flat horizontal-plane arm with a classic one: base yaw, then shoulder,
@@ -30,7 +73,7 @@
 - Docs and renders updated.
 
 
-## v0.3 — rebuild (2026-10)
+## v0.3 — rebuild (2026-10, as M.E.M.O.)
 
 The v0.2 project files were unavailable, so everything was rebuilt from the written spec.
 

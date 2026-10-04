@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# M.E.M.O. installer for Raspberry Pi OS Lite (Bookworm, 64-bit) on a Pi Zero 2 W.
+# V.O.S.S. installer for Raspberry Pi OS Lite (Bookworm, 64-bit) on a Pi Zero 2 W.
 # Run from the unpacked project folder:  sudo ./deploy/install.sh
 set -euo pipefail
 SRC="$(cd "$(dirname "$0")/.." && pwd)"
-DEST=/opt/memo
+DEST=/opt/voss
 PIPER_URL=https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_linux_aarch64.tar.gz
 VOICE_URL=https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/low
 VOSK_URL=https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
@@ -20,9 +20,9 @@ if ! grep -q googlevoicehat-soundcard /boot/firmware/config.txt; then
   echo ">> config.txt updated; reboot after install"
 fi
 
-id memo >/dev/null 2>&1 || useradd --system --home "$DEST" --shell /usr/sbin/nologin memo
+id voss >/dev/null 2>&1 || useradd --system --home "$DEST" --shell /usr/sbin/nologin voss
 mkdir -p "$DEST/models" "$DEST/data"
-cp -r "$SRC/memo" "$SRC/tests" "$SRC/requirements.txt" "$DEST/"
+cp -r "$SRC/voss" "$SRC/tests" "$SRC/requirements.txt" "$DEST/"
 
 python3 -m venv --system-site-packages "$DEST/venv"
 "$DEST/venv/bin/pip" install --upgrade pip
@@ -35,10 +35,10 @@ cd "$DEST/models"
 if [ ! -d vosk-model-small-en-us-0.15 ]; then curl -LO "$VOSK_URL"; unzip -q vosk-model-small-en-us-0.15.zip; rm vosk-model-small-en-us-0.15.zip; fi
 ln -sf "$DEST/models/piper/piper" /usr/local/bin/piper
 
-[ -f /etc/memo.env ] || { install -m 600 "$SRC/deploy/memo.env.example" /etc/memo.env; echo ">> edit /etc/memo.env (API key, lat/lon)"; }
-chown -R memo:memo "$DEST"
-install -m 644 "$SRC/deploy/memo.service" /etc/systemd/system/memo.service
+[ -f /etc/voss.env ] || { install -m 600 "$SRC/deploy/voss.env.example" /etc/voss.env; echo ">> edit /etc/voss.env (API key, lat/lon)"; }
+chown -R voss:voss "$DEST"
+install -m 644 "$SRC/deploy/voss.service" /etc/systemd/system/voss.service
 systemctl daemon-reload
-systemctl enable memo
-echo ">> done. Calibrate first:  cd $DEST && sudo -u memo venv/bin/python -m memo.calibrate zero"
-echo ">> then:  sudo systemctl start memo ; journalctl -u memo -f"
+systemctl enable voss
+echo ">> done. Calibrate first:  cd $DEST && sudo -u voss venv/bin/python -m voss.calibrate zero"
+echo ">> then:  sudo systemctl start voss ; journalctl -u voss -f"

@@ -1,0 +1,19 @@
+[Unit]
+Description=V.O.S.S. wall terminal (PCD-0451)
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=voss
+Group=voss
+SupplementaryGroups=audio gpio i2c spi dialout
+WorkingDirectory=/opt/voss
+EnvironmentFile=/etc/voss.env
+ExecStart=/opt/voss/venv/bin/python -m voss.main
+Restart=on-failure
+RestartSec=5
+Nice=-5
+
+[Install]
+WantedBy=multi-user.target

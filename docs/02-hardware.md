@@ -2,44 +2,47 @@
 
 ## Bill of materials
 
-Prices are rough, typical online prices (USD, late 2026) and will vary.
+Prices are rough, typical online prices (USD, late 2026).
 
-| Qty | Part | Notes | ~$ |
+| Qty | Part | Use | ~$ |
 |---|---|---|---|
-| 1 | Raspberry Pi Zero 2 W | with header | 15 |
+| 1 | Raspberry Pi Zero 2 W (with header) | brain | 15 |
 | 1 | microSD 32 GB | | 7 |
 | 2 | INMP441 I2S MEMS mic | 80 mm apart for direction of arrival | 6 |
-| 1 | MAX98357A I2S amp | | 5 |
-| 1 | 40 mm 4 Ω 3 W speaker | | 3 |
-| 1 | PCA9685 16-ch servo driver | OE pin wired to GPIO17 | 6 |
-| 1 | MG996R servo | base yaw | 6 |
-| 1 | 35 kg·cm standard-size servo, 180° (DS3235 class) | shoulder | 20 |
-| 2 | DS3218 servo (20 kg·cm, 180°) | elbow, head tilt | 28 |
-| 1 | SG90 servo | eye shutters | 3 |
-| 1 | WS2812B 16-LED ring, 44 mm OD | behind the lens | 5 |
-| 3 | WS2812B single-LED boards | REC / AUD / OK | 4 |
-| 1 | 58 mm TTL thermal printer module + paper | 9600 baud ESC/POS | 25 |
+| 1 | MAX98357A I2S amp + 40 mm 4 Ω 3 W speaker | voice | 8 |
+| 1 | PCA9685 16-ch servo driver | OE wired to GPIO17 | 6 |
+| 1 | MG996R | base yaw | 6 |
+| 2 | DS3225 (25 kg·cm, standard size, 180°) | shoulder, elbow | 32 |
+| 1 | DS3218 (20 kg·cm, 180°) | head tilt | 14 |
+| 2 | SG90 | eyelids, eye lift | 6 |
+| 1 | WS2812B 16-LED ring (44 mm OD) + 3 single WS2812B boards | eye, REC/AUD/OK | 9 |
+| 1 | 58 mm TTL thermal printer + paper | memos | 25 |
 | 1 | 5 V 5 A supply | Pi, amp, LEDs, printer | 12 |
-| 1 | 6 V 10 A supply | servo rail only | 18 |
-| 2 | 608 bearing (8×22×7) | yaw shaft | 2 |
-| 3 | 624 bearing (4×13×5) | shoulder, elbow, tilt pivots | 2 |
-| 1 | 8 mm steel rod, 75 mm | yaw shaft | 3 |
-| — | M4×20 shoulder bolts ×3 + nylocs, M3 screws, M3 heat-set inserts | | 8 |
-| (rec.) | Tension spring, about 10 kg·cm at the shoulder | counterbalance, see [Mechanical → Known risks](03-mechanical.md#known-risks) | 3 |
-| — | 1000 µF 10 V cap, 330 Ω resistor, 2 DC jacks, wire | | 5 |
-| — | Filament: ~1.0 kg beige PLA/PETG, charcoal, grey, a little TPU and translucent amber | plan 1.5 kg with reprints | 25–35 |
+| 1 | 6 V 6 A supply | servo rail | 15 |
+| 2 | 608 bearings + 75 mm × 8 mm steel rod | yaw shaft | 5 |
+| 3 | 624 bearings + M4 × 20 shoulder bolts | shoulder, elbow, tilt pivots | 4 |
+| 2 | 3 mm steel rod, 150 mm | eye carriage guides | 2 |
+| 1 | Extension spring ~0.8 N/mm, ~40 mm free length, ≥75 mm travel, ~20 N initial tension; 1 mm braided cable; 2 small pulleys | shoulder counterbalance | 6 |
+| — | Split-loom tubing (6–8 mm), zip ties, servo extension leads, 22–26 AWG wire | harness and service tubes | 8 |
+| — | M3 screws + heat-set inserts, M4 nylocs | | 6 |
+| — | 1000 µF cap, 330 Ω resistor, 2 DC jacks | | 3 |
+| — | Filament: ~1.3 kg beige PLA/PETG, charcoal, grey, TPU, translucent amber | plan 1.5–2 kg with reprints | 30–40 |
 | (opt) | 74AHCT125 level shifter | only if LEDs glitch | 2 |
 
-**Total: about $210–220 at list prices.** It comes to about $180–190 if you already have
-the microSD card, wire and filament on hand. The classic arm adds about $35 over the
-v0.3 fold-flat arm, mostly for the 35 kg·cm shoulder servo, the second DS3218 and a
-bigger servo supply.
+**Total: about $220–235 at list prices, or about $190–200 if you already have the SD
+card, wire and filament.**
+
+Where the money goes compared with the classic arm (v0.4):
+- The **desk-lamp spring** saves about $5–8. The DS3225s replace the 35 kg·cm servo, and
+  a 6 A supply replaces the 10 A one.
+- The new **eye lift** (SG90), the **harness and tubes**, and the bigger head's filament
+  add about $15–20.
 
 Cost levers:
 - the printer (about $25)
-- one 6 V 10 A supply plus a 5 V buck converter instead of two bricks
+- one 6 V supply plus a 5 V buck converter
 - servo multi-packs
-- a counterbalance spring, which would let a DS3218 replace the 35 kg·cm shoulder servo (about −$6)
+- 1.6 mm head walls (less filament, lighter head)
 
 ## Wiring
 
@@ -55,8 +58,23 @@ Cost levers:
 | Printer | GPIO14 (UART TX) | printer RX |
 
 - **Mics:** left mic L/R → GND (channel 0, at −X); right mic L/R → 3.3 V (channel 1, at +X).
-- **Do not use GPIO16.** The `googlevoicehat-soundcard` overlay claims it.
-- **PCA9685 channels:** 0 yaw, 1 shoulder, 2 elbow, 3 tilt, 4 shutter.
+- **Don't use GPIO16:** the voicehat overlay claims it.
+- **PCA9685 channels:** 0 yaw, 1 shoulder, 2 elbow, 3 tilt, 4 eyelids, 5 eye lift.
+
+### Harness
+
+One bundle runs from the housing up through the yaw tower's cable hole, then:
+1. through a corrugated service loop to the turret
+2. along the top of link1 under its cover
+3. over the elbow in a second service loop
+4. along the top of link2 under its cover
+5. down into the open back of the head through two neck tubes
+
+It carries:
+- 4 servo leads: elbow, tilt, eyelids, eye lift (the yaw and shoulder servos sit at the base)
+- the LED data/5 V/GND line for the eye ring and status bar
+
+Leave about 30 mm of slack at each loop for the full joint range.
 
 ## Power
 
@@ -65,18 +83,19 @@ Cost levers:
           ├── MAX98357A VIN
           ├── WS2812 chain (19 LEDs)
           └── thermal printer
-6 V 10 A ─┬── PCA9685 V+ (servo rail) ── 1000 µF across V+/GND
+6 V 6 A ──┬── PCA9685 V+ (servo rail) ── 1000 µF across V+/GND
           └── (nothing else)
 GND ─────── common to both supplies, the Pi and the PCA9685
 ```
 
-- **Servo current:** the shoulder and elbow hold the arm all the time, and each servo can
-  pull 2–3 A at stall. That's why they get their own 10 A rail.
-- **Printing:** the firmware never prints while the arm moves. The joints keep holding
-  during printing; the separate rail means the printer can't brown them out.
-- **Shutdown:** OE is only cut on shutdown, after the arm has been lowered to its stop.
+- **Holding current:** the counterbalance spring keeps steady holding current low. The
+  6 A supply covers several servos moving at once with margin.
+- **Printing:** the firmware never prints while the arm moves. The joints keep holding;
+  the separate rail means the printer can't brown them out.
+- **Shutdown:** the arm parks at the spring's balance point before OE cuts power, so it
+  barely drifts.
 
-## Pin budget left
+## Free pins
 
-GPIO 4, 5, 6, 12, 13, 22–27 are free, which is useful for a future button or a
-Home Assistant status LED.
+GPIO 4, 5, 6, 12, 13 and 22–27 are free, which is handy for a button or a Home Assistant
+status LED.
