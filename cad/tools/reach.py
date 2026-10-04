@@ -6,7 +6,7 @@ import itertools, math, os, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 os.environ.setdefault("VOSS_SIM", "1")
-from voss import body, config   # noqa: E402
+from voss import body   # noqa: E402
 
 FRONT = 61.0          # head front face ahead of the tilt axis (axis frame)
 EYE_DZ = -116.0       # eye centre below the tilt axis
