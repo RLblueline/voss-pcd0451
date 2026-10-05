@@ -16,9 +16,9 @@ on a spring-balanced robot arm, with a deep, late-'70s HR-terminal head:
 | ![Hero](docs/img/01_hero.png) | ![Side](docs/img/03_side.png) | ![Audit squint](docs/img/05_audit_squint.png) |
 | Home pose on the wall | Arm and deep head, side view | Audit mode: eye low, lids squinted |
 
-![V.O.S.S. expressive routine](docs/img/voss_expressive.gif)
+![V.O.S.S. expressive routine](docs/img/voss_expressive_24fps.gif)
 
-*36 s rendered from the CAD while the real firmware motion engine runs on a virtual clock: gestures, springy settles, blinks, speech bobs (MP4: `docs/img/voss_expressive.mp4`).*
+*Rendered from the CAD while the real firmware motion engine runs on a virtual clock: gestures, springy settles, blinks, speech bobs. Full quality: `docs/img/voss_expressive_24fps.mp4` (15 s, 24 fps, every frame rendered); longer 36 s cut: `docs/img/voss_expressive.mp4`.*
 
 ## Status (v0.7)
 

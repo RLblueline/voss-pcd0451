@@ -1,6 +1,6 @@
 """Build-readiness checks: every bolt path is clear through both mating parts, and every print
 file is a single watertight solid.   python3 tools/verify.py   (from cad/, after export.sh)"""
-import math, sys, warnings
+import sys, warnings
 from pathlib import Path
 import numpy as np, trimesh
 warnings.filterwarnings("ignore")

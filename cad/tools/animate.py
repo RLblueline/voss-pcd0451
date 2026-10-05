@@ -13,30 +13,24 @@ sys.path.insert(0, str(ROOT))
 os.environ.setdefault("VOSS_SIM", "1")
 from voss import body  # noqa: E402
 
-FPS = 5
-SIM_HZ = 50
-OUT = Path("/tmp/voss_anim2")
-CAM = "0,220,-170,74,0,205,2050"
+FPS = 24
+SIM_HZ = 48
+OUT = Path("/tmp/voss_anim3")
+CAM = "0,220,-100,74,0,205,2050"
 
 # (time s, action, caption); speech windows feed a syllable envelope to body.speech()
 SCRIPT = [
     (0.0, "rest", "Rest: floating at the spring's balance point"),
-    (1.0, "look", "Wake word: the eye flicks first, then she swings over"),
-    (2.6, None, "Listening (idle sway, blinks)"),
-    (4.0, "think", "Thinking: rises, eye rolls up, reading the file"),
-    (6.6, ("express", "approve", None), "[approve] dip, pop, nod"),
-    (9.4, ("express", "neutral", "peer"), "[peer] suspicious lean-in"),
-    (12.2, ("express", "infraction", None), "[infraction] dip, loom, squint... STAMP"),
-    (16.4, ("gesture", "shake"), "[shake] Absolutely not."),
-    (18.0, ("gesture", "double_take"), "[double_take]"),
-    (20.4, ("gesture", "startle"), "[startle]"),
-    (22.2, ("gesture", "curious"), "[curious]"),
-    (24.0, ("express", "concern", "sigh"), "[concern] [sigh] drops the act: low, slow, still"),
-    (28.0, ("express", "sulk", None), "[sulk] ...and a resentful glance back"),
-    (33.0, "rest", "Back to rest"),
+    (0.6, "look", "Wake word: eye flicks first, then she swings over"),
+    (2.0, "think", "Thinking: rises, eye rolls up"),
+    (3.8, ("express", "approve", None), "[approve] dip, pop, nod"),
+    (5.6, ("express", "neutral", "peer"), "[peer] suspicious lean-in"),
+    (7.8, ("express", "infraction", None), "[infraction] loom, squint... STAMP"),
+    (11.0, ("gesture", "double_take"), "[double_take]"),
+    (13.2, "rest", "Back to rest"),
 ]
-SPEECH = [(6.8, 8.6), (13.6, 15.4), (16.4, 17.6), (24.6, 27.2)]
-END = 36.0
+SPEECH = [(4.0, 5.4), (9.4, 10.8)]
+END = 15.0
 
 
 class Clock:
@@ -98,7 +92,7 @@ def main(limit=None):
             break
         done += 1
         args = ["openscad", "-q", "-o", str(f), "--imgsize=640,720", "--colorscheme=Tomorrow", f"--camera={CAM}",
-                "-D", "$fn=20", "-D", f"YAW={p['yaw']:.2f}", "-D", f"SH={p['shoulder']:.2f}", "-D", f"EL={p['elbow']:.2f}",
+                "-D", "$fn=20", "-D", "FAST=true", "-D", f"YAW={p['yaw']:.2f}", "-D", f"SH={p['shoulder']:.2f}", "-D", f"EL={p['elbow']:.2f}",
                 "-D", f"PITCH={p['pitch']:.2f}", "-D", f"EYE={p['eye']:.3f}", "-D", f"SHUT={p['shutter']:.3f}",
                 str(ROOT / "cad" / "assembly.scad")]
         subprocess.run(args, check=True)

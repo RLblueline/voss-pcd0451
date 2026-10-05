@@ -21,7 +21,7 @@ Tools:
 | `cad/tools/reach.py` | Reach envelope over firmware-accepted poses |
 | `cad/tools/verify.py` | Build checks: every bolt path clear through both parts, every print file a single watertight solid |
 | `cad/tools/package_build.py` | Writes `build/` (print files, JLC3DP order sheet, BOM) |
-| `cad/tools/animate.py`, `compose_anim.py` | Renders the expressive routine: the firmware `Body` runs on a virtual clock and every frame is a sample of its output. `python3 cad/tools/animate.py [N]` renders N more frames; then compose |
+| `cad/tools/animate.py`, `compose_anim.py` | Renders the expressive routine (15 s at 24 fps, 361 frames): the firmware `Body` runs on a virtual clock and every frame is a sample of its output, checked by the workspace check. Uses `FAST=true` (heavy parts load their exported STLs) for ~4.5 s/frame. `python3 cad/tools/animate.py [N]` renders N more frames; then compose |
 
 ## Frames and transforms
 

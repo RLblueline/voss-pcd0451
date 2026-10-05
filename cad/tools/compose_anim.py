@@ -1,11 +1,11 @@
-"""Caption the rendered frames and build docs/img/voss_expressive.mp4 and .gif."""
+"""Caption the rendered frames and build docs/img/voss_expressive_24fps.mp4 and .gif."""
 import subprocess
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
-SRC = Path("/tmp/voss_anim2")
+SRC = Path("/tmp/voss_anim3")
 DST = Path(__file__).resolve().parents[2] / "docs" / "img"
-FPS = 5
+FPS = 24
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf", 20)
 small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 14)
 
@@ -22,9 +22,10 @@ for i, f in enumerate(frames):
     d.rectangle([0, im.height - 34, im.width, im.height], fill=(30, 30, 32))
     d.text((12, im.height - 27), cap, font=small, fill=(235, 235, 230))
     im.save(tmp / f"c{i:04d}.png")
-    gif.append(im.resize((400, 450)).quantize(colors=128, method=Image.Quantize.MEDIANCUT))
+    if i % 2 == 0:
+        gif.append(im.resize((400, 450)).quantize(colors=128, method=Image.Quantize.MEDIANCUT))
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", str(tmp / "c%04d.png"),
-                "-vf", "minterpolate=fps=24:mi_mode=blend", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20",
-                str(DST / "voss_expressive.mp4")], check=True)
-gif[0].save(DST / "voss_expressive.gif", save_all=True, append_images=gif[1:], duration=int(1000 / FPS), loop=0, optimize=True)
-print("wrote", DST / "voss_expressive.mp4", DST / "voss_expressive.gif")
+                "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20",
+                str(DST / "voss_expressive_24fps.mp4")], check=True)
+gif[0].save(DST / "voss_expressive_24fps.gif", save_all=True, append_images=gif[1:], duration=int(2000 / FPS), loop=0, optimize=True)
+print("wrote", DST / "voss_expressive_24fps.mp4", DST / "voss_expressive_24fps.gif")

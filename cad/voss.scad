@@ -7,7 +7,8 @@
 // =====================================================================
 
 $fn = 48;
-COSMETIC = true;    // false = leave out cosmetic-only geometry (print exports)
+COSMETIC = true;
+FAST = false;       // true = load the exported STLs for heavy parts (animation rendering)    // false = leave out cosmetic-only geometry (print exports)
 ARM_Z0   = 70;      // shoulder / yaw-turret height above the housing origin (arm sits above the housing top)
 FONT  = "DejaVu Sans:style=Bold";
 MONO  = "DejaVu Sans Mono:style=Bold";
@@ -145,7 +146,8 @@ module bearing(od, id, w) { color(C_STEEL) difference() { cylinder(d = od, h = w
 // =====================================================================
 // WORLD-FIXED PARTS
 // =====================================================================
-module housing_shell() {
+module housing_shell() { if (FAST) color(C_BEIGE) import("stl/housing.stl"); else housing_shell_full(); }
+module housing_shell_full() {
     difference() {
         translate([0, HD / 2, HZ0]) rbox([HW, HD, HZ1 - HZ0], 8);
         // hollow, open back
@@ -174,7 +176,8 @@ module housing_shell() {
     for (x = [-42, 40]) translate([x, 8, HZ0 + WALL]) cube([2, HD - 12, 8]);
 }
 
-module back_plate() {
+module back_plate() { if (FAST) color(C_BEIGE2) import("stl/back_plate.stl"); else back_plate_full(); }
+module back_plate_full() {
     difference() {
         translate([0, BP_T / 2, HZ0 + WALL + 0.3]) translate([0, 0, 0]) linear_extrude(HZ1 - HZ0 - 2 * WALL - 0.6) rrect(HW - 2 * WALL - 0.6, BP_T, 1);
         // keyholes for a single stud (screw heads up to 9 mm)
@@ -205,7 +208,8 @@ module back_plate() {
 module YAW_local() { translate([0, SY, -131]) rotate([0, 0, 90]) children(); }
 module YAW_place() { translate([0, 0, ARM_Z0]) YAW_local() children(); }   // MG996R, shaft up
 
-module yaw_tower() { translate([0, 0, ARM_Z0]) yaw_tower_local(); }
+module yaw_tower() { if (FAST) color(C_BEIGE2) import("stl/tower.stl"); else yaw_tower_full(); }
+module yaw_tower_full() { translate([0, 0, ARM_Z0]) yaw_tower_local(); }
 module yaw_tower_local() {
     module shelf(z0, t, front) translate([0, 0, z0]) linear_extrude(t) hull() {
         translate([-16, HD + 4]) square([32, 1]); translate([0, SY]) circle(r = front);
@@ -249,7 +253,8 @@ module joint_bracket(reach = 0) {   // reach: extend the frame along +u (past th
 }
 
 // ---------------------------------------------------------------- turret (turret frame)
-module turret() {
+module turret() { if (FAST) color(C_BEIGE2) import("stl/turret.stl"); else turret_full(); }
+module turret_full() {
     color(C_BEIGE2) {
         rotate([0, 180, 0]) joint_bracket(reach = 44);       // body down; frame reaches z -44
         difference() {
@@ -327,7 +332,8 @@ module link_body(len, pads = []) {
     }
 }
 
-module link1() {
+module link1() { if (FAST) color(C_BEIGE) import("stl/link1.stl"); else link1_full(); }
+module link1_full() {
     color(C_BEIGE) link_body(L1 - 36, pads = [52, 68]);
     color(C_BEIGE2) translate([L1, 0, 0]) {                  // elbow bracket, servo body pointing back
         rotate([0, -90, 0]) joint_bracket();
@@ -345,7 +351,8 @@ module link1() {
 }
 module EL_servo() { translate([L1, 0, 0]) rotate([0, -90, 0]) JS_place() children(); }   // link1 frame
 
-module link2() {
+module link2() { if (FAST) color(C_BEIGE) import("stl/link2.stl"); else link2_full(); }
+module link2_full() {
     X = L2 + TILT_OFF;
     color(C_BEIGE) difference() {
         union() {
@@ -358,7 +365,8 @@ module link2() {
 }
 
 // tilt post (link2 frame): canonical joint bracket at the tilt axis, body up, narrow neck to link2
-module tilt_post() {
+module tilt_post() { if (FAST) color(C_BEIGE2) import("stl/post.stl"); else tilt_post_full(); }
+module tilt_post_full() {
     X = L2 + TILT_OFF; ZA = -TILT_DROP;
     color(C_BEIGE2) difference() {
         union() {
@@ -420,6 +428,14 @@ module head_shell() {
 
 // split into three printable pieces
 module head_piece(i) {
+    if (FAST) {
+        color(i == 1 ? C_BEIGE : C_BEIGE2) import(["stl/p_head_top.stl", "stl/p_head_mid.stl", "stl/p_head_chin.stl"][i]);
+        zs = [[SPLIT1, HEAD_TOP + 1], [SPLIT2, SPLIT1], [HEAD_BOT - 1, SPLIT2]];
+        if (i < 2) for (y = [-58, 58]) translate([HEAD_X, y, zs[i][0] + 6]) rotate([0, 90, 0]) hexhead(6, 1.2);
+        if (i == 0) for (y = [-58, 58]) translate([HEAD_X, y, 24]) rotate([0, 90, 0]) hexhead(6, 1.2);
+    } else head_piece_full(i);
+}
+module head_piece_full(i) {
     zs = [[SPLIT1, HEAD_TOP + 1], [SPLIT2, SPLIT1], [HEAD_BOT - 1, SPLIT2]];
     color(i == 1 ? C_BEIGE : C_BEIGE2) union() {
         intersection() { head_shell(); translate([-200, -100, zs[i][0]]) cube([400, 200, zs[i][1] - zs[i][0]]); }
@@ -485,14 +501,21 @@ module SG_place_local() { multmatrix([[0, 0, 1, SG_TOP_X], [0, -1, 0, 0], [1, 0,
 module LIFT_place() { translate([LIFT_C[0], -26, LIFT_C[2]]) multmatrix([[1, 0, 0, 0], [0, 0, 1, 0], [0, -1, 0, 0], [0, 0, 0, 1]]) children(); }
 module slot_2d() { hull() for (z = [-EYE_TRAVEL, EYE_TRAVEL]) translate([z, 0]) circle(r = 34, $fn = 96); }
 
-module eye_plate() {          // fixed, visible back of the recess, with the travel slot
+module eye_plate() { if (FAST) color(C_CHAR) import("stl/p_eye_plate.stl"); else eye_plate_full(); }
+module eye_plate_full() {          // fixed, visible back of the recess, with the travel slot
     color(C_CHAR) difference() {
         translate([BEZEL_X - 2, -EYE_Y - 6, EYE_Z0 - 6]) cube([2, 2 * EYE_Y + 12, EYE_Z1 - EYE_Z0 + 12]);
         translate([BEZEL_X - 3, 0, EYE_Z]) rotate([0, 90, 0]) linear_extrude(5) slot_2d();
     }
 }
 function inner_y(z) = HEAD_Y - 6 * (HEAD_TOP - z) / 260 - SHELL;    // shell inner half-width (straight sides)
-module eye_rods(rods = true) {  // fixed: guide rods + mount bars + lift servo strut
+module eye_rods(rods = true) {
+    if (FAST) {
+        if (rods) color(C_STEEL) for (y = [-CAR_RODY, CAR_RODY]) translate([-0.5, y, -190]) cylinder(d = 3, h = 148, $fn = 12);
+        color(C_CHAR) { import("stl/p_rod_bar_top.stl"); import("stl/p_rod_bar_bottom.stl"); }
+    } else eye_rods_full(rods);
+}
+module eye_rods_full(rods = true) {  // fixed: guide rods + mount bars + lift servo strut
     if (rods) color(C_STEEL) for (y = [-CAR_RODY, CAR_RODY]) translate([-0.5, y, -190]) cylinder(d = 3, h = 148, $fn = 16);
     ht = inner_y(-45) - 0.2; hb = inner_y(-187) - 0.2;
     color(C_CHAR) {
@@ -517,6 +540,13 @@ module lift_drive(ze = EYE_Z) {
     LIFT_place() servo(SG, horn = false);
 }
 module eye_carriage(ze = EYE_Z) {
+    if (FAST) {
+        translate([0, 0, ze - EYE_Z]) color(C_CHAR) import("stl/p_carriage.stl");
+        color(C_AMBER) translate([13, 0, ze]) rotate([0, 90, 0]) intersection() {
+            translate([0, 0, -60.25 + 8]) sphere(r = 60.25, $fn = 48); cylinder(d = LENS_D, h = 8, $fn = 48); }
+    } else eye_carriage_full(ze);
+}
+module eye_carriage_full(ze = EYE_Z) {
     color([0.24, 0.24, 0.26]) difference() {                                            // mask (eye socket)
         translate([MASKX[0], -50, ze - 83]) cube([MASKX[1] - MASKX[0], 110, 166]);
         translate([MASKX[0] - 1, 0, ze]) rotate([0, 90, 0]) cylinder(d = LENS_D + 6, h = 5, $fn = 96);
@@ -576,7 +606,8 @@ module rack(yp, z0, dir, len = 50, w = 3.75, phase = 0) {
         for (k = [0 : floor(len / RACK_P)]) let(c = phase + k * RACK_P)
             if (c - 1.19 >= 0 && c + 1.19 <= len) rack_tooth_2d(root - dir * 0.01, tip, c);
 }
-module shutter_top(s = 1, ze = EYE_Z) {
+module shutter_top(s = 1, ze = EYE_Z) { if (FAST) translate([0, 0, ze - EYE_Z - SHUT_TRAVEL * (1 - s)]) color(C_ALU) import("stl/p_lid_top.stl"); else shutter_top_full(s, ze); }
+module shutter_top_full(s = 1, ze = EYE_Z) {
     zb = ze + 6 + SHUT_TRAVEL * s;
     color(C_ALU) {
         translate([SHX[0], -42, zb]) cube([SHX[1] - SHX[0], 84, 40]);
@@ -585,7 +616,8 @@ module shutter_top(s = 1, ze = EYE_Z) {
         translate([RKX[1] - 0.01, PIN_Y - 14, zb]) cube([SHX[0] - RKX[1] + 0.02, 3.75, 10]);
     }
 }
-module shutter_bottom(s = 1, ze = EYE_Z) {
+module shutter_bottom(s = 1, ze = EYE_Z) { if (FAST) translate([0, 0, ze - EYE_Z + SHUT_TRAVEL * (1 - s)]) color(C_ALU) import("stl/p_lid_bottom.stl"); else shutter_bottom_full(s, ze); }
+module shutter_bottom_full(s = 1, ze = EYE_Z) {
     zt = ze - 6 - SHUT_TRAVEL * s;
     color(C_ALU) {
         translate([SHX[0], -42, zt - 40]) cube([SHX[1] - SHX[0], 84, 40]);
@@ -715,6 +747,10 @@ module cover_profile() {
     }
 }
 module arm_cover(x0, x1) {
+    if (FAST) { color(C_BEIGE) import(x1 == 74 ? "stl/cover1.stl" : "stl/cover2.stl"); for (x = [x0 + 6, x1 - 6]) translate([x, 0, 25]) hexhead(4.5, 0.8); }
+    else arm_cover_full(x0, x1);
+}
+module arm_cover_full(x0, x1) {
     color(C_BEIGE) difference() {
         hull() {
             translate([x0 + 4, 0, 0]) rotate([90, 0, 90]) linear_extrude(x1 - x0 - 8) offset(0) translate([0, 0]) cover_profile_outer();
