@@ -18,7 +18,7 @@ on a spring-balanced robot arm, with a deep, late-'70s HR-terminal head:
 
 ![V.O.S.S. expressive routine](docs/img/voss_expressive_24fps.gif)
 
-*Rendered from the CAD while the real firmware motion engine runs on a virtual clock: gestures, springy settles, blinks, speech bobs. Full quality: `docs/img/voss_expressive_24fps.mp4` (15 s, 24 fps, every frame rendered); longer 36 s cut: `docs/img/voss_expressive.mp4`.*
+*Rendered from the CAD while the real firmware motion engine runs on a virtual clock: gestures, springy settles, blinks, speech bobs. Full quality: `docs/img/voss_expressive_24fps.mp4` (15 s, 24 fps, every frame rendered), slowed 1.5x: `docs/img/voss_expressive_24fps_slow.mp4` (22.5 s, 24 fps, motion-interpolated); longer 36 s cut: `docs/img/voss_expressive.mp4`.*
 
 ## Status (v0.7)
 
