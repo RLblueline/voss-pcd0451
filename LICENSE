@@ -1,0 +1,23 @@
+V.O.S.S. (PCD-0451) is dual-licensed by part of the project.
+
+SOFTWARE - MIT License (see LICENSES/MIT.txt)
+  voss/, tests/, deploy/, cad/tools/, .github/
+  Copyright (c) 2026 RLblueline
+
+HARDWARE - CERN Open Hardware Licence Version 2 - Strongly Reciprocal
+           (CERN-OHL-S-2.0, see LICENSES/CERN-OHL-S-2.0.txt)
+  cad/ (OpenSCAD sources and exported STLs, except cad/tools/), build/ (print files, BOM,
+  order sheet, build guide), docs/ and renders
+  Copyright (c) 2026 RLblueline
+  Source location: https://github.com/RLblueline/voss-pcd0451
+
+  In short: you may build, modify, share and sell V.O.S.S. and derivatives, but if you
+  distribute modified hardware or its design files, you must share your modified sources
+  under the same licence and keep this notice. The licence text is authoritative.
+
+FAN-ART NOTE
+  Portal and Aperture Science are trademarks of Valve Corporation. This is a personal,
+  non-commercial fan project and is not affiliated with or endorsed by Valve. The V.O.S.S.
+  character, Dr. Harriet Voss and the "Personnel Compliance - Branch 04" seal are original.
+  The licences above cover this project's own work only; they grant no rights in Valve's
+  names or marks.

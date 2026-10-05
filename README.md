@@ -81,3 +81,12 @@ VOSS_SIM=1 VOSS_DATA=/tmp/voss ANTHROPIC_API_KEY=sk-ant-... python -m voss.main 
 | Brain | Pi Zero 2 W, local wake word + STT, Claude Haiku 4.5, Piper TTS |
 
 See [CHANGELOG.md](CHANGELOG.md) for the history (M.E.M.O. v0.2 → V.O.S.S. v0.5).
+
+## License
+
+Software (`voss/`, `tests/`, `deploy/`, `cad/tools/`) is **MIT**. Hardware designs, print
+files and docs (`cad/`, `build/`, `docs/`) are **CERN-OHL-S-2.0**: build it, change it, even
+sell it, but share your modified design files under the same licence. See [LICENSE](LICENSE)
+and [`LICENSES/`](LICENSES/).
+
+Portal and Aperture Science belong to Valve. This is an unofficial, non-commercial fan project.
