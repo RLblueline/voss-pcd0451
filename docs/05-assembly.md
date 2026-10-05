@@ -33,18 +33,21 @@ Build in this order so each stage gets tested before it's buried. Do the checks 
 
 1. Press a 608 into each tower shelf.
 2. Mount the MG996R shaft up, body toward the wall. ⚡ Run `calibrate zero` (yaw 90).
-3. Push the 8 mm shaft down through both bearings into the horn coupler, with the turret
-   facing straight out. Clamp the turret base with its M3 screw.
+3. Screw the printed coupler to the MG996R horn and fit the horn. Push the 8 × 80 mm shaft
+   down through both bearings into the coupler and tighten its M3 set screw. Fit the turret
+   on top facing straight out and clamp it with its M3 screw.
 
 ## 4. Shoulder and counterbalance
 
 1. Mount a DS3225 in the turret, shaft +Y, body down. Press a 624 into the pivot plate.
 2. ⚡ Zero it. Fit link1 level: horn-side plate on the horn, other plate on the M4 bolt.
 3. **Support the arm whenever the servos are unpowered until the spring is in.**
-4. Drop the spring into the mast column and hook it to the tensioner screw at the bottom.
-5. Run the cable up the column, over both pulleys, and down to the eye on link1. Crimp it
-   with the spring just taut at shoulder 75°.
-6. ⚡ Tune with `calibrate float` (see [Bring-up](07-bringup.md#tuning-the-spring)).
+4. Hook the spring to the tensioner screw at the bottom of the mast bore, and hook the
+   spring block (with its 7 mm pulley on an M3 axle) to the top of the spring.
+5. Fit the 10 mm pulley on its M3 axle at the top of the mast.
+6. **Reeve 2:1:** cable eye on link1 → over the top pulley → down under the spring-block
+   pulley → up to the M3 anchor pin. Crimp it with the arm at 75° and the spring just taut.
+7. ⚡ Tune with `calibrate float` (see [Bring-up](07-bringup.md#tuning-the-spring)).
 
 ## 5. Elbow and tilt post
 
@@ -66,11 +69,12 @@ Build in this order so each stage gets tested before it's buried. Do the checks 
 ## 7. Head
 
 1. Fit the status-bar LEDs behind the three windows and chain them after the eye ring.
-2. Slide the eye assembly into the middle shell and screw the rod mounts to the walls.
-   Fit the slot plate behind the recess.
-3. Join top, middle and chin with M3 screws through the seam bosses.
-4. Bolt the + ear to the DS3218 horn and pass the M4 pivot through the − ear into the 624.
-   Screw the ears to the crown.
+2. Slide the eye assembly into the middle shell and fix the two rod bars with 6 × M3
+   through the side walls into the bar-end inserts. Glue the slot plate behind the recess.
+3. Press M3 inserts into the seam bosses of the top and middle pieces. Join the pieces with
+   8 × M3 × 16, screwed up from inside the lower piece.
+4. The ears are part of the crown print. Through the open back, bolt the + ear to the
+   DS3218 horn, and pass the M4 pivot through the − ear into the 624.
 5. Fit the TPU neck boot, the bumper, and a printed paper strip in the chin slot.
 
 ## 8. Harness and covers

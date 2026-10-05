@@ -6,7 +6,8 @@ parameter at the top of that file.
 ## Frame
 
 X along the wall, Y out of the wall, Z up. Wall face is y = 0. The yaw axis is vertical at
-**(0, 112)**. The shoulder pitch axis crosses it at z = 0. The firmware uses the same frame
+**(0, 112)**. The shoulder pitch axis crosses it **70 mm above the housing origin**
+(`ARM_Z0`), which keeps the arm and the spring mast above the housing top at every yaw. The firmware uses the same frame
 (`voss/config.py`).
 
 ![Side view](img/03_side.png)
@@ -19,8 +20,8 @@ X along the wall, Y out of the wall, Z up. Wall face is y = 0. The yaw axis is v
 | Shoulder | horizontal, on the yaw axis at z 0 | DS3225 + counterbalance spring | −20…+75° | 0 = link1 level, + lifts |
 | Elbow | horizontal, 120 mm along link1 | DS3225 | −110…+40° | 0 = links in line |
 | Head tilt | horizontal, 14 mm past link2 and 72 mm below it | DS3218 | **−40…+50°** relative to link2 | 0 = head in line with link2 |
-| Eyelids | rack and pinion on the eye carriage | SG90 | 0–1 | 1 = open |
-| Eye lift | rack and pinion, carriage on two rods | SG90 | ±24 mm (−1…1) | 0 = centred |
+| Eyelids | involute rack and pinion (module 1, 18 T) on the eye carriage | SG90 | 0–1 | 1 = open |
+| Eye lift | involute rack and pinion (module 1, 36 T), carriage on two rods | SG90 | ±24 mm (−1…1) | 0 = centred |
 
 **Head pitch.** The firmware commands absolute head pitch and derives
 `tilt = pitch + shoulder + elbow`. Lifting the arm keeps the head level unless she means
@@ -62,17 +63,14 @@ length exactly cancels a link's weight at every angle, if two conditions hold:
 - one end sits directly above the pivot
 - the other end sits on the link's axis line
 
-Our version:
-
 | Element | Detail |
 |---|---|
-| Pulley | 70 mm above the shoulder axis, on the end of a gooseneck mast that rises behind the turret |
-| Cable eye | On link1's axis line, 44 mm out, in the plane y = −35 (outside the link) |
-| Spring | Inside the mast, fed by a braided cable over two pulleys. A tensioner screw at the bottom sets the initial-tension offset, so it behaves like an ideal zero-length spring |
-| Size | Rate about 0.8 N/mm; cable span 30–95 mm; force 24–76 N |
-
-The cable plane sits outside the link, so the cable never crosses the arm. The mast's
-radius from the yaw axis clears the housing at every yaw.
+| Top pulley | 10 mm, M3 axle, **96 mm above the shoulder axis** on the turret's mast |
+| Cable eye | On link1's axis line, 50 mm out, in the plane y = −42 (outside the link) |
+| Coplanar path | The cable, top pulley and spring all lie in one vertical plane, so the cable can't jump the pulley |
+| **2:1 reeving** | The cable runs from the eye, over the top pulley, down under a 7 mm pulley on a spring block, and back up to an anchor pin. The spring sees half the travel at twice the force |
+| Spring | About 2.1 N/mm, about 55 mm free length, 37 mm travel (about 65%, well within a normal extension spring's life), up to ~127 N |
+| Tuning | The tensioner screw at the bottom of the mast sets the cable-length offset, which turns a normal spring into an "ideal zero-length" spring |
 
 ## Loads
 
@@ -183,6 +181,8 @@ arm itself.
 
 ```
 yaw 5..175 : turret/link1 vs housing/tower         OK
+gear meshes : pinions vs racks (no interference)   OK
+gear meshes : half-tooth turn jams (engaged)       OK
 shoulder -20..75 : link1/link2 vs turret/tower     OK
 elbow -110..40 : link2/head vs link1/turret        OK
 tilt -40..50 : head vs link2/post                  OK
@@ -191,11 +191,28 @@ firmware workspace: 429 poses accepted, 1881 rejected
 accepted poses : arm/head vs housing, tower, wall, arm OK
 ```
 
-Gear meshes (pinions against racks) are excluded, because the tooth profiles are approximate.
+**Gears** are real involute profiles (module 1, 20°, ~0.1 mm backlash), phased so a tooth
+faces each rack's gap at the zero position. The checker confirms there's no interference
+over the full travel, and that a half-tooth turn jams, which proves the teeth engage.
+
+## Fastening (all checked by `cad/tools/verify.py`)
+
+| Joint | Fasteners |
+|---|---|
+| Tower → housing | 4 × M3 + nuts; 12 mm harness hole aligned |
+| Housing → back plate | 4 × M3 into edge inserts |
+| Tilt post → link2 | 2 × M3 self-tapping |
+| Arm covers → beams | 2 × M3 each into inserts in solid beam pads |
+| Head seams | 4 × M3 × 16 per seam, up from inside into inserts in the piece above |
+| Eye rod bars → head walls | 6 × M3 through the side walls into bar-end inserts |
+| Yaw coupler → shaft | M3 set screw in an insert |
+| Pinions → SG90s | Splined bore (21 T press fit) plus the M2 horn screw |
+
+The front "hex screws" on the head are decorative.
 
 ## Known risks
 
-1. **Spring tuning.** The balance is only as good as the spring. Use `voss.calibrate float`
+1. **Spring tuning.** The balance is only as good as the spring (2.1 N/mm, 2:1 reeved). Use `voss.calibrate float`
    and the tensioner screw (see [Bring-up](07-bringup.md)).
 2. **Unverified dimensions.** Servo, printer and speaker dimensions are datasheet values,
    and the DS3225s are modelled at DS3218 size. Measure yours.

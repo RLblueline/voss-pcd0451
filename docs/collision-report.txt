@@ -3,7 +3,9 @@ shoulder -20..75 : link1/link2 vs turret/tower     OK
 elbow -110..40 : link2/head vs link1/turret        OK
 tilt -40..50 : head vs link2/post                  OK
 eye -1..1, shutters 0..1 : vs head internals       OK
-firmware workspace: 429 poses accepted, 1881 rejected (yaw/shoulder/elbow/pitch grid)
+gear meshes : pinions vs racks (no interference)   OK
+gear meshes : half-tooth turn jams (engaged)       OK  (min 15.9 mm^3)
+firmware workspace: 473 poses accepted, 1837 rejected (yaw/shoulder/elbow/pitch grid)
 accepted poses : arm/head vs housing, tower, wall, arm OK
 
 ALL CLEAR

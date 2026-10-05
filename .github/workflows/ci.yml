@@ -1,0 +1,30 @@
+name: ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  firmware-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update && sudo apt-get install -y sox
+      - run: pip install numpy anthropic pyflakes
+      - run: python -m pyflakes voss tests
+      - run: VOSS_SIM=1 python -m unittest discover tests -v
+  cad-checks:
+    # Slow (export ~3 min, collision sweep ~20 min); run manually from the Actions tab.
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update && sudo apt-get install -y openscad fonts-dejavu-core
+      - run: pip install numpy trimesh manifold3d
+      - run: cd cad && ./tools/export.sh
+      - run: cd cad && VOSS_SIM=1 python tools/collide.py
+      - run: cd cad && python tools/verify.py

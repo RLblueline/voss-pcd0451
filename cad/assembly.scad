@@ -25,25 +25,29 @@ module assembly() {
     }
     color(C_BEIGE2) yaw_tower();
     YAW_place() servo(MG, horn = false);
-    for (z = [-59, -111]) translate([0, SY, z]) bearing(22, 8, 7);
+    for (z = [-59, -111]) translate([0, SY, z + ARM_Z0]) bearing(22, 8, 7);
 
-    translate([0, SY, 0]) rotate([0, 0, YAW]) {
-        color(C_STEEL) translate([0, 0, -116]) cylinder(d = 8, h = 70);                 // yaw shaft
-        color(C_HORN) translate([0, 0, -121]) cylinder(d = HORN_D, h = HORN_T);
-        color(C_BEIGE2) translate([0, 0, -118]) cylinder(d = 18, h = 5);                // shaft coupler
+    translate([0, SY, ARM_Z0]) rotate([0, 0, YAW]) {
+        color(C_STEEL) translate([0, 0, -122]) cylinder(d = 8, h = 78);                 // yaw shaft
+        color(C_HORN) translate([0, 0, -127]) cylinder(d = HORN_D, h = HORN_T);
+        color(C_BEIGE2) yaw_coupler();
         turret();
         service_tube([-16, 14, -40], [-6, 26, 20], ry([30, 0, 17], -SH), 8);                 // yaw/shoulder loop
-        // counterbalance: cable from the eye on link1 over the mast pulleys to the spring in the column
+        // counterbalance (2:1): eye -> top pulley -> down -> spring-block pulley -> up to the anchor pin
         Q = [SPR_B * cos(SH), SPR_Y, SPR_B * sin(SH)];
         PQ = norm(Q - [0, SPR_Y, SPR_A]);
-        L = SPR_L0 + max(0, PQ - SPR_D);
+        L = SPR_L0 + max(0, PQ - SPR_D) / 2;                       // spring length
+        zb = -26 + L + 9;                                          // spring-block pulley centre
+        ang_in = atan2(Q[2] - SPR_A, Q[0]);
+        T = [0, SPR_Y, SPR_A] + 5 * [cos(ang_in + 90), 0, sin(ang_in + 90)];
         color(C_BLACK) {
-            hull() { translate(Q) sphere(d = 1.5, $fn = 8); translate([0, SPR_Y, SPR_A + 5]) sphere(d = 1.5, $fn = 8); }
-            hull() { translate([0, SPR_Y, SPR_A + 5]) sphere(d = 1.5, $fn = 8); translate([-29, 0, SPR_A + 11]) sphere(d = 1.5, $fn = 8); }
-            hull() { translate([-29, 0, SPR_A + 1]) sphere(d = 1.5, $fn = 8); translate([-29, 0, -42 + L]) sphere(d = 1.5, $fn = 8); }
+            hull() { translate(Q) sphere(d = 1.2, $fn = 8); translate(T) sphere(d = 1.2, $fn = 8); }
+            hull() { translate([-5, SPR_Y, SPR_A]) sphere(d = 1.2, $fn = 8); translate([-5, SPR_Y, zb]) sphere(d = 1.2, $fn = 8); }
+            hull() { translate([-12, SPR_Y, zb]) sphere(d = 1.2, $fn = 8); translate([-12, SPR_Y, SPR_A - 10]) sphere(d = 1.2, $fn = 8); }
         }
-        color(C_STEEL) for (i = [0 : floor(L / 2.4) - 1]) translate([-29, 0, -42 + i * 2.4 + 1.2]) rotate_extrude($fn = 16) translate([3.6, 0]) circle(r = 0.9, $fn = 8);
-        color(C_HORN) for (pp = [[0, SPR_Y, SPR_A], [-29, 0, SPR_A + 6]]) translate(pp) rotate([90, 0, 0]) cylinder(r = 5, h = 3, center = true);
+        color(C_STEEL) for (i = [0 : floor(L / 2.6) - 1]) translate([SPR_COL, SPR_Y, -26 + i * 2.6 + 1.3]) rotate_extrude($fn = 16) translate([5.2, 0]) circle(r = 1.0, $fn = 8);
+        color(C_BEIGE2) translate([-8.5, SPR_Y, zb]) spring_block();
+        color(C_HORN) { translate([0, SPR_Y, SPR_A]) rotate([90, 0, 0]) pulley(); translate([-8.5, SPR_Y, zb]) rotate([90, 0, 0]) pulley_small(); }
         SH_servo() servo(DS, horn = false);
         translate([0, -28, 0]) rotate([-90, 0, 0]) bearing(13, 4, 5);
 

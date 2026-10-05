@@ -2,5657 +2,393 @@ solid OpenSCAD_Model
   facet normal 1 -0 0
     outer loop
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -72.75
+      vertex 37.4 37.75 -72.6015
       vertex 37.4 37.75 -72.5
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -72.75
+      vertex 37.4 37.75 -72.6015
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -73.25
+      vertex 37.4 37.75 -74.9743
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -73.25
+      vertex 37.4 37.75 -74.9743
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -73.75
+      vertex 37.4 37.75 -75.7431
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -73.75
+      vertex 37.4 37.75 -75.7431
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -74.25
+      vertex 37.4 37.75 -78.1159
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -74.25
+      vertex 37.4 37.75 -78.1159
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -74.75
+      vertex 37.4 37.75 -78.8847
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -74.75
+      vertex 37.4 37.75 -78.8847
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -75.25
+      vertex 37.4 37.75 -81.2575
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -75.25
+      vertex 37.4 37.75 -81.2575
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -75.75
+      vertex 37.4 37.75 -82.0263
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -75.75
+      vertex 37.4 37.75 -82.0263
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -76.25
+      vertex 37.4 37.75 -84.3991
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -76.25
+      vertex 37.4 37.75 -84.3991
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -76.75
+      vertex 37.4 37.75 -85.1679
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -76.75
+      vertex 37.4 37.75 -85.1679
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -77.25
+      vertex 37.4 37.75 -87.5406
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -77.25
+      vertex 37.4 37.75 -87.5406
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -77.75
+      vertex 37.4 37.75 -88.3095
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -77.75
+      vertex 37.4 37.75 -88.3095
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -78.25
+      vertex 37.4 37.75 -90.6822
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -78.25
+      vertex 37.4 37.75 -90.6822
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -78.75
+      vertex 37.4 37.75 -91.4511
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -78.75
+      vertex 37.4 37.75 -91.4511
       vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -79.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -79.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -79.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -79.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -80.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -80.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -80.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -80.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -81.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -81.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -81.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -81.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -82.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -82.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -82.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -82.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -83.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -83.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -83.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -83.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -84.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -84.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -84.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -84.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -85.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -85.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -85.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -85.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -86.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -86.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -86.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -86.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -87.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -87.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -87.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -87.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -88.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -88.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -88.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -88.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -89.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -89.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -89.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -89.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -90.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -90.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -90.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -90.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -91.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -91.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -91.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -91.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -92.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -92.25
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -92.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -92.75
-      vertex 37.4 34 -72.5
-      vertex 37.4 37.75 -93.25
+      vertex 37.4 37.75 -93.8238
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -93.25
+      vertex 37.4 37.75 -93.8238
       vertex 37.4 34 -72.5
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -93.25
+      vertex 37.4 37.75 -93.8238
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -93.75
+      vertex 37.4 37.75 -94.5927
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -93.75
+      vertex 37.4 37.75 -94.5927
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -94.25
+      vertex 37.4 37.75 -96.9654
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -94.25
+      vertex 37.4 37.75 -96.9654
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -94.75
+      vertex 37.4 37.75 -97.7343
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -94.75
+      vertex 37.4 37.75 -97.7343
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -95.25
+      vertex 37.4 37.75 -100.107
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -95.25
+      vertex 37.4 37.75 -100.107
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -95.75
+      vertex 37.4 37.75 -100.876
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -95.75
+      vertex 37.4 37.75 -100.876
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -96.25
+      vertex 37.4 37.75 -103.249
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -96.25
+      vertex 37.4 37.75 -103.249
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -96.75
+      vertex 37.4 37.75 -104.017
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -96.75
+      vertex 37.4 37.75 -104.017
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -97.25
+      vertex 37.4 37.75 -106.39
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -97.25
+      vertex 37.4 37.75 -106.39
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -97.75
+      vertex 37.4 37.75 -107.159
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -97.75
+      vertex 37.4 37.75 -107.159
       vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -98.25
+      vertex 37.4 37.75 -109.532
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -98.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -98.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -98.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -99.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -99.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -99.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -99.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -100.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -100.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -100.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -100.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -101.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -101.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -101.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -101.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -102.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -102.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -102.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -102.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -103.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -103.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -103.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -103.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -104.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -104.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -104.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -104.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -105.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -105.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -105.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -105.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -106.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -106.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -106.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -106.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -107.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -107.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -107.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -107.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -108.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -108.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -108.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -108.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -109.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -109.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -109.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -109.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -110.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -110.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -110.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -110.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -111.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -111.25
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -111.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -111.75
-      vertex 37.4 34 -112.5
-      vertex 37.4 37.75 -112.25
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 37.75 -112.25
+      vertex 37.4 37.75 -109.532
       vertex 37.4 34 -112.5
       vertex 37.4 37.75 -112.5
     endloop
   endfacet
-  facet normal 1 -0 0
+  facet normal 1 0 0
     outer loop
-      vertex 37.4 37.75 -72.75
-      vertex 37.4 40 -73.25
-      vertex 37.4 40 -72.75
+      vertex 37.4 37.75 -72.6015
+      vertex 37.4 40 -74.1589
+      vertex 37.4 40 -73.4169
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -73.25
-      vertex 37.4 37.75 -72.75
-      vertex 37.4 37.75 -73.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -73.75
-      vertex 37.4 40 -74.25
-      vertex 37.4 40 -73.75
+      vertex 37.4 40 -74.1589
+      vertex 37.4 37.75 -72.6015
+      vertex 37.4 37.75 -74.9743
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -74.25
-      vertex 37.4 37.75 -73.75
-      vertex 37.4 37.75 -74.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -74.75
-      vertex 37.4 40 -75.25
-      vertex 37.4 40 -74.75
+      vertex 37.4 37.75 -75.7431
+      vertex 37.4 40 -77.3005
+      vertex 37.4 40 -76.5585
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -75.25
-      vertex 37.4 37.75 -74.75
-      vertex 37.4 37.75 -75.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -75.75
-      vertex 37.4 40 -76.25
-      vertex 37.4 40 -75.75
+      vertex 37.4 40 -77.3005
+      vertex 37.4 37.75 -75.7431
+      vertex 37.4 37.75 -78.1159
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -76.25
-      vertex 37.4 37.75 -75.75
-      vertex 37.4 37.75 -76.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -76.75
-      vertex 37.4 40 -77.25
-      vertex 37.4 40 -76.75
+      vertex 37.4 37.75 -78.8847
+      vertex 37.4 40 -80.4421
+      vertex 37.4 40 -79.7001
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -77.25
-      vertex 37.4 37.75 -76.75
-      vertex 37.4 37.75 -77.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -77.75
-      vertex 37.4 40 -78.25
-      vertex 37.4 40 -77.75
+      vertex 37.4 40 -80.4421
+      vertex 37.4 37.75 -78.8847
+      vertex 37.4 37.75 -81.2575
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -78.25
-      vertex 37.4 37.75 -77.75
-      vertex 37.4 37.75 -78.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -78.75
-      vertex 37.4 40 -79.25
-      vertex 37.4 40 -78.75
+      vertex 37.4 37.75 -82.0263
+      vertex 37.4 40 -83.5837
+      vertex 37.4 40 -82.8417
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -79.25
-      vertex 37.4 37.75 -78.75
-      vertex 37.4 37.75 -79.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -79.75
-      vertex 37.4 40 -80.25
-      vertex 37.4 40 -79.75
+      vertex 37.4 40 -83.5837
+      vertex 37.4 37.75 -82.0263
+      vertex 37.4 37.75 -84.3991
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -80.25
-      vertex 37.4 37.75 -79.75
-      vertex 37.4 37.75 -80.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -80.75
-      vertex 37.4 40 -81.25
-      vertex 37.4 40 -80.75
+      vertex 37.4 37.75 -85.1679
+      vertex 37.4 40 -86.7253
+      vertex 37.4 40 -85.9833
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -81.25
-      vertex 37.4 37.75 -80.75
-      vertex 37.4 37.75 -81.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -81.75
-      vertex 37.4 40 -82.25
-      vertex 37.4 40 -81.75
+      vertex 37.4 40 -86.7253
+      vertex 37.4 37.75 -85.1679
+      vertex 37.4 37.75 -87.5406
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -82.25
-      vertex 37.4 37.75 -81.75
-      vertex 37.4 37.75 -82.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -82.75
-      vertex 37.4 40 -83.25
-      vertex 37.4 40 -82.75
+      vertex 37.4 37.75 -88.3095
+      vertex 37.4 40 -89.8669
+      vertex 37.4 40 -89.1249
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -83.25
-      vertex 37.4 37.75 -82.75
-      vertex 37.4 37.75 -83.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -83.75
-      vertex 37.4 40 -84.25
-      vertex 37.4 40 -83.75
+      vertex 37.4 40 -89.8669
+      vertex 37.4 37.75 -88.3095
+      vertex 37.4 37.75 -90.6822
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -84.25
-      vertex 37.4 37.75 -83.75
-      vertex 37.4 37.75 -84.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -84.75
-      vertex 37.4 40 -85.25
-      vertex 37.4 40 -84.75
+      vertex 37.4 37.75 -91.4511
+      vertex 37.4 40 -93.0085
+      vertex 37.4 40 -92.2664
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -85.25
-      vertex 37.4 37.75 -84.75
-      vertex 37.4 37.75 -85.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -85.75
-      vertex 37.4 40 -86.25
-      vertex 37.4 40 -85.75
+      vertex 37.4 40 -93.0085
+      vertex 37.4 37.75 -91.4511
+      vertex 37.4 37.75 -93.8238
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -86.25
-      vertex 37.4 37.75 -85.75
-      vertex 37.4 37.75 -86.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -86.75
-      vertex 37.4 40 -87.25
-      vertex 37.4 40 -86.75
+      vertex 37.4 37.75 -94.5927
+      vertex 37.4 40 -96.15
+      vertex 37.4 40 -95.4081
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -87.25
-      vertex 37.4 37.75 -86.75
-      vertex 37.4 37.75 -87.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -87.75
-      vertex 37.4 40 -88.25
-      vertex 37.4 40 -87.75
+      vertex 37.4 40 -96.15
+      vertex 37.4 37.75 -94.5927
+      vertex 37.4 37.75 -96.9654
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -88.25
-      vertex 37.4 37.75 -87.75
-      vertex 37.4 37.75 -88.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -88.75
-      vertex 37.4 40 -89.25
-      vertex 37.4 40 -88.75
+      vertex 37.4 37.75 -97.7343
+      vertex 37.4 40 -99.2916
+      vertex 37.4 40 -98.5496
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -89.25
-      vertex 37.4 37.75 -88.75
-      vertex 37.4 37.75 -89.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -89.75
-      vertex 37.4 40 -90.25
-      vertex 37.4 40 -89.75
+      vertex 37.4 40 -99.2916
+      vertex 37.4 37.75 -97.7343
+      vertex 37.4 37.75 -100.107
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -90.25
-      vertex 37.4 37.75 -89.75
-      vertex 37.4 37.75 -90.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -90.75
-      vertex 37.4 40 -91.25
-      vertex 37.4 40 -90.75
+      vertex 37.4 37.75 -100.876
+      vertex 37.4 40 -102.433
+      vertex 37.4 40 -101.691
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -91.25
-      vertex 37.4 37.75 -90.75
-      vertex 37.4 37.75 -91.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -91.75
-      vertex 37.4 40 -92.25
-      vertex 37.4 40 -91.75
+      vertex 37.4 40 -102.433
+      vertex 37.4 37.75 -100.876
+      vertex 37.4 37.75 -103.249
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -92.25
-      vertex 37.4 37.75 -91.75
-      vertex 37.4 37.75 -92.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -92.75
-      vertex 37.4 40 -93.25
-      vertex 37.4 40 -92.75
+      vertex 37.4 37.75 -104.017
+      vertex 37.4 40 -105.575
+      vertex 37.4 40 -104.833
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -93.25
-      vertex 37.4 37.75 -92.75
-      vertex 37.4 37.75 -93.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -93.75
-      vertex 37.4 40 -94.25
-      vertex 37.4 40 -93.75
+      vertex 37.4 40 -105.575
+      vertex 37.4 37.75 -104.017
+      vertex 37.4 37.75 -106.39
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -94.25
-      vertex 37.4 37.75 -93.75
-      vertex 37.4 37.75 -94.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -94.75
-      vertex 37.4 40 -95.25
-      vertex 37.4 40 -94.75
+      vertex 37.4 37.75 -107.159
+      vertex 37.4 40 -108.716
+      vertex 37.4 40 -107.974
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -95.25
-      vertex 37.4 37.75 -94.75
-      vertex 37.4 37.75 -95.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -95.75
-      vertex 37.4 40 -96.25
-      vertex 37.4 40 -95.75
+      vertex 37.4 40 -108.716
+      vertex 37.4 37.75 -107.159
+      vertex 37.4 37.75 -109.532
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -96.25
-      vertex 37.4 37.75 -95.75
-      vertex 37.4 37.75 -96.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -96.75
-      vertex 37.4 40 -97.25
-      vertex 37.4 40 -96.75
+      vertex 37.4 37.75 -63.1767
+      vertex 37.4 40 -64.7341
+      vertex 37.4 40 -63.9921
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -97.25
-      vertex 37.4 37.75 -96.75
-      vertex 37.4 37.75 -97.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -97.75
-      vertex 37.4 40 -98.25
-      vertex 37.4 40 -97.75
+      vertex 37.4 40 -64.7341
+      vertex 37.4 37.75 -63.1767
+      vertex 37.4 37.75 -65.5495
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -98.25
-      vertex 37.4 37.75 -97.75
-      vertex 37.4 37.75 -98.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -98.75
-      vertex 37.4 40 -99.25
-      vertex 37.4 40 -98.75
+      vertex 37.4 37.75 -66.3183
+      vertex 37.4 40 -67.8757
+      vertex 37.4 40 -67.1337
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -99.25
-      vertex 37.4 37.75 -98.75
-      vertex 37.4 37.75 -99.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -99.75
-      vertex 37.4 40 -100.25
-      vertex 37.4 40 -99.75
+      vertex 37.4 40 -67.8757
+      vertex 37.4 37.75 -66.3183
+      vertex 37.4 37.75 -68.6911
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -100.25
-      vertex 37.4 37.75 -99.75
-      vertex 37.4 37.75 -100.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -100.75
-      vertex 37.4 40 -101.25
-      vertex 37.4 40 -100.75
+      vertex 37.4 37.75 -69.4599
+      vertex 37.4 40 -71.0173
+      vertex 37.4 40 -70.2753
     endloop
   endfacet
   facet normal 1 0 0
     outer loop
-      vertex 37.4 40 -101.25
-      vertex 37.4 37.75 -100.75
-      vertex 37.4 37.75 -101.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -101.75
-      vertex 37.4 40 -102.25
-      vertex 37.4 40 -101.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -102.25
-      vertex 37.4 37.75 -101.75
-      vertex 37.4 37.75 -102.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -102.75
-      vertex 37.4 40 -103.25
-      vertex 37.4 40 -102.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -103.25
-      vertex 37.4 37.75 -102.75
-      vertex 37.4 37.75 -103.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -103.75
-      vertex 37.4 40 -104.25
-      vertex 37.4 40 -103.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -104.25
-      vertex 37.4 37.75 -103.75
-      vertex 37.4 37.75 -104.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -104.75
-      vertex 37.4 40 -105.25
-      vertex 37.4 40 -104.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -105.25
-      vertex 37.4 37.75 -104.75
-      vertex 37.4 37.75 -105.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -105.75
-      vertex 37.4 40 -106.25
-      vertex 37.4 40 -105.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -106.25
-      vertex 37.4 37.75 -105.75
-      vertex 37.4 37.75 -106.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -106.75
-      vertex 37.4 40 -107.25
-      vertex 37.4 40 -106.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -107.25
-      vertex 37.4 37.75 -106.75
-      vertex 37.4 37.75 -107.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -107.75
-      vertex 37.4 40 -108.25
-      vertex 37.4 40 -107.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -108.25
-      vertex 37.4 37.75 -107.75
-      vertex 37.4 37.75 -108.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -108.75
-      vertex 37.4 40 -109.25
-      vertex 37.4 40 -108.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -109.25
-      vertex 37.4 37.75 -108.75
-      vertex 37.4 37.75 -109.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -109.75
-      vertex 37.4 40 -110.25
-      vertex 37.4 40 -109.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -110.25
-      vertex 37.4 37.75 -109.75
-      vertex 37.4 37.75 -110.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -110.75
-      vertex 37.4 40 -111.25
-      vertex 37.4 40 -110.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -111.25
-      vertex 37.4 37.75 -110.75
-      vertex 37.4 37.75 -111.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -111.75
-      vertex 37.4 40 -112.25
-      vertex 37.4 40 -111.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -112.25
-      vertex 37.4 37.75 -111.75
-      vertex 37.4 37.75 -112.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -67.75
-      vertex 37.4 40 -68.25
-      vertex 37.4 40 -67.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -68.25
-      vertex 37.4 37.75 -67.75
-      vertex 37.4 37.75 -68.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -68.75
-      vertex 37.4 40 -69.25
-      vertex 37.4 40 -68.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -69.25
-      vertex 37.4 37.75 -68.75
-      vertex 37.4 37.75 -69.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -63.75
-      vertex 37.4 40 -64.25
-      vertex 37.4 40 -63.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -64.25
-      vertex 37.4 37.75 -63.75
-      vertex 37.4 37.75 -64.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -66.75
-      vertex 37.4 40 -67.25
-      vertex 37.4 40 -66.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -67.25
-      vertex 37.4 37.75 -66.75
-      vertex 37.4 37.75 -67.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -62.75
-      vertex 37.4 40 -63.25
-      vertex 37.4 40 -62.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -63.25
-      vertex 37.4 37.75 -62.75
-      vertex 37.4 37.75 -63.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -71.75
-      vertex 37.4 40 -72.25
-      vertex 37.4 40 -71.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -72.25
-      vertex 37.4 37.75 -71.75
-      vertex 37.4 37.75 -72.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -64.75
-      vertex 37.4 40 -65.25
-      vertex 37.4 40 -64.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -65.25
-      vertex 37.4 37.75 -64.75
-      vertex 37.4 37.75 -65.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -65.75
-      vertex 37.4 40 -66.25
-      vertex 37.4 40 -65.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -66.25
-      vertex 37.4 37.75 -65.75
-      vertex 37.4 37.75 -66.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -69.75
-      vertex 37.4 40 -70.25
-      vertex 37.4 40 -69.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -70.25
-      vertex 37.4 37.75 -69.75
-      vertex 37.4 37.75 -70.25
-    endloop
-  endfacet
-  facet normal 1 -0 0
-    outer loop
-      vertex 37.4 37.75 -70.75
-      vertex 37.4 40 -71.25
-      vertex 37.4 40 -70.75
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 37.4 40 -71.25
-      vertex 37.4 37.75 -70.75
-      vertex 37.4 37.75 -71.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -111.75
-      vertex 37.4 37.75 -111.75
-      vertex 37.4 40 -111.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -111.75
-      vertex 33.8 40 -111.75
-      vertex 33.8 37.75 -111.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -112.25
-      vertex 37.4 40 -112.25
-      vertex 37.4 37.75 -112.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -112.25
-      vertex 33.8 37.75 -112.25
-      vertex 33.8 40 -112.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -112.25
-      vertex 33.8 37.75 -112.5
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -112.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -111.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -111.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -111.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -111.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -110.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -110.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -110.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -110.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -109.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -109.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -109.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -109.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -108.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -108.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -108.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -108.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -107.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -107.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -107.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -107.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -106.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -106.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -106.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -106.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -105.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -105.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -105.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -105.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -104.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -104.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -104.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -104.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -103.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -103.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -103.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -103.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -102.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -102.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -102.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -102.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -101.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -101.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -101.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -101.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -100.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -100.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -100.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -100.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -99.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -99.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -99.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -99.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -98.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -98.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -98.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -98.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -97.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -97.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -97.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -97.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -96.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -96.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -96.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -96.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -95.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -95.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -95.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -95.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -94.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -94.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -94.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -94.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -93.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -93.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -93.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -93.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -92.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -92.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -92.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -92.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -91.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -91.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -91.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -91.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -90.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -90.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -90.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -90.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -89.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -89.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -89.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -89.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -88.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -88.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -88.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -88.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -87.75
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -87.75
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -87.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 37.75 -87.25
-      vertex 33.8 34 -112.5
-      vertex 33.8 37.75 -86.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -86.75
-      vertex 33.8 34 -112.5
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -86.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -86.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -86.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -85.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -85.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -85.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -85.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -84.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -84.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -84.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -84.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -83.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -83.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -83.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -83.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -82.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -82.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -82.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -82.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -81.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -81.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -81.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -81.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -80.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -80.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -80.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -80.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -79.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -79.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -79.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -79.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -78.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -78.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -78.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -78.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -77.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -77.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -77.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -77.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -76.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -76.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -76.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -76.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -75.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -75.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -75.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -75.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -74.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -74.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -74.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -74.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -73.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -73.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -73.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -73.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -72.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -72.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -72.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -72.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -71.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -71.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -71.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -71.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -70.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -70.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -70.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -70.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -69.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -69.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -69.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -69.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -68.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -68.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -68.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -68.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -67.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -67.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -67.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -67.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -66.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -66.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -66.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -66.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -65.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -65.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -65.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -65.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -64.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -64.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -64.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -64.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -63.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -63.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -63.25
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -63.25
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -62.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -62.75
-      vertex 33.8 34 -62.5
-      vertex 33.8 37.75 -62.5
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -112.25
-      vertex 33.8 40 -111.75
-      vertex 33.8 40 -112.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -111.75
-      vertex 33.8 37.75 -112.25
-      vertex 33.8 37.75 -111.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -111.25
-      vertex 33.8 40 -110.75
-      vertex 33.8 40 -111.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -110.75
-      vertex 33.8 37.75 -111.25
-      vertex 33.8 37.75 -110.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -110.25
-      vertex 33.8 40 -109.75
-      vertex 33.8 40 -110.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -109.75
-      vertex 33.8 37.75 -110.25
-      vertex 33.8 37.75 -109.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -109.25
-      vertex 33.8 40 -108.75
-      vertex 33.8 40 -109.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -108.75
-      vertex 33.8 37.75 -109.25
-      vertex 33.8 37.75 -108.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -108.25
-      vertex 33.8 40 -107.75
-      vertex 33.8 40 -108.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -107.75
-      vertex 33.8 37.75 -108.25
-      vertex 33.8 37.75 -107.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -107.25
-      vertex 33.8 40 -106.75
-      vertex 33.8 40 -107.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -106.75
-      vertex 33.8 37.75 -107.25
-      vertex 33.8 37.75 -106.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -106.25
-      vertex 33.8 40 -105.75
-      vertex 33.8 40 -106.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -105.75
-      vertex 33.8 37.75 -106.25
-      vertex 33.8 37.75 -105.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -105.25
-      vertex 33.8 40 -104.75
-      vertex 33.8 40 -105.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -104.75
-      vertex 33.8 37.75 -105.25
-      vertex 33.8 37.75 -104.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -104.25
-      vertex 33.8 40 -103.75
-      vertex 33.8 40 -104.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -103.75
-      vertex 33.8 37.75 -104.25
-      vertex 33.8 37.75 -103.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -103.25
-      vertex 33.8 40 -102.75
-      vertex 33.8 40 -103.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -102.75
-      vertex 33.8 37.75 -103.25
-      vertex 33.8 37.75 -102.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -102.25
-      vertex 33.8 40 -101.75
-      vertex 33.8 40 -102.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -101.75
-      vertex 33.8 37.75 -102.25
-      vertex 33.8 37.75 -101.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -101.25
-      vertex 33.8 40 -100.75
-      vertex 33.8 40 -101.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -100.75
-      vertex 33.8 37.75 -101.25
-      vertex 33.8 37.75 -100.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -100.25
-      vertex 33.8 40 -99.75
-      vertex 33.8 40 -100.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -99.75
-      vertex 33.8 37.75 -100.25
-      vertex 33.8 37.75 -99.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -99.25
-      vertex 33.8 40 -98.75
-      vertex 33.8 40 -99.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -98.75
-      vertex 33.8 37.75 -99.25
-      vertex 33.8 37.75 -98.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -98.25
-      vertex 33.8 40 -97.75
-      vertex 33.8 40 -98.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -97.75
-      vertex 33.8 37.75 -98.25
-      vertex 33.8 37.75 -97.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -97.25
-      vertex 33.8 40 -96.75
-      vertex 33.8 40 -97.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -96.75
-      vertex 33.8 37.75 -97.25
-      vertex 33.8 37.75 -96.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -96.25
-      vertex 33.8 40 -95.75
-      vertex 33.8 40 -96.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -95.75
-      vertex 33.8 37.75 -96.25
-      vertex 33.8 37.75 -95.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -95.25
-      vertex 33.8 40 -94.75
-      vertex 33.8 40 -95.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -94.75
-      vertex 33.8 37.75 -95.25
-      vertex 33.8 37.75 -94.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -94.25
-      vertex 33.8 40 -93.75
-      vertex 33.8 40 -94.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -93.75
-      vertex 33.8 37.75 -94.25
-      vertex 33.8 37.75 -93.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -93.25
-      vertex 33.8 40 -92.75
-      vertex 33.8 40 -93.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -92.75
-      vertex 33.8 37.75 -93.25
-      vertex 33.8 37.75 -92.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -92.25
-      vertex 33.8 40 -91.75
-      vertex 33.8 40 -92.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -91.75
-      vertex 33.8 37.75 -92.25
-      vertex 33.8 37.75 -91.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -91.25
-      vertex 33.8 40 -90.75
-      vertex 33.8 40 -91.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -90.75
-      vertex 33.8 37.75 -91.25
-      vertex 33.8 37.75 -90.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -90.25
-      vertex 33.8 40 -89.75
-      vertex 33.8 40 -90.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -89.75
-      vertex 33.8 37.75 -90.25
-      vertex 33.8 37.75 -89.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -89.25
-      vertex 33.8 40 -88.75
-      vertex 33.8 40 -89.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -88.75
-      vertex 33.8 37.75 -89.25
-      vertex 33.8 37.75 -88.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -88.25
-      vertex 33.8 40 -87.75
-      vertex 33.8 40 -88.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -87.75
-      vertex 33.8 37.75 -88.25
-      vertex 33.8 37.75 -87.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -87.25
-      vertex 33.8 40 -86.75
-      vertex 33.8 40 -87.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -86.75
-      vertex 33.8 37.75 -87.25
-      vertex 33.8 37.75 -86.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -86.25
-      vertex 33.8 40 -85.75
-      vertex 33.8 40 -86.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -85.75
-      vertex 33.8 37.75 -86.25
-      vertex 33.8 37.75 -85.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -85.25
-      vertex 33.8 40 -84.75
-      vertex 33.8 40 -85.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -84.75
-      vertex 33.8 37.75 -85.25
-      vertex 33.8 37.75 -84.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -84.25
-      vertex 33.8 40 -83.75
-      vertex 33.8 40 -84.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -83.75
-      vertex 33.8 37.75 -84.25
-      vertex 33.8 37.75 -83.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -83.25
-      vertex 33.8 40 -82.75
-      vertex 33.8 40 -83.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -82.75
-      vertex 33.8 37.75 -83.25
-      vertex 33.8 37.75 -82.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -82.25
-      vertex 33.8 40 -81.75
-      vertex 33.8 40 -82.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -81.75
-      vertex 33.8 37.75 -82.25
-      vertex 33.8 37.75 -81.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -81.25
-      vertex 33.8 40 -80.75
-      vertex 33.8 40 -81.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -80.75
-      vertex 33.8 37.75 -81.25
-      vertex 33.8 37.75 -80.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -80.25
-      vertex 33.8 40 -79.75
-      vertex 33.8 40 -80.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -79.75
-      vertex 33.8 37.75 -80.25
-      vertex 33.8 37.75 -79.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -79.25
-      vertex 33.8 40 -78.75
-      vertex 33.8 40 -79.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -78.75
-      vertex 33.8 37.75 -79.25
-      vertex 33.8 37.75 -78.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -78.25
-      vertex 33.8 40 -77.75
-      vertex 33.8 40 -78.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -77.75
-      vertex 33.8 37.75 -78.25
-      vertex 33.8 37.75 -77.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -77.25
-      vertex 33.8 40 -76.75
-      vertex 33.8 40 -77.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -76.75
-      vertex 33.8 37.75 -77.25
-      vertex 33.8 37.75 -76.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -76.25
-      vertex 33.8 40 -75.75
-      vertex 33.8 40 -76.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -75.75
-      vertex 33.8 37.75 -76.25
-      vertex 33.8 37.75 -75.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -75.25
-      vertex 33.8 40 -74.75
-      vertex 33.8 40 -75.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -74.75
-      vertex 33.8 37.75 -75.25
-      vertex 33.8 37.75 -74.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -74.25
-      vertex 33.8 40 -73.75
-      vertex 33.8 40 -74.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -73.75
-      vertex 33.8 37.75 -74.25
-      vertex 33.8 37.75 -73.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -73.25
-      vertex 33.8 40 -72.75
-      vertex 33.8 40 -73.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -72.75
-      vertex 33.8 37.75 -73.25
-      vertex 33.8 37.75 -72.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -72.25
-      vertex 33.8 40 -71.75
-      vertex 33.8 40 -72.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -71.75
-      vertex 33.8 37.75 -72.25
-      vertex 33.8 37.75 -71.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -71.25
-      vertex 33.8 40 -70.75
-      vertex 33.8 40 -71.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -70.75
-      vertex 33.8 37.75 -71.25
-      vertex 33.8 37.75 -70.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -70.25
-      vertex 33.8 40 -69.75
-      vertex 33.8 40 -70.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -69.75
-      vertex 33.8 37.75 -70.25
-      vertex 33.8 37.75 -69.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -69.25
-      vertex 33.8 40 -68.75
-      vertex 33.8 40 -69.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -68.75
-      vertex 33.8 37.75 -69.25
-      vertex 33.8 37.75 -68.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -68.25
-      vertex 33.8 40 -67.75
-      vertex 33.8 40 -68.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -67.75
-      vertex 33.8 37.75 -68.25
-      vertex 33.8 37.75 -67.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -67.25
-      vertex 33.8 40 -66.75
-      vertex 33.8 40 -67.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -66.75
-      vertex 33.8 37.75 -67.25
-      vertex 33.8 37.75 -66.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -66.25
-      vertex 33.8 40 -65.75
-      vertex 33.8 40 -66.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -65.75
-      vertex 33.8 37.75 -66.25
-      vertex 33.8 37.75 -65.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -65.25
-      vertex 33.8 40 -64.75
-      vertex 33.8 40 -65.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -64.75
-      vertex 33.8 37.75 -65.25
-      vertex 33.8 37.75 -64.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -64.25
-      vertex 33.8 40 -63.75
-      vertex 33.8 40 -64.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -63.75
-      vertex 33.8 37.75 -64.25
-      vertex 33.8 37.75 -63.75
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex 33.8 37.75 -63.25
-      vertex 33.8 40 -62.75
-      vertex 33.8 40 -63.25
-    endloop
-  endfacet
-  facet normal -1 -0 0
-    outer loop
-      vertex 33.8 40 -62.75
-      vertex 33.8 37.75 -63.25
-      vertex 33.8 37.75 -62.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -112.25
-      vertex 33.8 40 -111.75
-      vertex 37.4 40 -111.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -111.75
-      vertex 37.4 40 -112.25
-      vertex 33.8 40 -112.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -62.75
-      vertex 33.8 37.75 -62.5
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -63.25
-      vertex 37.4 37.75 -62.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -63.25
-      vertex 37.4 37.75 -63.75
-      vertex 33.8 37.75 -63.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -63.75
-      vertex 37.4 37.75 -63.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -64.25
-      vertex 37.4 37.75 -63.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -64.25
-      vertex 37.4 37.75 -64.75
-      vertex 33.8 37.75 -64.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -64.75
-      vertex 37.4 37.75 -64.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -65.25
-      vertex 37.4 37.75 -64.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -65.25
-      vertex 37.4 37.75 -65.75
-      vertex 33.8 37.75 -65.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -65.75
-      vertex 37.4 37.75 -65.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -66.25
-      vertex 37.4 37.75 -65.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -66.25
-      vertex 37.4 37.75 -66.75
-      vertex 33.8 37.75 -66.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -66.75
-      vertex 37.4 37.75 -66.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -67.25
-      vertex 37.4 37.75 -66.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -67.25
-      vertex 37.4 37.75 -67.75
-      vertex 33.8 37.75 -67.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -67.75
-      vertex 37.4 37.75 -67.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.6 37.75 -62.5
-      vertex 37.4 37.75 -68.25
-      vertex 37.4 37.75 -67.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -68.25
-      vertex 37.4 37.75 -68.75
-      vertex 33.8 37.75 -68.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -68.25
-      vertex 37.6 37.75 -62.5
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -68.25
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -68.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -69.25
-      vertex 37.4 37.75 -69.75
-      vertex 33.8 37.75 -69.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -68.75
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -69.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -69.25
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -69.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -70.25
-      vertex 37.4 37.75 -70.75
-      vertex 33.8 37.75 -70.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -69.75
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -70.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -70.25
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -70.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -71.25
-      vertex 37.4 37.75 -71.75
-      vertex 33.8 37.75 -71.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -70.75
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -71.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -71.25
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -71.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -71.75
-      vertex 37.6 37.75 -72.5
-      vertex 37.4 37.75 -72.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -72.5
-      vertex 37.4 37.75 -72.25
-      vertex 37.6 37.75 -72.5
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -72.25
-      vertex 37.4 37.75 -72.5
-      vertex 33.8 37.75 -72.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -72.75
-      vertex 37.4 37.75 -72.5
-      vertex 37.4 37.75 -72.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 37.4 37.75 -72.5
-      vertex 33.8 37.75 -72.75
-      vertex 33.8 37.75 -72.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -62.5
-      vertex 37.4 37.75 -62.75
-      vertex 33.8 37.75 -62.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -63.25
-      vertex 37.4 37.75 -63.75
-      vertex 33.8 37.75 -63.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -64.25
-      vertex 37.4 37.75 -64.75
-      vertex 33.8 37.75 -64.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -65.25
-      vertex 37.4 37.75 -65.75
-      vertex 33.8 37.75 -65.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -66.25
-      vertex 37.4 37.75 -66.75
-      vertex 33.8 37.75 -66.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -67.25
-      vertex 37.4 37.75 -67.75
-      vertex 33.8 37.75 -67.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -68.25
-      vertex 37.4 37.75 -68.75
-      vertex 33.8 37.75 -68.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -69.25
-      vertex 37.4 37.75 -69.75
-      vertex 33.8 37.75 -69.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -70.25
-      vertex 37.4 37.75 -70.75
-      vertex 33.8 37.75 -70.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -71.25
-      vertex 37.4 37.75 -71.75
-      vertex 33.8 37.75 -71.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -112.5
-      vertex 33.8 37.75 -112.25
-      vertex 37.4 37.75 -112.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -112.25
-      vertex 37.4 37.75 -112.5
-      vertex 33.8 37.75 -112.5
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -110.75
-      vertex 33.8 37.75 -110.25
-      vertex 37.4 37.75 -110.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -110.25
-      vertex 37.4 37.75 -110.75
-      vertex 33.8 37.75 -110.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -111.75
-      vertex 33.8 37.75 -111.25
-      vertex 37.4 37.75 -111.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -111.25
-      vertex 37.4 37.75 -111.75
-      vertex 33.8 37.75 -111.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -107.75
-      vertex 33.8 37.75 -107.25
-      vertex 37.4 37.75 -107.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -107.25
-      vertex 37.4 37.75 -107.75
-      vertex 33.8 37.75 -107.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -108.75
-      vertex 33.8 37.75 -108.25
-      vertex 37.4 37.75 -108.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -108.25
-      vertex 37.4 37.75 -108.75
-      vertex 33.8 37.75 -108.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -82.75
-      vertex 33.8 37.75 -82.25
-      vertex 37.4 37.75 -82.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -82.25
-      vertex 37.4 37.75 -82.75
-      vertex 33.8 37.75 -82.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -83.75
-      vertex 33.8 37.75 -83.25
-      vertex 37.4 37.75 -83.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -83.25
-      vertex 37.4 37.75 -83.75
-      vertex 33.8 37.75 -83.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -94.75
-      vertex 33.8 37.75 -94.25
-      vertex 37.4 37.75 -94.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -94.25
-      vertex 37.4 37.75 -94.75
-      vertex 33.8 37.75 -94.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -95.75
-      vertex 33.8 37.75 -95.25
-      vertex 37.4 37.75 -95.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -95.25
-      vertex 37.4 37.75 -95.75
-      vertex 33.8 37.75 -95.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -104.75
-      vertex 33.8 37.75 -104.25
-      vertex 37.4 37.75 -104.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -104.25
-      vertex 37.4 37.75 -104.75
-      vertex 33.8 37.75 -104.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -105.75
-      vertex 33.8 37.75 -105.25
-      vertex 37.4 37.75 -105.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -105.25
-      vertex 37.4 37.75 -105.75
-      vertex 33.8 37.75 -105.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -84.75
-      vertex 33.8 37.75 -84.25
-      vertex 37.4 37.75 -84.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -84.25
-      vertex 37.4 37.75 -84.75
-      vertex 33.8 37.75 -84.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -85.75
-      vertex 33.8 37.75 -85.25
-      vertex 37.4 37.75 -85.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -85.25
-      vertex 37.4 37.75 -85.75
-      vertex 33.8 37.75 -85.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -100.75
-      vertex 33.8 37.75 -100.25
-      vertex 37.4 37.75 -100.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -100.25
-      vertex 37.4 37.75 -100.75
-      vertex 33.8 37.75 -100.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -101.75
-      vertex 33.8 37.75 -101.25
-      vertex 37.4 37.75 -101.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -101.25
-      vertex 37.4 37.75 -101.75
-      vertex 33.8 37.75 -101.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -87.75
-      vertex 33.8 37.75 -87.25
-      vertex 37.4 37.75 -87.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -87.25
-      vertex 37.4 37.75 -87.75
-      vertex 33.8 37.75 -87.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -88.75
-      vertex 33.8 37.75 -88.25
-      vertex 37.4 37.75 -88.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -88.25
-      vertex 37.4 37.75 -88.75
-      vertex 33.8 37.75 -88.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -92.75
-      vertex 33.8 37.75 -92.25
-      vertex 37.4 37.75 -92.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -92.25
-      vertex 37.4 37.75 -92.75
-      vertex 33.8 37.75 -92.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -93.75
-      vertex 33.8 37.75 -93.25
-      vertex 37.4 37.75 -93.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -93.25
-      vertex 37.4 37.75 -93.75
-      vertex 33.8 37.75 -93.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -109.75
-      vertex 33.8 37.75 -109.25
-      vertex 37.4 37.75 -109.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -109.25
-      vertex 37.4 37.75 -109.75
-      vertex 33.8 37.75 -109.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -81.75
-      vertex 33.8 37.75 -81.25
-      vertex 37.4 37.75 -81.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -81.25
-      vertex 37.4 37.75 -81.75
-      vertex 33.8 37.75 -81.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -96.75
-      vertex 33.8 37.75 -96.25
-      vertex 37.4 37.75 -96.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -96.25
-      vertex 37.4 37.75 -96.75
-      vertex 33.8 37.75 -96.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -97.75
-      vertex 33.8 37.75 -97.25
-      vertex 37.4 37.75 -97.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -97.25
-      vertex 37.4 37.75 -97.75
-      vertex 33.8 37.75 -97.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -73.75
-      vertex 33.8 37.75 -73.25
-      vertex 37.4 37.75 -73.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -73.25
-      vertex 37.4 37.75 -73.75
-      vertex 33.8 37.75 -73.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -98.75
-      vertex 33.8 37.75 -98.25
-      vertex 37.4 37.75 -98.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -98.25
-      vertex 37.4 37.75 -98.75
-      vertex 33.8 37.75 -98.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -99.75
-      vertex 33.8 37.75 -99.25
-      vertex 37.4 37.75 -99.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -99.25
-      vertex 37.4 37.75 -99.75
-      vertex 33.8 37.75 -99.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -74.75
-      vertex 33.8 37.75 -74.25
-      vertex 37.4 37.75 -74.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -74.25
-      vertex 37.4 37.75 -74.75
-      vertex 33.8 37.75 -74.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -75.75
-      vertex 33.8 37.75 -75.25
-      vertex 37.4 37.75 -75.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -75.25
-      vertex 37.4 37.75 -75.75
-      vertex 33.8 37.75 -75.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -76.75
-      vertex 33.8 37.75 -76.25
-      vertex 37.4 37.75 -76.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -76.25
-      vertex 37.4 37.75 -76.75
-      vertex 33.8 37.75 -76.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -89.75
-      vertex 33.8 37.75 -89.25
-      vertex 37.4 37.75 -89.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -89.25
-      vertex 37.4 37.75 -89.75
-      vertex 33.8 37.75 -89.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -79.75
-      vertex 33.8 37.75 -79.25
-      vertex 37.4 37.75 -79.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -79.25
-      vertex 37.4 37.75 -79.75
-      vertex 33.8 37.75 -79.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -80.75
-      vertex 33.8 37.75 -80.25
-      vertex 37.4 37.75 -80.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -80.25
-      vertex 37.4 37.75 -80.75
-      vertex 33.8 37.75 -80.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -103.75
-      vertex 33.8 37.75 -103.25
-      vertex 37.4 37.75 -103.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -103.25
-      vertex 37.4 37.75 -103.75
-      vertex 33.8 37.75 -103.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -86.75
-      vertex 33.8 37.75 -86.25
-      vertex 37.4 37.75 -86.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -86.25
-      vertex 37.4 37.75 -86.75
-      vertex 33.8 37.75 -86.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -106.75
-      vertex 33.8 37.75 -106.25
-      vertex 37.4 37.75 -106.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -106.25
-      vertex 37.4 37.75 -106.75
-      vertex 33.8 37.75 -106.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -77.75
-      vertex 33.8 37.75 -77.25
-      vertex 37.4 37.75 -77.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -77.25
-      vertex 37.4 37.75 -77.75
-      vertex 33.8 37.75 -77.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -78.75
-      vertex 33.8 37.75 -78.25
-      vertex 37.4 37.75 -78.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -78.25
-      vertex 37.4 37.75 -78.75
-      vertex 33.8 37.75 -78.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -102.75
-      vertex 33.8 37.75 -102.25
-      vertex 37.4 37.75 -102.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -102.25
-      vertex 37.4 37.75 -102.75
-      vertex 33.8 37.75 -102.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -90.75
-      vertex 33.8 37.75 -90.25
-      vertex 37.4 37.75 -90.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -90.25
-      vertex 37.4 37.75 -90.75
-      vertex 33.8 37.75 -90.75
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 37.75 -91.75
-      vertex 33.8 37.75 -91.25
-      vertex 37.4 37.75 -91.25
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 37.75 -91.25
-      vertex 37.4 37.75 -91.75
-      vertex 33.8 37.75 -91.75
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -110.75
-      vertex 37.4 37.75 -110.75
-      vertex 37.4 40 -110.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -110.75
-      vertex 33.8 40 -110.75
-      vertex 33.8 37.75 -110.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -111.25
-      vertex 37.4 40 -111.25
-      vertex 37.4 37.75 -111.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -111.25
-      vertex 33.8 37.75 -111.25
-      vertex 33.8 40 -111.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -111.25
-      vertex 33.8 40 -110.75
-      vertex 37.4 40 -110.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -110.75
-      vertex 37.4 40 -111.25
-      vertex 33.8 40 -111.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -109.75
-      vertex 37.4 37.75 -109.75
-      vertex 37.4 40 -109.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -109.75
-      vertex 33.8 40 -109.75
-      vertex 33.8 37.75 -109.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -110.25
-      vertex 37.4 40 -110.25
-      vertex 37.4 37.75 -110.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -110.25
-      vertex 33.8 37.75 -110.25
-      vertex 33.8 40 -110.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -110.25
-      vertex 33.8 40 -109.75
-      vertex 37.4 40 -109.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -109.75
-      vertex 37.4 40 -110.25
-      vertex 33.8 40 -110.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -108.75
-      vertex 37.4 37.75 -108.75
-      vertex 37.4 40 -108.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -108.75
-      vertex 33.8 40 -108.75
-      vertex 33.8 37.75 -108.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -109.25
-      vertex 37.4 40 -109.25
-      vertex 37.4 37.75 -109.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -109.25
-      vertex 33.8 37.75 -109.25
-      vertex 33.8 40 -109.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -109.25
-      vertex 33.8 40 -108.75
-      vertex 37.4 40 -108.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -108.75
-      vertex 37.4 40 -109.25
-      vertex 33.8 40 -109.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -107.75
-      vertex 37.4 37.75 -107.75
-      vertex 37.4 40 -107.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -107.75
-      vertex 33.8 40 -107.75
-      vertex 33.8 37.75 -107.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -108.25
-      vertex 37.4 40 -108.25
-      vertex 37.4 37.75 -108.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -108.25
-      vertex 33.8 37.75 -108.25
-      vertex 33.8 40 -108.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -108.25
-      vertex 33.8 40 -107.75
-      vertex 37.4 40 -107.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -107.75
-      vertex 37.4 40 -108.25
-      vertex 33.8 40 -108.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -106.75
-      vertex 37.4 37.75 -106.75
-      vertex 37.4 40 -106.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -106.75
-      vertex 33.8 40 -106.75
-      vertex 33.8 37.75 -106.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -107.25
-      vertex 37.4 40 -107.25
-      vertex 37.4 37.75 -107.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -107.25
-      vertex 33.8 37.75 -107.25
-      vertex 33.8 40 -107.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -107.25
-      vertex 33.8 40 -106.75
-      vertex 37.4 40 -106.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -106.75
-      vertex 37.4 40 -107.25
-      vertex 33.8 40 -107.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -105.75
-      vertex 37.4 37.75 -105.75
-      vertex 37.4 40 -105.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -105.75
-      vertex 33.8 40 -105.75
-      vertex 33.8 37.75 -105.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -106.25
-      vertex 37.4 40 -106.25
-      vertex 37.4 37.75 -106.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -106.25
-      vertex 33.8 37.75 -106.25
-      vertex 33.8 40 -106.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -106.25
-      vertex 33.8 40 -105.75
-      vertex 37.4 40 -105.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -105.75
-      vertex 37.4 40 -106.25
-      vertex 33.8 40 -106.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -104.75
-      vertex 37.4 37.75 -104.75
-      vertex 37.4 40 -104.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -104.75
-      vertex 33.8 40 -104.75
-      vertex 33.8 37.75 -104.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -105.25
-      vertex 37.4 40 -105.25
-      vertex 37.4 37.75 -105.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -105.25
-      vertex 33.8 37.75 -105.25
-      vertex 33.8 40 -105.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -105.25
-      vertex 33.8 40 -104.75
-      vertex 37.4 40 -104.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -104.75
-      vertex 37.4 40 -105.25
-      vertex 33.8 40 -105.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -103.75
-      vertex 37.4 37.75 -103.75
-      vertex 37.4 40 -103.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -103.75
-      vertex 33.8 40 -103.75
-      vertex 33.8 37.75 -103.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -104.25
-      vertex 37.4 40 -104.25
-      vertex 37.4 37.75 -104.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -104.25
-      vertex 33.8 37.75 -104.25
-      vertex 33.8 40 -104.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -104.25
-      vertex 33.8 40 -103.75
-      vertex 37.4 40 -103.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -103.75
-      vertex 37.4 40 -104.25
-      vertex 33.8 40 -104.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -102.75
-      vertex 37.4 37.75 -102.75
-      vertex 37.4 40 -102.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -102.75
-      vertex 33.8 40 -102.75
-      vertex 33.8 37.75 -102.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -103.25
-      vertex 37.4 40 -103.25
-      vertex 37.4 37.75 -103.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -103.25
-      vertex 33.8 37.75 -103.25
-      vertex 33.8 40 -103.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -103.25
-      vertex 33.8 40 -102.75
-      vertex 37.4 40 -102.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -102.75
-      vertex 37.4 40 -103.25
-      vertex 33.8 40 -103.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -101.75
-      vertex 37.4 37.75 -101.75
-      vertex 37.4 40 -101.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -101.75
-      vertex 33.8 40 -101.75
-      vertex 33.8 37.75 -101.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -102.25
-      vertex 37.4 40 -102.25
-      vertex 37.4 37.75 -102.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -102.25
-      vertex 33.8 37.75 -102.25
-      vertex 33.8 40 -102.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -102.25
-      vertex 33.8 40 -101.75
-      vertex 37.4 40 -101.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -101.75
-      vertex 37.4 40 -102.25
-      vertex 33.8 40 -102.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -100.75
-      vertex 37.4 37.75 -100.75
-      vertex 37.4 40 -100.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -100.75
-      vertex 33.8 40 -100.75
-      vertex 33.8 37.75 -100.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -101.25
-      vertex 37.4 40 -101.25
-      vertex 37.4 37.75 -101.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -101.25
-      vertex 33.8 37.75 -101.25
-      vertex 33.8 40 -101.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -101.25
-      vertex 33.8 40 -100.75
-      vertex 37.4 40 -100.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -100.75
-      vertex 37.4 40 -101.25
-      vertex 33.8 40 -101.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -99.75
-      vertex 37.4 37.75 -99.75
-      vertex 37.4 40 -99.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -99.75
-      vertex 33.8 40 -99.75
-      vertex 33.8 37.75 -99.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -100.25
-      vertex 37.4 40 -100.25
-      vertex 37.4 37.75 -100.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -100.25
-      vertex 33.8 37.75 -100.25
-      vertex 33.8 40 -100.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -100.25
-      vertex 33.8 40 -99.75
-      vertex 37.4 40 -99.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -99.75
-      vertex 37.4 40 -100.25
-      vertex 33.8 40 -100.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -98.75
-      vertex 37.4 37.75 -98.75
-      vertex 37.4 40 -98.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -98.75
-      vertex 33.8 40 -98.75
-      vertex 33.8 37.75 -98.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -99.25
-      vertex 37.4 40 -99.25
-      vertex 37.4 37.75 -99.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -99.25
-      vertex 33.8 37.75 -99.25
-      vertex 33.8 40 -99.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -99.25
-      vertex 33.8 40 -98.75
-      vertex 37.4 40 -98.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -98.75
-      vertex 37.4 40 -99.25
-      vertex 33.8 40 -99.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -97.75
-      vertex 37.4 37.75 -97.75
-      vertex 37.4 40 -97.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -97.75
-      vertex 33.8 40 -97.75
-      vertex 33.8 37.75 -97.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -98.25
-      vertex 37.4 40 -98.25
-      vertex 37.4 37.75 -98.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -98.25
-      vertex 33.8 37.75 -98.25
-      vertex 33.8 40 -98.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -98.25
-      vertex 33.8 40 -97.75
-      vertex 37.4 40 -97.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -97.75
-      vertex 37.4 40 -98.25
-      vertex 33.8 40 -98.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -96.75
-      vertex 37.4 37.75 -96.75
-      vertex 37.4 40 -96.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -96.75
-      vertex 33.8 40 -96.75
-      vertex 33.8 37.75 -96.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -97.25
-      vertex 37.4 40 -97.25
-      vertex 37.4 37.75 -97.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -97.25
-      vertex 33.8 37.75 -97.25
-      vertex 33.8 40 -97.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -97.25
-      vertex 33.8 40 -96.75
-      vertex 37.4 40 -96.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -96.75
-      vertex 37.4 40 -97.25
-      vertex 33.8 40 -97.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -95.75
-      vertex 37.4 37.75 -95.75
-      vertex 37.4 40 -95.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -95.75
-      vertex 33.8 40 -95.75
-      vertex 33.8 37.75 -95.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -96.25
-      vertex 37.4 40 -96.25
-      vertex 37.4 37.75 -96.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -96.25
-      vertex 33.8 37.75 -96.25
-      vertex 33.8 40 -96.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -96.25
-      vertex 33.8 40 -95.75
-      vertex 37.4 40 -95.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -95.75
-      vertex 37.4 40 -96.25
-      vertex 33.8 40 -96.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -94.75
-      vertex 37.4 37.75 -94.75
-      vertex 37.4 40 -94.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -94.75
-      vertex 33.8 40 -94.75
-      vertex 33.8 37.75 -94.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -95.25
-      vertex 37.4 40 -95.25
-      vertex 37.4 37.75 -95.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -95.25
-      vertex 33.8 37.75 -95.25
-      vertex 33.8 40 -95.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -95.25
-      vertex 33.8 40 -94.75
-      vertex 37.4 40 -94.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -94.75
-      vertex 37.4 40 -95.25
-      vertex 33.8 40 -95.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -93.75
-      vertex 37.4 37.75 -93.75
-      vertex 37.4 40 -93.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -93.75
-      vertex 33.8 40 -93.75
-      vertex 33.8 37.75 -93.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -94.25
-      vertex 37.4 40 -94.25
-      vertex 37.4 37.75 -94.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -94.25
-      vertex 33.8 37.75 -94.25
-      vertex 33.8 40 -94.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -94.25
-      vertex 33.8 40 -93.75
-      vertex 37.4 40 -93.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -93.75
-      vertex 37.4 40 -94.25
-      vertex 33.8 40 -94.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -92.75
-      vertex 37.4 37.75 -92.75
-      vertex 37.4 40 -92.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -92.75
-      vertex 33.8 40 -92.75
-      vertex 33.8 37.75 -92.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -93.25
-      vertex 37.4 40 -93.25
-      vertex 37.4 37.75 -93.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -93.25
-      vertex 33.8 37.75 -93.25
-      vertex 33.8 40 -93.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -93.25
-      vertex 33.8 40 -92.75
-      vertex 37.4 40 -92.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -92.75
-      vertex 37.4 40 -93.25
-      vertex 33.8 40 -93.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -91.75
-      vertex 37.4 37.75 -91.75
-      vertex 37.4 40 -91.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -91.75
-      vertex 33.8 40 -91.75
-      vertex 33.8 37.75 -91.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -92.25
-      vertex 37.4 40 -92.25
-      vertex 37.4 37.75 -92.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -92.25
-      vertex 33.8 37.75 -92.25
-      vertex 33.8 40 -92.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -92.25
-      vertex 33.8 40 -91.75
-      vertex 37.4 40 -91.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -91.75
-      vertex 37.4 40 -92.25
-      vertex 33.8 40 -92.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -90.75
-      vertex 37.4 37.75 -90.75
-      vertex 37.4 40 -90.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -90.75
-      vertex 33.8 40 -90.75
-      vertex 33.8 37.75 -90.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -91.25
-      vertex 37.4 40 -91.25
-      vertex 37.4 37.75 -91.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -91.25
-      vertex 33.8 37.75 -91.25
-      vertex 33.8 40 -91.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -91.25
-      vertex 33.8 40 -90.75
-      vertex 37.4 40 -90.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -90.75
-      vertex 37.4 40 -91.25
-      vertex 33.8 40 -91.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -89.75
-      vertex 37.4 37.75 -89.75
-      vertex 37.4 40 -89.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -89.75
-      vertex 33.8 40 -89.75
-      vertex 33.8 37.75 -89.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -90.25
-      vertex 37.4 40 -90.25
-      vertex 37.4 37.75 -90.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -90.25
-      vertex 33.8 37.75 -90.25
-      vertex 33.8 40 -90.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -90.25
-      vertex 33.8 40 -89.75
-      vertex 37.4 40 -89.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -89.75
-      vertex 37.4 40 -90.25
-      vertex 33.8 40 -90.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -88.75
-      vertex 37.4 37.75 -88.75
-      vertex 37.4 40 -88.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -88.75
-      vertex 33.8 40 -88.75
-      vertex 33.8 37.75 -88.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -89.25
-      vertex 37.4 40 -89.25
-      vertex 37.4 37.75 -89.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -89.25
-      vertex 33.8 37.75 -89.25
-      vertex 33.8 40 -89.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -89.25
-      vertex 33.8 40 -88.75
-      vertex 37.4 40 -88.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -88.75
-      vertex 37.4 40 -89.25
-      vertex 33.8 40 -89.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -87.75
-      vertex 37.4 37.75 -87.75
-      vertex 37.4 40 -87.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -87.75
-      vertex 33.8 40 -87.75
-      vertex 33.8 37.75 -87.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -88.25
-      vertex 37.4 40 -88.25
-      vertex 37.4 37.75 -88.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -88.25
-      vertex 33.8 37.75 -88.25
-      vertex 33.8 40 -88.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -88.25
-      vertex 33.8 40 -87.75
-      vertex 37.4 40 -87.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -87.75
-      vertex 37.4 40 -88.25
-      vertex 33.8 40 -88.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -86.75
-      vertex 37.4 37.75 -86.75
-      vertex 37.4 40 -86.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -86.75
-      vertex 33.8 40 -86.75
-      vertex 33.8 37.75 -86.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -87.25
-      vertex 37.4 40 -87.25
-      vertex 37.4 37.75 -87.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -87.25
-      vertex 33.8 37.75 -87.25
-      vertex 33.8 40 -87.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -87.25
-      vertex 33.8 40 -86.75
-      vertex 37.4 40 -86.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -86.75
-      vertex 37.4 40 -87.25
-      vertex 33.8 40 -87.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -85.75
-      vertex 37.4 37.75 -85.75
-      vertex 37.4 40 -85.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -85.75
-      vertex 33.8 40 -85.75
-      vertex 33.8 37.75 -85.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -86.25
-      vertex 37.4 40 -86.25
-      vertex 37.4 37.75 -86.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -86.25
-      vertex 33.8 37.75 -86.25
-      vertex 33.8 40 -86.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -86.25
-      vertex 33.8 40 -85.75
-      vertex 37.4 40 -85.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -85.75
-      vertex 37.4 40 -86.25
-      vertex 33.8 40 -86.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -84.75
-      vertex 37.4 37.75 -84.75
-      vertex 37.4 40 -84.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -84.75
-      vertex 33.8 40 -84.75
-      vertex 33.8 37.75 -84.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -85.25
-      vertex 37.4 40 -85.25
-      vertex 37.4 37.75 -85.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -85.25
-      vertex 33.8 37.75 -85.25
-      vertex 33.8 40 -85.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -85.25
-      vertex 33.8 40 -84.75
-      vertex 37.4 40 -84.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -84.75
-      vertex 37.4 40 -85.25
-      vertex 33.8 40 -85.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -83.75
-      vertex 37.4 37.75 -83.75
-      vertex 37.4 40 -83.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -83.75
-      vertex 33.8 40 -83.75
-      vertex 33.8 37.75 -83.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -84.25
-      vertex 37.4 40 -84.25
-      vertex 37.4 37.75 -84.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -84.25
-      vertex 33.8 37.75 -84.25
-      vertex 33.8 40 -84.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -84.25
-      vertex 33.8 40 -83.75
-      vertex 37.4 40 -83.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -83.75
-      vertex 37.4 40 -84.25
-      vertex 33.8 40 -84.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -82.75
-      vertex 37.4 37.75 -82.75
-      vertex 37.4 40 -82.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -82.75
-      vertex 33.8 40 -82.75
-      vertex 33.8 37.75 -82.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -83.25
-      vertex 37.4 40 -83.25
-      vertex 37.4 37.75 -83.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -83.25
-      vertex 33.8 37.75 -83.25
-      vertex 33.8 40 -83.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -83.25
-      vertex 33.8 40 -82.75
-      vertex 37.4 40 -82.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -82.75
-      vertex 37.4 40 -83.25
-      vertex 33.8 40 -83.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -81.75
-      vertex 37.4 37.75 -81.75
-      vertex 37.4 40 -81.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -81.75
-      vertex 33.8 40 -81.75
-      vertex 33.8 37.75 -81.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -82.25
-      vertex 37.4 40 -82.25
-      vertex 37.4 37.75 -82.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -82.25
-      vertex 33.8 37.75 -82.25
-      vertex 33.8 40 -82.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -82.25
-      vertex 33.8 40 -81.75
-      vertex 37.4 40 -81.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -81.75
-      vertex 37.4 40 -82.25
-      vertex 33.8 40 -82.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -80.75
-      vertex 37.4 37.75 -80.75
-      vertex 37.4 40 -80.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -80.75
-      vertex 33.8 40 -80.75
-      vertex 33.8 37.75 -80.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -81.25
-      vertex 37.4 40 -81.25
-      vertex 37.4 37.75 -81.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -81.25
-      vertex 33.8 37.75 -81.25
-      vertex 33.8 40 -81.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -81.25
-      vertex 33.8 40 -80.75
-      vertex 37.4 40 -80.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -80.75
-      vertex 37.4 40 -81.25
-      vertex 33.8 40 -81.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -79.75
-      vertex 37.4 37.75 -79.75
-      vertex 37.4 40 -79.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -79.75
-      vertex 33.8 40 -79.75
-      vertex 33.8 37.75 -79.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -80.25
-      vertex 37.4 40 -80.25
-      vertex 37.4 37.75 -80.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -80.25
-      vertex 33.8 37.75 -80.25
-      vertex 33.8 40 -80.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -80.25
-      vertex 33.8 40 -79.75
-      vertex 37.4 40 -79.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -79.75
-      vertex 37.4 40 -80.25
-      vertex 33.8 40 -80.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -78.75
-      vertex 37.4 37.75 -78.75
-      vertex 37.4 40 -78.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -78.75
-      vertex 33.8 40 -78.75
-      vertex 33.8 37.75 -78.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -79.25
-      vertex 37.4 40 -79.25
-      vertex 37.4 37.75 -79.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -79.25
-      vertex 33.8 37.75 -79.25
-      vertex 33.8 40 -79.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -79.25
-      vertex 33.8 40 -78.75
-      vertex 37.4 40 -78.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -78.75
-      vertex 37.4 40 -79.25
-      vertex 33.8 40 -79.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -77.75
-      vertex 37.4 37.75 -77.75
-      vertex 37.4 40 -77.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -77.75
-      vertex 33.8 40 -77.75
-      vertex 33.8 37.75 -77.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -78.25
-      vertex 37.4 40 -78.25
-      vertex 37.4 37.75 -78.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -78.25
-      vertex 33.8 37.75 -78.25
-      vertex 33.8 40 -78.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -78.25
-      vertex 33.8 40 -77.75
-      vertex 37.4 40 -77.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -77.75
-      vertex 37.4 40 -78.25
-      vertex 33.8 40 -78.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -76.75
-      vertex 37.4 37.75 -76.75
-      vertex 37.4 40 -76.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -76.75
-      vertex 33.8 40 -76.75
-      vertex 33.8 37.75 -76.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -77.25
-      vertex 37.4 40 -77.25
-      vertex 37.4 37.75 -77.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -77.25
-      vertex 33.8 37.75 -77.25
-      vertex 33.8 40 -77.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -77.25
-      vertex 33.8 40 -76.75
-      vertex 37.4 40 -76.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -76.75
-      vertex 37.4 40 -77.25
-      vertex 33.8 40 -77.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -75.75
-      vertex 37.4 37.75 -75.75
-      vertex 37.4 40 -75.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -75.75
-      vertex 33.8 40 -75.75
-      vertex 33.8 37.75 -75.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -76.25
-      vertex 37.4 40 -76.25
-      vertex 37.4 37.75 -76.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -76.25
-      vertex 33.8 37.75 -76.25
-      vertex 33.8 40 -76.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -76.25
-      vertex 33.8 40 -75.75
-      vertex 37.4 40 -75.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -75.75
-      vertex 37.4 40 -76.25
-      vertex 33.8 40 -76.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -74.75
-      vertex 37.4 37.75 -74.75
-      vertex 37.4 40 -74.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -74.75
-      vertex 33.8 40 -74.75
-      vertex 33.8 37.75 -74.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -75.25
-      vertex 37.4 40 -75.25
-      vertex 37.4 37.75 -75.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -75.25
-      vertex 33.8 37.75 -75.25
-      vertex 33.8 40 -75.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -75.25
-      vertex 33.8 40 -74.75
-      vertex 37.4 40 -74.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -74.75
-      vertex 37.4 40 -75.25
-      vertex 33.8 40 -75.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -73.75
-      vertex 37.4 37.75 -73.75
-      vertex 37.4 40 -73.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -73.75
-      vertex 33.8 40 -73.75
-      vertex 33.8 37.75 -73.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -74.25
-      vertex 37.4 40 -74.25
-      vertex 37.4 37.75 -74.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -74.25
-      vertex 33.8 37.75 -74.25
-      vertex 33.8 40 -74.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -74.25
-      vertex 33.8 40 -73.75
-      vertex 37.4 40 -73.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -73.75
-      vertex 37.4 40 -74.25
-      vertex 33.8 40 -74.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -72.75
-      vertex 37.4 37.75 -72.75
-      vertex 37.4 40 -72.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -72.75
-      vertex 33.8 40 -72.75
-      vertex 33.8 37.75 -72.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -73.25
-      vertex 37.4 40 -73.25
-      vertex 37.4 37.75 -73.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -73.25
-      vertex 33.8 37.75 -73.25
-      vertex 33.8 40 -73.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -73.25
-      vertex 33.8 40 -72.75
-      vertex 37.4 40 -72.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -72.75
-      vertex 37.4 40 -73.25
-      vertex 33.8 40 -73.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -71.75
-      vertex 37.4 37.75 -71.75
-      vertex 37.4 40 -71.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -71.75
-      vertex 33.8 40 -71.75
-      vertex 33.8 37.75 -71.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -72.25
-      vertex 37.4 40 -72.25
-      vertex 37.4 37.75 -72.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -72.25
-      vertex 33.8 37.75 -72.25
-      vertex 33.8 40 -72.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -72.25
-      vertex 33.8 40 -71.75
-      vertex 37.4 40 -71.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -71.75
-      vertex 37.4 40 -72.25
-      vertex 33.8 40 -72.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -70.75
-      vertex 37.4 37.75 -70.75
-      vertex 37.4 40 -70.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -70.75
-      vertex 33.8 40 -70.75
-      vertex 33.8 37.75 -70.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -71.25
-      vertex 37.4 40 -71.25
-      vertex 37.4 37.75 -71.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -71.25
-      vertex 33.8 37.75 -71.25
-      vertex 33.8 40 -71.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -71.25
-      vertex 33.8 40 -70.75
-      vertex 37.4 40 -70.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -70.75
-      vertex 37.4 40 -71.25
-      vertex 33.8 40 -71.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -69.75
-      vertex 37.4 37.75 -69.75
-      vertex 37.4 40 -69.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -69.75
-      vertex 33.8 40 -69.75
-      vertex 33.8 37.75 -69.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -70.25
-      vertex 37.4 40 -70.25
-      vertex 37.4 37.75 -70.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -70.25
-      vertex 33.8 37.75 -70.25
-      vertex 33.8 40 -70.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -70.25
-      vertex 33.8 40 -69.75
-      vertex 37.4 40 -69.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -69.75
-      vertex 37.4 40 -70.25
-      vertex 33.8 40 -70.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -68.75
-      vertex 37.4 37.75 -68.75
-      vertex 37.4 40 -68.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -68.75
-      vertex 33.8 40 -68.75
-      vertex 33.8 37.75 -68.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -69.25
-      vertex 37.4 40 -69.25
-      vertex 37.4 37.75 -69.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -69.25
-      vertex 33.8 37.75 -69.25
-      vertex 33.8 40 -69.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -69.25
-      vertex 33.8 40 -68.75
-      vertex 37.4 40 -68.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -68.75
-      vertex 37.4 40 -69.25
-      vertex 33.8 40 -69.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -67.75
-      vertex 37.4 37.75 -67.75
-      vertex 37.4 40 -67.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -67.75
-      vertex 33.8 40 -67.75
-      vertex 33.8 37.75 -67.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -68.25
-      vertex 37.4 40 -68.25
-      vertex 37.4 37.75 -68.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -68.25
-      vertex 33.8 37.75 -68.25
-      vertex 33.8 40 -68.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -68.25
-      vertex 33.8 40 -67.75
-      vertex 37.4 40 -67.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -67.75
-      vertex 37.4 40 -68.25
-      vertex 33.8 40 -68.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -66.75
-      vertex 37.4 37.75 -66.75
-      vertex 37.4 40 -66.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -66.75
-      vertex 33.8 40 -66.75
-      vertex 33.8 37.75 -66.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -67.25
-      vertex 37.4 40 -67.25
-      vertex 37.4 37.75 -67.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -67.25
-      vertex 33.8 37.75 -67.25
-      vertex 33.8 40 -67.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -67.25
-      vertex 33.8 40 -66.75
-      vertex 37.4 40 -66.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -66.75
-      vertex 37.4 40 -67.25
-      vertex 33.8 40 -67.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -65.75
-      vertex 37.4 37.75 -65.75
-      vertex 37.4 40 -65.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -65.75
-      vertex 33.8 40 -65.75
-      vertex 33.8 37.75 -65.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -66.25
-      vertex 37.4 40 -66.25
-      vertex 37.4 37.75 -66.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -66.25
-      vertex 33.8 37.75 -66.25
-      vertex 33.8 40 -66.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -66.25
-      vertex 33.8 40 -65.75
-      vertex 37.4 40 -65.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -65.75
-      vertex 37.4 40 -66.25
-      vertex 33.8 40 -66.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -64.75
-      vertex 37.4 37.75 -64.75
-      vertex 37.4 40 -64.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -64.75
-      vertex 33.8 40 -64.75
-      vertex 33.8 37.75 -64.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -65.25
-      vertex 37.4 40 -65.25
-      vertex 37.4 37.75 -65.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -65.25
-      vertex 33.8 37.75 -65.25
-      vertex 33.8 40 -65.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -65.25
-      vertex 33.8 40 -64.75
-      vertex 37.4 40 -64.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -64.75
-      vertex 37.4 40 -65.25
-      vertex 33.8 40 -65.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -63.75
-      vertex 37.4 37.75 -63.75
-      vertex 37.4 40 -63.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -63.75
-      vertex 33.8 40 -63.75
-      vertex 33.8 37.75 -63.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -64.25
-      vertex 37.4 40 -64.25
-      vertex 37.4 37.75 -64.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -64.25
-      vertex 33.8 37.75 -64.25
-      vertex 33.8 40 -64.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -64.25
-      vertex 33.8 40 -63.75
-      vertex 37.4 40 -63.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -63.75
-      vertex 37.4 40 -64.25
-      vertex 33.8 40 -64.25
-    endloop
-  endfacet
-  facet normal -0 0 1
-    outer loop
-      vertex 33.8 40 -62.75
-      vertex 37.4 37.75 -62.75
-      vertex 37.4 40 -62.75
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex 37.4 37.75 -62.75
-      vertex 33.8 40 -62.75
-      vertex 33.8 37.75 -62.75
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex 33.8 37.75 -63.25
-      vertex 37.4 40 -63.25
-      vertex 37.4 37.75 -63.25
-    endloop
-  endfacet
-  facet normal -0 0 -1
-    outer loop
-      vertex 37.4 40 -63.25
-      vertex 33.8 37.75 -63.25
-      vertex 33.8 40 -63.25
-    endloop
-  endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 37.4 40 -63.25
-      vertex 33.8 40 -62.75
-      vertex 37.4 40 -62.75
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex 33.8 40 -62.75
-      vertex 37.4 40 -63.25
-      vertex 33.8 40 -63.25
+      vertex 37.4 40 -71.0173
+      vertex 37.4 37.75 -69.4599
+      vertex 37.4 37.75 -71.8327
     endloop
   endfacet
   facet normal -0 0 1
@@ -5681,6 +417,720 @@ solid OpenSCAD_Model
       vertex 37.4 37.75 -112.5
       vertex 33.8 34 -112.5
       vertex 33.8 37.75 -112.5
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -109.532
+      vertex 33.8 37.75 -112.5
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -109.532
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -107.159
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -107.159
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -106.39
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -106.39
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -104.017
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -104.017
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -103.249
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -103.249
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -100.876
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -100.876
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -100.107
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -100.107
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -97.7343
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -97.7343
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -96.9654
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -96.9654
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -94.5927
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -94.5927
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -93.8238
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -93.8238
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -91.4511
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -91.4511
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -90.6822
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -90.6822
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -88.3095
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 37.75 -88.3095
+      vertex 33.8 34 -112.5
+      vertex 33.8 37.75 -87.5406
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -87.5406
+      vertex 33.8 34 -112.5
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -87.5406
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -85.1679
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -85.1679
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -84.3991
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -84.3991
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -82.0263
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -82.0263
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -81.2575
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -81.2575
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -78.8847
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -78.8847
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -78.1159
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -78.1159
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -75.7431
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -75.7431
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -74.9743
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -74.9743
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -72.6015
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -72.6015
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -71.8327
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -71.8327
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -69.4599
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -69.4599
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -68.6911
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -68.6911
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -66.3183
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -66.3183
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -65.5495
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -65.5495
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -63.1767
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -63.1767
+      vertex 33.8 34 -62.5
+      vertex 33.8 37.75 -62.5
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -109.532
+      vertex 33.8 40 -107.974
+      vertex 33.8 40 -108.716
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -107.974
+      vertex 33.8 37.75 -109.532
+      vertex 33.8 37.75 -107.159
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -106.39
+      vertex 33.8 40 -104.833
+      vertex 33.8 40 -105.575
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -104.833
+      vertex 33.8 37.75 -106.39
+      vertex 33.8 37.75 -104.017
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -103.249
+      vertex 33.8 40 -101.691
+      vertex 33.8 40 -102.433
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -101.691
+      vertex 33.8 37.75 -103.249
+      vertex 33.8 37.75 -100.876
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -100.107
+      vertex 33.8 40 -98.5496
+      vertex 33.8 40 -99.2916
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -98.5496
+      vertex 33.8 37.75 -100.107
+      vertex 33.8 37.75 -97.7343
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -96.9654
+      vertex 33.8 40 -95.4081
+      vertex 33.8 40 -96.15
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -95.4081
+      vertex 33.8 37.75 -96.9654
+      vertex 33.8 37.75 -94.5927
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -93.8238
+      vertex 33.8 40 -92.2664
+      vertex 33.8 40 -93.0085
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -92.2664
+      vertex 33.8 37.75 -93.8238
+      vertex 33.8 37.75 -91.4511
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -90.6822
+      vertex 33.8 40 -89.1249
+      vertex 33.8 40 -89.8669
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -89.1249
+      vertex 33.8 37.75 -90.6822
+      vertex 33.8 37.75 -88.3095
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -87.5406
+      vertex 33.8 40 -85.9833
+      vertex 33.8 40 -86.7253
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -85.9833
+      vertex 33.8 37.75 -87.5406
+      vertex 33.8 37.75 -85.1679
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -84.3991
+      vertex 33.8 40 -82.8417
+      vertex 33.8 40 -83.5837
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -82.8417
+      vertex 33.8 37.75 -84.3991
+      vertex 33.8 37.75 -82.0263
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -81.2575
+      vertex 33.8 40 -79.7001
+      vertex 33.8 40 -80.4421
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -79.7001
+      vertex 33.8 37.75 -81.2575
+      vertex 33.8 37.75 -78.8847
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -78.1159
+      vertex 33.8 40 -76.5585
+      vertex 33.8 40 -77.3005
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -76.5585
+      vertex 33.8 37.75 -78.1159
+      vertex 33.8 37.75 -75.7431
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -74.9743
+      vertex 33.8 40 -73.4169
+      vertex 33.8 40 -74.1589
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -73.4169
+      vertex 33.8 37.75 -74.9743
+      vertex 33.8 37.75 -72.6015
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -71.8327
+      vertex 33.8 40 -70.2753
+      vertex 33.8 40 -71.0173
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -70.2753
+      vertex 33.8 37.75 -71.8327
+      vertex 33.8 37.75 -69.4599
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -68.6911
+      vertex 33.8 40 -67.1337
+      vertex 33.8 40 -67.8757
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -67.1337
+      vertex 33.8 37.75 -68.6911
+      vertex 33.8 37.75 -66.3183
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 33.8 37.75 -65.5495
+      vertex 33.8 40 -63.9921
+      vertex 33.8 40 -64.7341
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex 33.8 40 -63.9921
+      vertex 33.8 37.75 -65.5495
+      vertex 33.8 37.75 -63.1767
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.6 37.75 -62.5
+      vertex 37.4 37.75 -63.1767
+      vertex 33.8 37.75 -62.5
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.6 37.75 -62.5
+      vertex 37.4 37.75 -65.5495
+      vertex 37.4 37.75 -63.1767
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.4 37.75 -65.5495
+      vertex 37.4 37.75 -66.3183
+      vertex 33.8 37.75 -65.5495
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.6 37.75 -62.5
+      vertex 37.4 37.75 -66.3183
+      vertex 37.4 37.75 -65.5495
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.6 37.75 -62.5
+      vertex 37.4 37.75 -68.6911
+      vertex 37.4 37.75 -66.3183
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.4 37.75 -68.6911
+      vertex 37.4 37.75 -69.4599
+      vertex 33.8 37.75 -68.6911
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.6 37.75 -72.5
+      vertex 37.4 37.75 -68.6911
+      vertex 37.6 37.75 -62.5
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.4 37.75 -68.6911
+      vertex 37.6 37.75 -72.5
+      vertex 37.4 37.75 -69.4599
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.4 37.75 -69.4599
+      vertex 37.6 37.75 -72.5
+      vertex 37.4 37.75 -71.8327
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.4 37.75 -72.5
+      vertex 37.4 37.75 -71.8327
+      vertex 37.6 37.75 -72.5
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.4 37.75 -71.8327
+      vertex 37.4 37.75 -72.5
+      vertex 33.8 37.75 -71.8327
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -72.6015
+      vertex 37.4 37.75 -72.5
+      vertex 37.4 37.75 -72.6015
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 37.4 37.75 -72.5
+      vertex 33.8 37.75 -72.6015
+      vertex 33.8 37.75 -71.8327
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -62.5
+      vertex 37.4 37.75 -63.1767
+      vertex 33.8 37.75 -63.1767
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -65.5495
+      vertex 37.4 37.75 -66.3183
+      vertex 33.8 37.75 -66.3183
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -68.6911
+      vertex 37.4 37.75 -69.4599
+      vertex 33.8 37.75 -69.4599
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -112.5
+      vertex 33.8 37.75 -109.532
+      vertex 37.4 37.75 -109.532
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -109.532
+      vertex 37.4 37.75 -112.5
+      vertex 33.8 37.75 -112.5
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -88.3095
+      vertex 33.8 37.75 -87.5406
+      vertex 37.4 37.75 -87.5406
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -87.5406
+      vertex 37.4 37.75 -88.3095
+      vertex 33.8 37.75 -88.3095
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -91.4511
+      vertex 33.8 37.75 -90.6822
+      vertex 37.4 37.75 -90.6822
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -90.6822
+      vertex 37.4 37.75 -91.4511
+      vertex 33.8 37.75 -91.4511
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -94.5927
+      vertex 33.8 37.75 -93.8238
+      vertex 37.4 37.75 -93.8238
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -93.8238
+      vertex 37.4 37.75 -94.5927
+      vertex 33.8 37.75 -94.5927
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -97.7343
+      vertex 33.8 37.75 -96.9654
+      vertex 37.4 37.75 -96.9654
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -96.9654
+      vertex 37.4 37.75 -97.7343
+      vertex 33.8 37.75 -97.7343
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -100.876
+      vertex 33.8 37.75 -100.107
+      vertex 37.4 37.75 -100.107
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -100.107
+      vertex 37.4 37.75 -100.876
+      vertex 33.8 37.75 -100.876
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -104.017
+      vertex 33.8 37.75 -103.249
+      vertex 37.4 37.75 -103.249
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -103.249
+      vertex 37.4 37.75 -104.017
+      vertex 33.8 37.75 -104.017
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -107.159
+      vertex 33.8 37.75 -106.39
+      vertex 37.4 37.75 -106.39
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -106.39
+      vertex 37.4 37.75 -107.159
+      vertex 33.8 37.75 -107.159
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -75.7431
+      vertex 33.8 37.75 -74.9743
+      vertex 37.4 37.75 -74.9743
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -74.9743
+      vertex 37.4 37.75 -75.7431
+      vertex 33.8 37.75 -75.7431
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -78.8847
+      vertex 33.8 37.75 -78.1159
+      vertex 37.4 37.75 -78.1159
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -78.1159
+      vertex 37.4 37.75 -78.8847
+      vertex 33.8 37.75 -78.8847
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -82.0263
+      vertex 33.8 37.75 -81.2575
+      vertex 37.4 37.75 -81.2575
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -81.2575
+      vertex 37.4 37.75 -82.0263
+      vertex 33.8 37.75 -82.0263
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 37.75 -85.1679
+      vertex 33.8 37.75 -84.3991
+      vertex 37.4 37.75 -84.3991
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 37.75 -84.3991
+      vertex 37.4 37.75 -85.1679
+      vertex 33.8 37.75 -85.1679
     endloop
   endfacet
   facet normal 0 -1 0
@@ -5709,6 +1159,636 @@ solid OpenSCAD_Model
       vertex 37.6 34 -62.5
       vertex 37.4 34 -72.5
       vertex 37.6 34 -72.5
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -64.7341
+      vertex 33.8 40 -63.9921
+      vertex 37.4 40 -63.9921
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -63.9921
+      vertex 37.4 40 -64.7341
+      vertex 33.8 40 -64.7341
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -63.9921
+      vertex 37.4 37.75 -63.1767
+      vertex 37.4 40 -63.9921
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -63.1767
+      vertex 33.8 40 -63.9921
+      vertex 33.8 37.75 -63.1767
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -65.5495
+      vertex 37.4 40 -64.7341
+      vertex 37.4 37.75 -65.5495
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -64.7341
+      vertex 33.8 37.75 -65.5495
+      vertex 33.8 40 -64.7341
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -67.8757
+      vertex 33.8 40 -67.1337
+      vertex 37.4 40 -67.1337
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -67.1337
+      vertex 37.4 40 -67.8757
+      vertex 33.8 40 -67.8757
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -67.1337
+      vertex 37.4 37.75 -66.3183
+      vertex 37.4 40 -67.1337
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -66.3183
+      vertex 33.8 40 -67.1337
+      vertex 33.8 37.75 -66.3183
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -68.6911
+      vertex 37.4 40 -67.8757
+      vertex 37.4 37.75 -68.6911
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -67.8757
+      vertex 33.8 37.75 -68.6911
+      vertex 33.8 40 -67.8757
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -71.0173
+      vertex 33.8 40 -70.2753
+      vertex 37.4 40 -70.2753
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -70.2753
+      vertex 37.4 40 -71.0173
+      vertex 33.8 40 -71.0173
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -70.2753
+      vertex 37.4 37.75 -69.4599
+      vertex 37.4 40 -70.2753
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -69.4599
+      vertex 33.8 40 -70.2753
+      vertex 33.8 37.75 -69.4599
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -71.8327
+      vertex 37.4 40 -71.0173
+      vertex 37.4 37.75 -71.8327
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -71.0173
+      vertex 33.8 37.75 -71.8327
+      vertex 33.8 40 -71.0173
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -74.1589
+      vertex 33.8 40 -73.4169
+      vertex 37.4 40 -73.4169
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -73.4169
+      vertex 37.4 40 -74.1589
+      vertex 33.8 40 -74.1589
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -73.4169
+      vertex 37.4 37.75 -72.6015
+      vertex 37.4 40 -73.4169
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -72.6015
+      vertex 33.8 40 -73.4169
+      vertex 33.8 37.75 -72.6015
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -74.9743
+      vertex 37.4 40 -74.1589
+      vertex 37.4 37.75 -74.9743
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -74.1589
+      vertex 33.8 37.75 -74.9743
+      vertex 33.8 40 -74.1589
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -77.3005
+      vertex 33.8 40 -76.5585
+      vertex 37.4 40 -76.5585
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -76.5585
+      vertex 37.4 40 -77.3005
+      vertex 33.8 40 -77.3005
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -76.5585
+      vertex 37.4 37.75 -75.7431
+      vertex 37.4 40 -76.5585
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -75.7431
+      vertex 33.8 40 -76.5585
+      vertex 33.8 37.75 -75.7431
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -78.1159
+      vertex 37.4 40 -77.3005
+      vertex 37.4 37.75 -78.1159
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -77.3005
+      vertex 33.8 37.75 -78.1159
+      vertex 33.8 40 -77.3005
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -80.4421
+      vertex 33.8 40 -79.7001
+      vertex 37.4 40 -79.7001
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -79.7001
+      vertex 37.4 40 -80.4421
+      vertex 33.8 40 -80.4421
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -79.7001
+      vertex 37.4 37.75 -78.8847
+      vertex 37.4 40 -79.7001
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -78.8847
+      vertex 33.8 40 -79.7001
+      vertex 33.8 37.75 -78.8847
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -81.2575
+      vertex 37.4 40 -80.4421
+      vertex 37.4 37.75 -81.2575
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -80.4421
+      vertex 33.8 37.75 -81.2575
+      vertex 33.8 40 -80.4421
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -83.5837
+      vertex 33.8 40 -82.8417
+      vertex 37.4 40 -82.8417
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -82.8417
+      vertex 37.4 40 -83.5837
+      vertex 33.8 40 -83.5837
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -82.8417
+      vertex 37.4 37.75 -82.0263
+      vertex 37.4 40 -82.8417
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -82.0263
+      vertex 33.8 40 -82.8417
+      vertex 33.8 37.75 -82.0263
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -84.3991
+      vertex 37.4 40 -83.5837
+      vertex 37.4 37.75 -84.3991
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -83.5837
+      vertex 33.8 37.75 -84.3991
+      vertex 33.8 40 -83.5837
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -86.7253
+      vertex 33.8 40 -85.9833
+      vertex 37.4 40 -85.9833
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -85.9833
+      vertex 37.4 40 -86.7253
+      vertex 33.8 40 -86.7253
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -85.9833
+      vertex 37.4 37.75 -85.1679
+      vertex 37.4 40 -85.9833
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -85.1679
+      vertex 33.8 40 -85.9833
+      vertex 33.8 37.75 -85.1679
+    endloop
+  endfacet
+  facet normal 0 0.340679 -0.94018
+    outer loop
+      vertex 33.8 37.75 -87.5406
+      vertex 37.4 40 -86.7253
+      vertex 37.4 37.75 -87.5406
+    endloop
+  endfacet
+  facet normal 0 0.340679 -0.94018
+    outer loop
+      vertex 37.4 40 -86.7253
+      vertex 33.8 37.75 -87.5406
+      vertex 33.8 40 -86.7253
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -89.8669
+      vertex 33.8 40 -89.1249
+      vertex 37.4 40 -89.1249
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -89.1249
+      vertex 37.4 40 -89.8669
+      vertex 33.8 40 -89.8669
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -89.1249
+      vertex 37.4 37.75 -88.3095
+      vertex 37.4 40 -89.1249
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -88.3095
+      vertex 33.8 40 -89.1249
+      vertex 33.8 37.75 -88.3095
+    endloop
+  endfacet
+  facet normal 0 0.340679 -0.94018
+    outer loop
+      vertex 33.8 37.75 -90.6822
+      vertex 37.4 40 -89.8669
+      vertex 37.4 37.75 -90.6822
+    endloop
+  endfacet
+  facet normal 0 0.340679 -0.94018
+    outer loop
+      vertex 37.4 40 -89.8669
+      vertex 33.8 37.75 -90.6822
+      vertex 33.8 40 -89.8669
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -93.0085
+      vertex 33.8 40 -92.2664
+      vertex 37.4 40 -92.2664
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -92.2664
+      vertex 37.4 40 -93.0085
+      vertex 33.8 40 -93.0085
+    endloop
+  endfacet
+  facet normal -0 0.340679 0.94018
+    outer loop
+      vertex 33.8 40 -92.2664
+      vertex 37.4 37.75 -91.4511
+      vertex 37.4 40 -92.2664
+    endloop
+  endfacet
+  facet normal 0 0.340679 0.94018
+    outer loop
+      vertex 37.4 37.75 -91.4511
+      vertex 33.8 40 -92.2664
+      vertex 33.8 37.75 -91.4511
+    endloop
+  endfacet
+  facet normal 0 0.340679 -0.94018
+    outer loop
+      vertex 33.8 37.75 -93.8238
+      vertex 37.4 40 -93.0085
+      vertex 37.4 37.75 -93.8238
+    endloop
+  endfacet
+  facet normal 0 0.340679 -0.94018
+    outer loop
+      vertex 37.4 40 -93.0085
+      vertex 33.8 37.75 -93.8238
+      vertex 33.8 40 -93.0085
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -96.15
+      vertex 33.8 40 -95.4081
+      vertex 37.4 40 -95.4081
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -95.4081
+      vertex 37.4 40 -96.15
+      vertex 33.8 40 -96.15
+    endloop
+  endfacet
+  facet normal -0 0.340716 0.940166
+    outer loop
+      vertex 33.8 40 -95.4081
+      vertex 37.4 37.75 -94.5927
+      vertex 37.4 40 -95.4081
+    endloop
+  endfacet
+  facet normal 0 0.340716 0.940166
+    outer loop
+      vertex 37.4 37.75 -94.5927
+      vertex 33.8 40 -95.4081
+      vertex 33.8 37.75 -94.5927
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -96.9654
+      vertex 37.4 40 -96.15
+      vertex 37.4 37.75 -96.9654
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -96.15
+      vertex 33.8 37.75 -96.9654
+      vertex 33.8 40 -96.15
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -99.2916
+      vertex 33.8 40 -98.5496
+      vertex 37.4 40 -98.5496
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -98.5496
+      vertex 37.4 40 -99.2916
+      vertex 33.8 40 -99.2916
+    endloop
+  endfacet
+  facet normal -0 0.340679 0.94018
+    outer loop
+      vertex 33.8 40 -98.5496
+      vertex 37.4 37.75 -97.7343
+      vertex 37.4 40 -98.5496
+    endloop
+  endfacet
+  facet normal 0 0.340679 0.94018
+    outer loop
+      vertex 37.4 37.75 -97.7343
+      vertex 33.8 40 -98.5496
+      vertex 33.8 37.75 -97.7343
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 33.8 37.75 -100.107
+      vertex 37.4 40 -99.2916
+      vertex 37.4 37.75 -100.107
+    endloop
+  endfacet
+  facet normal 0 0.340716 -0.940166
+    outer loop
+      vertex 37.4 40 -99.2916
+      vertex 33.8 37.75 -100.107
+      vertex 33.8 40 -99.2916
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -102.433
+      vertex 33.8 40 -101.691
+      vertex 37.4 40 -101.691
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -101.691
+      vertex 37.4 40 -102.433
+      vertex 33.8 40 -102.433
+    endloop
+  endfacet
+  facet normal -0 0.340568 0.94022
+    outer loop
+      vertex 33.8 40 -101.691
+      vertex 37.4 37.75 -100.876
+      vertex 37.4 40 -101.691
+    endloop
+  endfacet
+  facet normal 0 0.340568 0.94022
+    outer loop
+      vertex 37.4 37.75 -100.876
+      vertex 33.8 40 -101.691
+      vertex 33.8 37.75 -100.876
+    endloop
+  endfacet
+  facet normal 0 0.340938 -0.940086
+    outer loop
+      vertex 33.8 37.75 -103.249
+      vertex 37.4 40 -102.433
+      vertex 37.4 37.75 -103.249
+    endloop
+  endfacet
+  facet normal 0 0.340938 -0.940086
+    outer loop
+      vertex 37.4 40 -102.433
+      vertex 33.8 37.75 -103.249
+      vertex 33.8 40 -102.433
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -105.575
+      vertex 33.8 40 -104.833
+      vertex 37.4 40 -104.833
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -104.833
+      vertex 37.4 40 -105.575
+      vertex 33.8 40 -105.575
+    endloop
+  endfacet
+  facet normal -0 0.340938 0.940086
+    outer loop
+      vertex 33.8 40 -104.833
+      vertex 37.4 37.75 -104.017
+      vertex 37.4 40 -104.833
+    endloop
+  endfacet
+  facet normal 0 0.340938 0.940086
+    outer loop
+      vertex 37.4 37.75 -104.017
+      vertex 33.8 40 -104.833
+      vertex 33.8 37.75 -104.017
+    endloop
+  endfacet
+  facet normal 0 0.340568 -0.94022
+    outer loop
+      vertex 33.8 37.75 -106.39
+      vertex 37.4 40 -105.575
+      vertex 37.4 37.75 -106.39
+    endloop
+  endfacet
+  facet normal 0 0.340568 -0.94022
+    outer loop
+      vertex 37.4 40 -105.575
+      vertex 33.8 37.75 -106.39
+      vertex 33.8 40 -105.575
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 37.4 40 -108.716
+      vertex 33.8 40 -107.974
+      vertex 37.4 40 -107.974
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 33.8 40 -107.974
+      vertex 37.4 40 -108.716
+      vertex 33.8 40 -108.716
+    endloop
+  endfacet
+  facet normal -0 0.340568 0.94022
+    outer loop
+      vertex 33.8 40 -107.974
+      vertex 37.4 37.75 -107.159
+      vertex 37.4 40 -107.974
+    endloop
+  endfacet
+  facet normal 0 0.340568 0.94022
+    outer loop
+      vertex 37.4 37.75 -107.159
+      vertex 33.8 40 -107.974
+      vertex 33.8 37.75 -107.159
+    endloop
+  endfacet
+  facet normal 0 0.340938 -0.940086
+    outer loop
+      vertex 33.8 37.75 -109.532
+      vertex 37.4 40 -108.716
+      vertex 37.4 37.75 -109.532
+    endloop
+  endfacet
+  facet normal 0 0.340938 -0.940086
+    outer loop
+      vertex 37.4 40 -108.716
+      vertex 33.8 37.75 -109.532
+      vertex 33.8 40 -108.716
     endloop
   endfacet
   facet normal 1 -0 0

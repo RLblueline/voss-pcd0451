@@ -7,6 +7,8 @@
 // =====================================================================
 
 $fn = 48;
+COSMETIC = true;    // false = leave out cosmetic-only geometry (print exports)
+ARM_Z0   = 70;      // shoulder / yaw-turret height above the housing origin (arm sits above the housing top)
 FONT  = "DejaVu Sans:style=Bold";
 MONO  = "DejaVu Sans Mono:style=Bold";
 
@@ -39,11 +41,12 @@ BEAM_Y   = 10; BEAM_Z = 12;   // centre beam half width / half height
 PT       = 3.5;     // side plate thickness
 // desk-lamp counterbalance (zero-length spring emulation): pulley P directly above the shoulder
 // axis, cable eye Q on link1's axis line, both in the plane y = SPR_Y
-SPR_A    = 70;      // pulley height above the shoulder axis
-SPR_B    = 44;      // cable eye distance along link1
-SPR_Y    = -35;     // cable plane
-SPR_D    = 25;      // initial-tension offset d = F0 / k
-SPR_L0   = 40;      // spring free length (incl. hooks)
+SPR_A    = 96;      // pulley centre height above the shoulder axis
+SPR_B    = 50;      // cable eye distance along link1
+SPR_Y    = -42;     // cable plane (outside link1's side plate)
+SPR_D    = 49;      // cable-length offset (set with the tensioner); spring stretch = (|PQ| - d) / 2
+SPR_L0   = 55;      // spring free length (incl. hooks); 2:1 reeving halves its travel
+SPR_COL  = -8.5;    // spring / spring-block centre x (strands at x -5 and -12)
 CLR      = 0.4;     // print clearance
 
 // ---------------------------------------------------------------- servo data (verify with calipers)
@@ -64,6 +67,8 @@ HEAD_XB_B = -80;     // back of the head at z -230 (top half longer than the bot
 HS = 15;             // shell frame -> tilt-axis frame shift (puts the deeper head's CG under the axis)
 SHELL = 2.4;
 SPLIT1 = -40; SPLIT2 = -195;
+SEAM_X = [-60, 32];                 // seam screw positions (x), at each side wall
+SEAM_Y = [63, 59.5];                // per seam (top/mid, mid/chin): bosses merge into the side walls
 EYE_Z = -116;        // eye centre
 EYE_Y = 40;          // cavity half width
 EYE_Z0 = -184; EYE_Z1 = -48;   // cavity bottom / top
@@ -82,16 +87,26 @@ EAR_N = [-31.0, -27.5];     // - ear (on pivot bolt)
 // =====================================================================
 module rrect(x, y, r) { offset(r) offset(-r) square([x, y], center = true); }
 module rbox(size, r) { linear_extrude(size[2]) rrect(size[0], size[1], r); }
-module hexhead(d = 5.5, h = 1.2) { color(C_BLACK) difference() { cylinder(d = d * 1.15, h = h, $fn = 6); translate([0,0,h-0.6]) cylinder(d = 2.5, h = 1, $fn = 6); } }
+module hexhead(d = 5.5, h = 1.2) { if (COSMETIC) color(C_BLACK) difference() { cylinder(d = d * 1.15, h = h, $fn = 6); translate([0,0,h-0.6]) cylinder(d = 2.5, h = 1, $fn = 6); } }
 
-module gear2d(m, z) {
-    rp = m * z / 2; ra = rp + m; rf = rp - 1.25 * m;
+// involute spur gear, 20 deg pressure angle, ~0.1 mm backlash; tooth 0 points along +x
+function _inv(t) = t - atan(t) * PI / 180;
+module gear2d(m, z, pa = 20, bl = 0.1) {
+    rp = m * z / 2; rb = rp * cos(pa); ra = rp + m; rf = rp - 1.25 * m;
+    tmax = sqrt(ra * ra / (rb * rb) - 1);
+    half = 90 / z - (bl / (2 * rp)) * 180 / PI + (tan(pa) - pa * PI / 180) * 180 / PI;
+    n = 10;
+    flank = [for (i = [0 : n]) let(t = tmax * i / n, r = rb * sqrt(1 + t * t), a = half - _inv(t) * 180 / PI) [r * cos(a), r * sin(a)]];
     union() {
-        circle(r = rf, $fn = z * 4);
-        for (i = [0 : z - 1]) rotate(i * 360 / z)
-            polygon([[rf - 0.6, -m * 0.9], [ra, -m * 0.45], [ra, m * 0.45], [rf - 0.6, m * 0.9]]);
+        circle(r = rf, $fn = z * 6);
+        for (k = [0 : z - 1]) rotate(k * 360 / z)
+            polygon(concat([[rf * cos(half + 2), rf * sin(half + 2)]], flank,
+                           [for (i = [n : -1 : 0]) [flank[i][0], -flank[i][1]]], [[rf * cos(half + 2), -rf * sin(half + 2)]]));
     }
 }
+// 21-tooth SG90 output spline bore (press fit); the M2 horn screw goes through the hub
+module sg_spline_2d() { polygon([for (i = [0 : 41]) let(r = i % 2 ? 2.45 : 2.2) [r * cos(i * 360 / 42), r * sin(i * 360 / 42)]]); }
+
 
 // generic hobby servo: shaft = +Z through origin, top face z = 0, body toward -X
 module servo(s, horn = true, spline = true, body = true) {
@@ -144,8 +159,8 @@ module housing_shell() {
         translate([-31, 38, HZ0 - 1]) cube([62, 4.5, 8]);
         translate([-36, 34, HZ0 - 1]) cube([72, 13, 1.2 + 1]);
         // shoulder bracket screws + servo cable
-        for (x = [-24, 24], z = [-136, -52]) translate([x, HD - 5, z]) rotate([-90, 0, 0]) cylinder(d = 3.4, h = 10, $fn = 16);
-        translate([0, HD - 5, -90]) rotate([-90, 0, 0]) cylinder(d = 12, h = 10);
+        for (x = [-24, 24], z = [-136, -52]) translate([x, HD - 5, z + ARM_Z0]) rotate([-90, 0, 0]) cylinder(d = 3.4, h = 10, $fn = 16);
+        translate([0, HD - 5, -90 + ARM_Z0]) rotate([-90, 0, 0]) cylinder(d = 12, h = 10);
         // power jacks (5 V logic, 6 V servo) in the right side, vents in both sides
         for (z = [-170, -150]) translate([HW / 2 - 5, 30, z]) rotate([0, 90, 0]) cylinder(d = 8, h = 10);
         for (sx = [-1, 1], z = [-110 : 8 : -60]) translate([sx * (HW / 2 - 5) - 5, 15, z]) cube([10, 40, 3]);
@@ -187,24 +202,26 @@ module back_plate() {
 // =====================================================================
 
 // ---------------------------------------------------------------- yaw tower (world)
-module YAW_place() { translate([0, SY, -125]) rotate([0, 0, 90]) children(); }   // MG996R, shaft up
+module YAW_local() { translate([0, SY, -131]) rotate([0, 0, 90]) children(); }
+module YAW_place() { translate([0, 0, ARM_Z0]) YAW_local() children(); }   // MG996R, shaft up
 
-module yaw_tower() {
+module yaw_tower() { translate([0, 0, ARM_Z0]) yaw_tower_local(); }
+module yaw_tower_local() {
     module shelf(z0, t, front) translate([0, 0, z0]) linear_extrude(t) hull() {
         translate([-16, HD + 4]) square([32, 1]); translate([0, SY]) circle(r = front);
     }
     difference() {
         union() {
-            translate([-30, HD, -142]) cube([60, 4, 96]);                                 // wall plate
+            translate([-30, HD, -148]) cube([60, 4, 102]);                                 // wall plate
             shelf(-60, 8, 15);                                                            // upper 608
             shelf(-112, 8, 15);                                                           // lower 608
-            translate([0, 0, -138.5]) linear_extrude(3) hull() {                          // servo shelf
+            translate([0, 0, -144.5]) linear_extrude(3) hull() {                          // servo shelf
                 translate([-16, HD + 4]) square([32, 1]); translate([-16, SY + 18]) square([32, 1]); }
-            for (sx = [-1, 1]) translate([sx * 14.5 - 1.5, HD + 4, -142]) cube([3, SY - 14 - HD - 4, 90]);
+            for (sx = [-1, 1]) translate([sx * 14.5 - 1.5, HD + 4, -148]) cube([3, SY - 14 - HD - 4, 96]);
         }
         for (z = [-59.1, -111.1]) translate([0, SY, z]) cylinder(d = 22.2, h = 7.2);
         translate([0, SY, -150]) cylinder(d = 10, h = 120);
-        YAW_place() { servo_cut(MG, 30); servo_holes(MG); }
+        YAW_local() { servo_cut(MG, 30); servo_holes(MG); }
         for (x = [-24, 24], z = [-136, -52]) translate([x, HD - 1, z]) rotate([-90, 0, 0]) cylinder(d = 3.4, h = 10, $fn = 16);
         translate([0, HD - 1, -90]) rotate([-90, 0, 0]) cylinder(d = 12, h = 10);
     }
@@ -245,23 +262,44 @@ module turret() {
     }
 }
 
-// gooseneck spring mast on the turret: hollow column behind the shoulder, arm over the top
-module spring_mast() {
+// spring mast on the turret: a column in the cable plane with ONE pulley directly above the
+// shoulder axis, so link1's cable eye, the pulley and the spring are coplanar. Everything here
+// sits above the housing top at every yaw.
+module spring_mast() {   // 2:1 reeving: eye -> top pulley -> down -> spring-block pulley -> up to the anchor pin
+    cx = SPR_COL; y0 = SPR_Y;
     difference() {
         union() {
-            translate([-36, -7, -50]) cube([14, 14, SPR_A + 12 + 50]);                      // column
-            hull() {                                                                      // arm
-                translate([-29, 0, SPR_A + 2]) cylinder(r = 6, h = 8);
-                translate([0, SPR_Y, SPR_A + 2]) cylinder(r = 6, h = 8);
-            }
-            translate([0, SPR_Y, SPR_A - 8]) cylinder(r = 6, h = 12);                      // pulley boss
-            translate([-30, -7, -50]) cube([10, 14, 6]);                                   // foot on the base
+            translate([-18, y0 - 9, -30]) cube([17.5, 18, SPR_A + 9 + 30]);                   // column
+            translate([-10, y0 - 9, SPR_A - 9]) cube([20, 18, 18]);                          // pulley head
+            translate([-20, y0 - 9, -30]) cube([22, -y0 - 22 + 9 + 0.01, 6]);                // bracket to the pivot plate
         }
-        translate([-34, -5, -44]) cube([10, 10, SPR_A + 54]);                             // spring bore
-        translate([-40, -3, -30]) cube([8, 6, SPR_A + 20]);                               // slot: see the spring
-        translate([0, SPR_Y, SPR_A]) rotate([90, 0, 0]) cylinder(r = 5.5, h = 6, center = true);   // pulley slot
-        translate([-29, 0, SPR_A + 6]) rotate([90, 0, 0]) cylinder(r = 5.5, h = 6, center = true);
-        translate([-29, 0, -60]) cylinder(d = 3.4, h = 20);                               // tensioner screw
+        translate([-16, y0 - 7.5, -26]) cube([15, 15, SPR_A + 20]);                          // spring bore
+        translate([-20, y0 - 2.5, -10]) cube([5, 5, SPR_A - 25]);                            // window: see the spring
+        translate([0, y0, SPR_A]) rotate([90, 0, 0]) cylinder(r = 6.5, h = 5.4, center = true);   // top pulley slot
+        translate([0, y0 - 2.7, SPR_A - 30]) cube([12, 5.4, 30]);                            // cable entry, front-low
+        translate([0, y0, SPR_A]) rotate([90, 0, 0]) cylinder(d = 3.2, h = 30, center = true);  // M3 axle
+        translate([-12, y0, SPR_A - 10]) rotate([90, 0, 0]) cylinder(d = 3.2, h = 30, center = true);    // cable anchor pin
+        translate([cx, y0, -40]) cylinder(d = 3.4, h = 20);                                  // tensioner screw
+    }
+}
+module spring_block() {  // rides on the spring: 7 mm pulley on an M3 axle, hook hole underneath
+    difference() {
+        translate([-6, -5, -9]) cube([12, 10, 16]);
+        translate([-7, -3, -4]) cube([14, 6, 12]);                                          // pulley slot
+        rotate([90, 0, 0]) cylinder(d = 3.2, h = 12, center = true);
+        translate([0, 0, -7]) rotate([90, 0, 0]) cylinder(d = 2.5, h = 12, center = true);  // spring hook
+    }
+}
+module pulley_small() { rotate_extrude($fn = 40) difference() { translate([1.6, -2.4]) square([2.1, 4.8]); translate([4.1, 0]) circle(r = 0.9, $fn = 16); } }
+module pulley() {        // 10 mm cable pulley, 5 wide, M3 axle
+    rotate_extrude($fn = 48) difference() { translate([1.6, -2.5]) square([3.6, 5]); translate([5.6, 0]) circle(r = 1.1, $fn = 16); }
+}
+module yaw_coupler() {   // MG996R horn -> 8 mm yaw shaft (turret frame)
+    difference() {
+        union() { translate([0, 0, -124]) cylinder(d = HORN_D, h = 3); translate([0, 0, -121]) cylinder(d = 18, h = 8); }
+        translate([0, 0, -125]) horn_holes(6);
+        translate([0, 0, -122]) cylinder(d = 8.05, h = 20, $fn = 32);
+        translate([0, 0, -117]) rotate([0, 90, 0]) cylinder(d = 4.2, h = 20);
     }
 }
 module SH_servo() { rotate([0, 180, 0]) JS_place() children(); }   // shoulder servo, turret frame
@@ -269,7 +307,7 @@ module SH_servo() { rotate([0, 180, 0]) JS_place() children(); }   // shoulder s
 // ---------------------------------------------------------------- links (link frame: origin on proximal pitch axis)
 module side_plate_2d() { hull() { circle(r = HUB_R); translate([XB0, -BEAM_Z]) square([8, 2 * BEAM_Z]); } }
 
-module link_body(len) {
+module link_body(len, pads = []) {
     // two side plates wrap the proximal joint bracket, a cross block joins them to a centre box beam
     difference() {
         union() {
@@ -280,13 +318,17 @@ module link_body(len) {
         }
         rotate([-90, 0, 0]) translate([0, 0, 20]) horn_holes(30);
         rotate([90, 0, 0]) cylinder(d = 4.3, h = 80, center = true);
-        translate([XB0 + 10, -BEAM_Y + 2, -BEAM_Z + 2]) cube([len - XB0 - 20, 2 * BEAM_Y - 4, 2 * BEAM_Z - 4]);  // hollow beam
+        difference() {
+            translate([XB0 + 10, -BEAM_Y + 2, -BEAM_Z + 2]) cube([len - XB0 - 20, 2 * BEAM_Y - 4, 2 * BEAM_Z - 4]);  // hollow beam
+            for (x = pads) translate([x - 5, -BEAM_Y, -BEAM_Z]) cube([10, 2 * BEAM_Y, 2 * BEAM_Z]);   // solid pads
+        }
+        for (x = pads) translate([x, 0, BEAM_Z - 7]) cylinder(d = 4.2, h = 8, $fn = 20);   // M3 inserts for the cover
         translate([XB0 + 10, -BEAM_Y - 1, -4]) cube([len - XB0 - 20, 2 * BEAM_Y + 2, 8]);                    // cable slot
     }
 }
 
 module link1() {
-    color(C_BEIGE) link_body(L1 - 36);
+    color(C_BEIGE) link_body(L1 - 36, pads = [52, 68]);
     color(C_BEIGE2) translate([L1, 0, 0]) {                  // elbow bracket, servo body pointing back
         rotate([0, -90, 0]) joint_bracket();
         translate([-44, -27, -16]) cube([8, YFL + 27, 32]);
@@ -295,8 +337,8 @@ module link1() {
     // counterbalance cable eye on the axis line, in the spring plane
     color(C_BEIGE2) difference() {
         hull() {
-            translate([XB0, -27.5 - PT, -6]) cube([8, 1, 12]);
-            translate([SPR_B, SPR_Y, 0]) rotate([90, 0, 0]) cylinder(r = 5, h = 4, center = true);
+            translate([XB0, -27.5 - PT, -8]) cube([8, 1, 16]);
+            translate([SPR_B, SPR_Y, 0]) rotate([90, 0, 0]) cylinder(r = 5, h = 5, center = true);
         }
         translate([SPR_B, SPR_Y, 0]) rotate([90, 0, 0]) cylinder(d = 3, h = 10, center = true);
     }
@@ -307,7 +349,7 @@ module link2() {
     X = L2 + TILT_OFF;
     color(C_BEIGE) difference() {
         union() {
-            link_body(X + 16);
+            link_body(X + 16, pads = [52, 90]);
             translate([X - 16, -BEAM_Y, -BEAM_Z]) cube([32, YFL + 10.5 + BEAM_Y, 2 * BEAM_Z]);   // end block over the post
         }
         for (x = [X - 10, X + 10]) translate([x, 11, -20]) cylinder(d = 3.4, h = 40, $fn = 16);
@@ -354,6 +396,8 @@ module head_features_cut() {
     translate([HEAD_X - 6, -46, -212]) cube([12, 92, 4]);
     // status windows REC AUD OK (viewer's right = +Y)
     for (y = [14, 34, 54]) translate([HEAD_X - 6, y, 12]) rotate([0, 90, 0]) linear_extrude(12) rrect(9, 15, 1.5);
+    // M3 screws through the side walls into the eye rod-mount bars
+    for (sy = [-1, 1], pz = [[-3, -45], [-3, -187], [-27, -187]]) translate([pz[0], sy * 60, pz[1]]) rotate([90, 0, 0]) cylinder(d = 3.4, h = 30, center = true, $fn = 16);
     // neck slot: open through the crown and the whole upper back, so the post, the service tubes
     // and a wide tilt range all fit (defined in the tilt-axis frame: x <= 32)
     translate([-250, EAR_N[1], -28]) cube([250 + 40 - HS, EAR_P[0] - EAR_N[1], 80]);
@@ -390,10 +434,17 @@ module head_piece(i) {
             head_features_cut();
             translate([BEZEL_X - 0.5, 0, (EYE_Z0 + EYE_Z1) / 2]) rotate([0, 90, 0]) linear_extrude(HEAD_X) offset(SHELL + 3) cavity_2d();
         }
+        if (i == 0) translate([-HS, 0, 0]) head_ears();    // ears are printed with the crown
         // internal screw bosses at the seams
-        if (i < 2) for (p = [[-60, 55], [-60, -55], [32, 62], [32, -62]]) intersection() {
-            translate([p[0], p[1], zs[i][0]]) difference() { cylinder(d = 8, h = 10); translate([0,0,-1]) cylinder(d = 2.6, h = 12); }
-            head_solid(1);
+        // seam joints: insert boss on the upper piece, clearance boss on the lower piece; M3 x 16
+        // screws go up from inside the lower piece into heat-set inserts
+        if (i < 2) for (x = SEAM_X, sy = [-1, 1]) intersection() {
+            translate([x, sy * SEAM_Y[i], zs[i][0]]) difference() { cylinder(d = 8, h = 10); translate([0,0,-1]) cylinder(d = 4.2, h = 7); }
+            head_solid(0.5);
+        }
+        if (i > 0) for (x = SEAM_X, sy = [-1, 1]) intersection() {
+            translate([x, sy * SEAM_Y[i - 1], zs[i][1] - 15.5]) difference() { cylinder(d = 8, h = 10); translate([0,0,-1]) cylinder(d = 3.4, h = 12); }
+            head_solid(0.5);
         }
     }
     // visible black hex screws on the front at each seam
@@ -406,14 +457,14 @@ module head_ears() {
         // + ear bolts to the tilt horn
         difference() {
             translate([0, EAR_P[0], 0]) rotate([90, 0, 0]) mirror([0,0,1]) linear_extrude(EAR_P[1] - EAR_P[0]) hull() {
-                circle(r = 16); translate([-30, HEAD_TOP - SHELL - 6]) square([60, 6]);
+                circle(r = 16); translate([-30, HEAD_TOP - SHELL - 6]) square([60, 6.8]);
             }
             translate([0, 20, 0]) rotate([-90, 0, 0]) horn_holes(40);
         }
         // - ear rides the pivot bolt
         difference() {
             translate([0, EAR_N[0], 0]) rotate([90, 0, 0]) mirror([0,0,1]) linear_extrude(EAR_N[1] - EAR_N[0]) hull() {
-                circle(r = 16); translate([-30, HEAD_TOP - SHELL - 6]) square([60, 6]);
+                circle(r = 16); translate([-30, HEAD_TOP - SHELL - 6]) square([60, 6.8]);
             }
             rotate([90, 0, 0]) cylinder(d = 4.3, h = 80, center = true);
         }
@@ -428,7 +479,7 @@ module head_ears() {
 // LED ring 8..12 | rear plate 3..6 | bushings + lift rack -4..3 | rods x -0.5 | mount bars -8..2
 SHX = [22.6, 24.6]; RKX = [18.8, 22.4]; RLX = [15.4, 18.6]; MASKX = [25, 26.6];
 SG_TOP_X = RKX[0] - 4;
-LIFT_C = [-19, -20, EYE_Z];   // lift pinion centre (axis along Y)
+LIFT_C = [-19.25, -20, EYE_Z];   // lift pinion centre (axis along Y)
 
 module SG_place_local() { multmatrix([[0, 0, 1, SG_TOP_X], [0, -1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1]]) children(); }
 module LIFT_place() { translate([LIFT_C[0], -26, LIFT_C[2]]) multmatrix([[1, 0, 0, 0], [0, 0, 1, 0], [0, -1, 0, 0], [0, 0, 0, 1]]) children(); }
@@ -440,25 +491,29 @@ module eye_plate() {          // fixed, visible back of the recess, with the tra
         translate([BEZEL_X - 3, 0, EYE_Z]) rotate([0, 90, 0]) linear_extrude(5) slot_2d();
     }
 }
-module eye_rods() {           // fixed: guide rods + mount bars + lift servo strut
-    color(C_STEEL) for (y = [-CAR_RODY, CAR_RODY]) translate([-0.5, y, -190]) cylinder(d = 3, h = 148, $fn = 16);
+function inner_y(z) = HEAD_Y - 6 * (HEAD_TOP - z) / 260 - SHELL;    // shell inner half-width (straight sides)
+module eye_rods(rods = true) {  // fixed: guide rods + mount bars + lift servo strut
+    if (rods) color(C_STEEL) for (y = [-CAR_RODY, CAR_RODY]) translate([-0.5, y, -190]) cylinder(d = 3, h = 148, $fn = 16);
+    ht = inner_y(-45) - 0.2; hb = inner_y(-187) - 0.2;
     color(C_CHAR) {
         difference() {
             union() {
-                translate([-8, -61, -48]) cube([10, 122, 6]);
-                translate([-32, -61, -190]) cube([34, 122, 6]);
+                translate([-8, -ht, -48]) cube([10, 2 * ht, 6]);
+                translate([-32, -hb, -190]) cube([34, 2 * hb, 6]);
                 translate([-30, -36, -184]) cube([8, 6, 56.01]);                         // lift servo strut
                 translate([-40, -35.3, EYE_Z - 12]) cube([32, 2.5, 24]);                // lift servo plate
             }
             for (y = [-CAR_RODY, CAR_RODY]) translate([-0.5, y, -200]) cylinder(d = 3.1, h = 200, $fn = 16);
             LIFT_place() { servo_cut(SG, 30); servo_holes(SG); }
+            for (sy = [-1, 1]) {                                                               // M3 inserts in the bar ends
+                translate([-3, sy * ht, -45]) rotate([90, 0, 0]) cylinder(d = 4.2, h = 12, center = true, $fn = 16);
+                for (x = [-3, -27]) translate([x, sy * hb, -187]) rotate([90, 0, 0]) cylinder(d = 4.2, h = 12, center = true, $fn = 16);
+            }
         }
     }
 }
 module lift_drive(ze = EYE_Z) {
-    ang = (ze - EYE_Z) / LIFT_R * 180 / PI;
-    color(C_HORN) translate([LIFT_C[0], -22, LIFT_C[2]]) rotate([-90, 0, 0]) rotate(-ang) linear_extrude(4)
-        difference() { gear2d(PIN_M, 2 * LIFT_R / PIN_M); circle(d = 4.8, $fn = 20); }
+    color(C_HORN) translate([LIFT_C[0], -22, LIFT_C[2]]) lift_pinion(ze);
     LIFT_place() servo(SG, horn = false);
 }
 module eye_carriage(ze = EYE_Z) {
@@ -475,8 +530,10 @@ module eye_carriage(ze = EYE_Z) {
         for (z = [ze - 40, ze + 36]) translate([3, -50, z]) cube([MASKX[0] - 3, 4, 4]);     // left standoffs
         translate([3, PIN_Y + 10.25, ze + 36]) cube([RLX[0] - 3 + 0.01, 3.25, 4]);         // right: rear plate -> rail
         translate([RLX[1] - 0.01, PIN_Y + 10.25, ze + 70]) cube([MASKX[0] - RLX[1] + 0.02, 3.25, 4]);  // rail -> mask, above the racks
-        translate([7, 0, ze]) rotate([0, 90, 0]) difference() {                            // lens holder
-            cylinder(d = LENS_D + 8, h = 9, $fn = 96); translate([0,0,-1]) cylinder(d = LENS_D + 0.6, h = 11, $fn = 96); }
+        translate([5.5, 0, ze]) rotate([0, 90, 0]) difference() {                          // lens holder + seat lip
+            cylinder(d = LENS_D + 8, h = 10.5, $fn = 96);
+            translate([0, 0, -1]) cylinder(d = LENS_D - 4, h = 13, $fn = 96);
+            translate([0, 0, 7.5]) cylinder(d = LENS_D + 0.6, h = 4, $fn = 96); }
         difference() {                                                                   // left guide rail
             translate([RKX[0] + 1.2, -49, ze - 80]) cube([MASKX[0] - RKX[0] - 1.2, 6, 160]);
             translate([SHX[0] - 0.4, -45, ze - 81]) cube([SHX[1] - SHX[0] + 0.8, 3.2, 162]);
@@ -494,28 +551,37 @@ module eye_carriage(ze = EYE_Z) {
             translate([-4, y - 5, z]) cube([7.01, 10, 14]);
             translate([-0.5, y, z - 1]) cylinder(d = 3.3, h = 16, $fn = 16);
         }
-        translate([0, -22, ze - 35]) cube([3.01, 4, 70]);                                 // lift rack
-        for (k = [0 : 69]) translate([-2.25, -22, ze - 35 + k + 0.25]) cube([2.26, 4, 0.5]);
+        translate([0, -22, ze - 35]) cube([3.01, 4, 70]);                                 // lift rack (pitch line x -1.25)
+        translate([0, -18, ze - 35]) rotate([90, 0, 0]) linear_extrude(4)
+            for (k = [0 : 22]) let(c = 2.013 + k * RACK_P) if (c + 1.19 <= 70) rack_tooth_2d(0.01, -2.25, c);
     }
     color(C_AMBER) translate([13, 0, ze]) rotate([0, 90, 0]) intersection() {             // lens dome
         translate([0, 0, -60.25 + 8]) sphere(r = 60.25, $fn = 128);
         cylinder(d = LENS_D, h = 8, $fn = 96);
     }
-    color(C_PCB) translate([8, 0, ze]) rotate([0, 90, 0]) difference() { cylinder(d = 44, h = 1.6); translate([0,0,-1]) cylinder(d = 32, h = 4); }
-    for (a = [0 : 360 / 16 : 359]) color([1, 0.75, 0.4]) translate([10.2, 19 * cos(a), ze + 19 * sin(a)]) cube([1.2, 4, 4], center = true);
+    color(C_PCB) translate([6, 0, ze]) rotate([0, 90, 0]) difference() { cylinder(d = 44, h = 1.6); translate([0,0,-1]) cylinder(d = 32, h = 4); }
+    for (a = [0 : 360 / 16 : 359]) color([1, 0.75, 0.4]) translate([8.2, 19 * cos(a), ze + 19 * sin(a)]) cube([1.2, 4, 4], center = true);
 }
 
 // shutter eyelids on the carriage; s = 1 open, 0 closed (12 mm squint slit)
-module rack(y0, z0, teeth_dir, len = 50, w = 3.75) {
-    translate([RKX[0], y0, z0]) cube([RKX[1] - RKX[0], w, len]);
-    for (k = [0 : len - 1]) translate([RKX[0], teeth_dir > 0 ? y0 + 3.75 : y0 - 2.25, z0 + k + 0.25]) cube([RKX[1] - RKX[0], 2.25, 0.5]);
+RACK_P = PI * PIN_M;     // 3.1416 mm pitch, 20 deg flanks, matches gear2d
+module rack_tooth_2d(root, tip, c) {        // in (across, along) coordinates
+    polygon([[root, c - 1.19], [tip, c - 0.371], [tip, c + 0.371], [root, c + 1.19]]);
+}
+// rack along +z from z0 with its pitch line at y = yp; teeth face +y (dir 1) or -y (dir -1)
+module rack(yp, z0, dir, len = 50, w = 3.75, phase = 0) {
+    root = yp - dir * 1.25 * PIN_M; tip = yp + dir * PIN_M;
+    translate([RKX[0], dir > 0 ? root - w : root, z0]) cube([RKX[1] - RKX[0], w, len]);
+    translate([RKX[0], 0, z0]) rotate([90, 0, 90]) linear_extrude(RKX[1] - RKX[0])
+        for (k = [0 : floor(len / RACK_P)]) let(c = phase + k * RACK_P)
+            if (c - 1.19 >= 0 && c + 1.19 <= len) rack_tooth_2d(root - dir * 0.01, tip, c);
 }
 module shutter_top(s = 1, ze = EYE_Z) {
     zb = ze + 6 + SHUT_TRAVEL * s;
     color(C_ALU) {
         translate([SHX[0], -42, zb]) cube([SHX[1] - SHX[0], 84, 40]);
         translate([SHX[0], -44.6, zb]) cube([SHX[1] - SHX[0], 3, 40]);
-        rack(PIN_Y - 9 - 1.25 - 3.75, zb - 40, 1);
+        rack(PIN_Y - PIN_R, zb - 40, 1, 50, 3.75, 1.013);       // phase: tooth space at the pinion when closed
         translate([RKX[1] - 0.01, PIN_Y - 14, zb]) cube([SHX[0] - RKX[1] + 0.02, 3.75, 10]);
     }
 }
@@ -526,13 +592,19 @@ module shutter_bottom(s = 1, ze = EYE_Z) {
         translate([SHX[0], -44.6, zt - 40]) cube([SHX[1] - SHX[0], 3, 40]);
         translate([RKX[0], 42.5, zt - 14]) cube([SHX[1] - RKX[0], PIN_Y + 12 - 42.5, 8]);
         translate([SHX[0], 41.9, zt - 14]) cube([SHX[1] - SHX[0], 0.7, 14]);
-        rack(PIN_Y + 9 + 1.25, zt - 14, -1, 60, 3.25);
+        rack(PIN_Y + PIN_R, zt - 14, -1, 60, 3.25, 2.72);
     }
 }
+module shutter_pinion(s = 1) {     // 18 T, module 1; tooth faces each rack when closed
+    rotate([0, 90, 0]) rotate(10 - SHUT_TRAVEL * s / PIN_R * 180 / PI) linear_extrude(RKX[1] - RKX[0] - 0.4)
+        difference() { gear2d(PIN_M, 2 * PIN_R / PIN_M); sg_spline_2d(); }
+}
+module lift_pinion(ze = EYE_Z) {    // 36 T, module 1; axis along Y
+    rotate([-90, 0, 0]) rotate(-(ze - EYE_Z) / LIFT_R * 180 / PI) linear_extrude(4)
+        difference() { gear2d(PIN_M, 2 * LIFT_R / PIN_M); sg_spline_2d(); }
+}
 module shutter_drive(s = 1, ze = EYE_Z) {
-    ang = SHUT_TRAVEL * s / PIN_R * 180 / PI;
-    color(C_HORN) translate([RKX[0] + 0.2, PIN_Y, ze]) rotate([0, 90, 0]) rotate(ang) linear_extrude(RKX[1] - RKX[0] - 0.4)
-        difference() { gear2d(PIN_M, 2 * PIN_R / PIN_M); circle(d = 4.8, $fn = 20); }
+    color(C_HORN) translate([RKX[0] + 0.2, PIN_Y, ze]) shutter_pinion(s);
     translate([0, PIN_Y, ze]) SG_place_local() servo(SG, horn = false);
 }
 module eye_all(s = 1, ze = EYE_Z) {
@@ -610,8 +682,10 @@ module head_seal() {   // on the viewer's left (-Y) side face
 
 module bumper() { color(C_BLACK) translate([-7, 0, HEAD_BOT - 8]) cylinder(d = 22, h = 8.5); }
 
-module neck_boot() {
-    color([0.12, 0.12, 0.12]) for (i = [0 : 6]) translate([-2, 0, HEAD_TOP + 1 + i * 4]) scale([1.25, 1.35, 1]) rotate_extrude($fn = 40) translate([20 - (i % 2) * 2, 0]) circle(r = 2.2, $fn = 16);
+module neck_boot() {     // one-piece TPU bellows, 1.2 mm wall
+    pts = [for (k = [0 : 12]) [k % 2 ? 18.5 : 21, HEAD_TOP + 1 + k * 2.3]];
+    color([0.12, 0.12, 0.12]) translate([-2, 0, 0]) scale([1.25, 1.35, 1]) rotate_extrude($fn = 48)
+        for (k = [0 : 11]) hull() { translate(pts[k]) circle(r = 0.6, $fn = 10); translate(pts[k + 1]) circle(r = 0.6, $fn = 10); }
 }
 
 module head_internals(s = 1, ze = EYE_Z) {
@@ -620,7 +694,6 @@ module head_internals(s = 1, ze = EYE_Z) {
 }
 
 module head_all(s = 1, cosmetic = true, ze = EYE_Z) {
-    head_ears();
     head_frame() {
         for (i = [0 : 2]) head_piece(i);
         eye_all(s, ze);

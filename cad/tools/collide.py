@@ -22,14 +22,15 @@ sys.path.insert(0, str(HERE.parent.parent))
 os.environ.setdefault("VOSS_SIM", "1")
 from voss import body as fw  # noqa: E402
 
-SY, L1, L2, TILT_OFF, TILT_DROP = 112, 120, 100, 14, 72
+SY, L1, L2, TILT_OFF, TILT_DROP, ARM_Z0, HS = 112, 120, 100, 14, 72, 70, 15
+PIN_Y, PIN_R, EYE_Z, LIFT_X, LIFT_R = 48, 9, -116, -19.25, 18
 TOL = 1.0   # mm^3 of overlap tolerated (coplanar contact faces)
 
 WORLD = ["housing", "back_plate", "tower", "yaw_body"]
 TURRET = ["turret", "sh_body", "coupler"]
 LINK1 = ["link1", "el_body", "sh_horn", "cover1"]
 LINK2 = ["link2", "post", "tl_body", "el_horn", "cover2"]
-HEAD_STATIC = ["head_top", "head_mid", "head_chin", "ears", "eye_plate", "eye_rods", "lift_sg90", "leds", "bumper", "paper"]
+HEAD_STATIC = ["head_top", "head_mid", "head_chin", "eye_plate", "eye_rods", "lift_sg90", "leds", "bumper", "paper"]   # head_top includes the ears
 HEAD = HEAD_STATIC + ["s3_horn", "carriage_0"]
 EYES = ("-1", "0", "1")
 TILT_RANGE = (-40, 50)
@@ -58,7 +59,7 @@ def ry(a):
 
 
 def T_t(yaw):
-    return tr(0, SY, 0) @ rz(yaw)
+    return tr(0, SY, ARM_Z0) @ rz(yaw)
 
 
 def T_l1(yaw, sh):
@@ -131,21 +132,39 @@ def main():
         pairs += [(a, T_h(90, 20, el, t), b, T_l1(90, 20), f"el={el} t={t}") for a in HEAD for b in LINK1]
     ok &= check("elbow -110..40 : link2/head vs link1/turret", pairs)
     # D: tilt sweep, eye at its extremes, shutters open and closed
-    head_s = lambda e, s: HEAD_STATIC + ["s3_horn", f"carriage_{e}", f"shut_top_{e}_{s}", f"shut_bot_{e}_{s}", f"pinion_{e}"]
+    head_s = lambda e, s: HEAD_STATIC + ["s3_horn", f"carriage_{e}", f"shut_top_{e}_{s}", f"shut_bot_{e}_{s}", f"pinion_{e}_{s}", f"lift_pinion_{e}"]
     pairs = [(a, T_h(90, 20, -20, t), b, T_l2(90, 20, -20), f"t={t} eye={e} s={s}") for t in range(TILT_RANGE[0], TILT_RANGE[1] + 1, 5)
              for e in ("-1", "1") for s in ("0", "1") for a in head_s(e, s) for b in LINK2]
     ok &= check(f"tilt {TILT_RANGE[0]}..{TILT_RANGE[1]} : head vs link2/post", pairs)
     # E: moving eye (carriage, eyelids, pinions) vs head internals; gear meshes excluded
     pairs = []
     for e in EYES:
-        moving = [f"carriage_{e}", f"pinion_{e}"]
-        pairs += [(m, I, b, I, f"eye={e}") for m in moving for b in HEAD_STATIC if not (m == f"carriage_{e}" and b == "lift_pinion")]
-        pairs += [("lift_pinion", I, f"carriage_{e}", I, f"eye={e} (non-rack)")] if False else []
+        pairs += [(f"carriage_{e}", I, b, I, f"eye={e}") for b in HEAD_STATIC]
+        pairs += [(f"lift_pinion_{e}", I, b, I, f"eye={e}") for b in HEAD_STATIC if b not in ("lift_sg90",)]
         for s in ("0", "0.5", "1"):
+            pairs += [(f"pinion_{e}_{s}", I, b, I, f"eye={e} s={s}") for b in HEAD_STATIC]
             for sh_ in (f"shut_top_{e}_{s}", f"shut_bot_{e}_{s}"):
                 pairs += [(sh_, I, b, I, f"eye={e} s={s}") for b in HEAD_STATIC + [f"carriage_{e}"]]
             pairs += [(f"shut_top_{e}_{s}", I, f"shut_bot_{e}_{s}", I, f"eye={e} s={s}")]
     ok &= check("eye -1..1, shutters 0..1 : vs head internals", pairs)
+    # G: gear meshes. No interference across the travel, but turning a pinion half a tooth must
+    # jam it against its rack (proves the teeth really engage).
+    pairs, jam = [], []
+    for e in EYES:
+        z = EYE_Z + float(e) * 24
+        for s in ("0", "0.5", "1"):
+            pairs += [(f"pinion_{e}_{s}", I, f"shut_top_{e}_{s}", I, f"eye={e} s={s}"),
+                      (f"pinion_{e}_{s}", I, f"shut_bot_{e}_{s}", I, f"eye={e} s={s}")]
+            Rh = tr(0, PIN_Y, z) @ trimesh.transformations.rotation_matrix(math.radians(10), [1, 0, 0]) @ tr(0, -PIN_Y, -z)
+            jam += [(f"pinion_{e}_{s}", Rh, f"shut_top_{e}_{s}", I), (f"pinion_{e}_{s}", Rh, f"shut_bot_{e}_{s}", I)]
+        pairs += [(f"lift_pinion_{e}", I, f"carriage_{e}", I, f"eye={e}")]
+        Rl = tr(LIFT_X + HS, 0, EYE_Z) @ trimesh.transformations.rotation_matrix(math.radians(5), [0, 1, 0]) @ tr(-LIFT_X - HS, 0, -EYE_Z)
+        jam += [(f"lift_pinion_{e}", Rl, f"carriage_{e}", I)]
+    ok &= check("gear meshes : pinions vs racks (no interference)", pairs)
+    vols = [overlap(a, Ta, b, Tb) for a, Ta, b, Tb in jam]
+    engaged = all(v > 2.0 for v in vols)
+    print(f"{'gear meshes : half-tooth turn jams (engaged)':<50} {'OK' if engaged else 'NOT ENGAGED'}  (min {min(vols):.1f} mm^3)")
+    ok &= engaged
     # F: firmware-accepted poses vs housing, tower, wall, and the arm itself
     _cache["wall"] = [trimesh.creation.box(extents=[2000, 20, 2000], transform=tr(0, -10, 0))]
     accepted = rejected = 0

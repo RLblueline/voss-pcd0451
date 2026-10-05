@@ -1,0 +1,61 @@
+BOLT PATHS (probe cylinder must pass through both parts without touching material)
+  OK  tower->housing M3 (-24,-66)                  housing:0.0  tower:0.0
+  OK  tower->housing M3 (-24,18)                   housing:0.0  tower:0.0
+  OK  tower->housing M3 (24,-66)                   housing:0.0  tower:0.0
+  OK  tower->housing M3 (24,18)                    housing:0.0  tower:0.0
+  OK  harness hole housing/tower                   housing:0.0  tower:0.0
+  OK  housing->back plate M3 (-1,10)               housing:0.0  back_plate:0.0
+  OK  housing->back plate M3 (-1,-160)             housing:0.0  back_plate:0.0
+  OK  housing->back plate M3 (1,10)                housing:0.0  back_plate:0.0
+  OK  housing->back plate M3 (1,-160)              housing:0.0  back_plate:0.0
+  OK  post->link2 M3 x=104                         link2:0.0  post:0.0
+  OK  post->link2 M3 x=124                         link2:0.0  post:0.0
+  OK  cover1->link1 M3 x=52                        link1:0.0  cover1:0.0
+  OK  cover1->link1 M3 x=68                        link1:0.0  cover1:0.0
+  OK  cover2->link2 M3 x=52                        link2:0.0  cover2:0.0
+  OK  cover2->link2 M3 x=90                        link2:0.0  cover2:0.0
+  OK  head wall->rod bar M3 (-3,-60,-45)           head_mid:0.0  eye_rods:0.0
+  OK  head wall->rod bar M3 (-3,-60,-187)          head_mid:0.0  eye_rods:0.0
+  OK  head wall->rod bar M3 (-27,-60,-187)         head_mid:0.0  eye_rods:0.0
+  OK  head wall->rod bar M3 (-3,60,-45)            head_mid:0.0  eye_rods:0.0
+  OK  head wall->rod bar M3 (-3,60,-187)           head_mid:0.0  eye_rods:0.0
+  OK  head wall->rod bar M3 (-27,60,-187)          head_mid:0.0  eye_rods:0.0
+  OK  seam top/mid M3 (-60,-63)                    head_top:0.0  head_mid:0.0
+  OK  seam mid/chin M3 (-60,-59.5)                 head_mid:0.1  head_chin:0.0
+  OK  seam top/mid M3 (-60,63)                     head_top:0.0  head_mid:0.0
+  OK  seam mid/chin M3 (-60,59.5)                  head_mid:0.1  head_chin:0.0
+  OK  seam top/mid M3 (32,-63)                     head_top:0.0  head_mid:0.0
+  OK  seam mid/chin M3 (32,-59.5)                  head_mid:0.1  head_chin:0.0
+  OK  seam top/mid M3 (32,63)                      head_top:0.0  head_mid:0.0
+  OK  seam mid/chin M3 (32,59.5)                   head_mid:0.1  head_chin:0.0
+
+PRINT FILES (watertight, single body)
+  OK  housing           144.0 x   70.0 x  226.0 mm   228.6 cm3  bodies=1
+  OK  back_plate        137.4 x    9.0 x  219.4 mm   119.6 cm3  bodies=1
+  OK  tower              60.0 x   61.0 x  102.0 mm    56.7 cm3  bodies=1
+  OK  turret             44.0 x   73.0 x  155.0 mm    58.4 cm3  bodies=1
+  OK  link1             158.0 x   75.8 x   32.0 mm    57.4 cm3  bodies=1
+  OK  link2             146.0 x   62.2 x   32.0 mm    54.8 cm3  bodies=1
+  OK  post               32.0 x   45.8 x   82.0 mm    18.6 cm3  bodies=1
+  OK  cover1             25.3 x   30.0 x   20.0 mm     2.6 cm3  bodies=1
+  OK  cover2             47.3 x   30.0 x   20.0 mm     5.1 cm3  bodies=1
+  OK  p_head_top        150.0 x  140.0 x   75.0 mm   129.6 cm3  bodies=1
+  OK  p_head_mid        143.3 x  136.8 x  160.0 mm   190.0 cm3  bodies=1
+  OK  p_head_chin       128.4 x  129.6 x   75.0 mm   109.5 cm3  bodies=1
+  OK  p_eye_plate         2.0 x   92.0 x  148.0 mm    13.4 cm3  bodies=1
+  OK  p_rod_bar_top      10.0 x  131.3 x    6.0 mm     7.6 cm3  bodies=1
+  OK  p_rod_bar_bottom   42.0 x  124.8 x   86.0 mm    28.9 cm3  bodies=1
+  OK  p_carriage         30.6 x  111.5 x  166.0 mm    73.3 cm3  bodies=1
+  OK  p_lens              8.0 x   60.0 x   60.0 mm    11.5 cm3  bodies=1
+  OK  p_lid_top           5.8 x   86.6 x   80.0 mm     7.8 cm3  bodies=1
+  OK  p_lid_bottom        5.8 x  106.1 x   86.0 mm     8.6 cm3  bodies=1
+  OK  p_pinion18          3.2 x   20.0 x   19.8 mm     0.7 cm3  bodies=1
+  OK  p_pinion36         38.0 x    4.0 x   38.0 mm     3.9 cm3  bodies=1
+  OK  p_yaw_coupler      24.0 x   24.0 x   11.0 mm     2.8 cm3  bodies=1
+  OK  p_pulley           10.4 x   10.4 x    5.0 mm     0.4 cm3  bodies=1
+  OK  p_pulley_small      7.4 x    7.4 x    4.8 mm     0.2 cm3  bodies=1
+  OK  p_spring_block     12.0 x   10.0 x   16.0 mm     1.0 cm3  bodies=1
+  OK  p_neck_boot        54.0 x   58.3 x   28.7 mm    10.0 cm3  bodies=1
+  OK  p_bumper           22.0 x   22.0 x    8.5 mm     3.2 cm3  bodies=1
+
+ALL CHECKS PASSED

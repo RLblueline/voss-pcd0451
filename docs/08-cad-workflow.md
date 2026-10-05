@@ -19,6 +19,8 @@ Tools:
 | `cad/tools/loads.py` | Static joint torques and the best counterbalance spring |
 | `cad/tools/head_mass.py` | Head mass and centre of gravity (for choosing `HS`) |
 | `cad/tools/reach.py` | Reach envelope over firmware-accepted poses |
+| `cad/tools/verify.py` | Build checks: every bolt path clear through both parts, every print file a single watertight solid |
+| `cad/tools/package_build.py` | Writes `build/` (print files, JLC3DP order sheet, BOM) |
 | `cad/tools/animate.py`, `compose_anim.py` | Renders the expressive routine: the firmware `Body` runs on a virtual clock and every frame is a sample of its output. `python3 cad/tools/animate.py [N]` renders N more frames; then compose |
 
 ## Frames and transforms
@@ -26,7 +28,7 @@ Tools:
 | Group | Frame | Transform from its parent |
 |---|---|---|
 | Housing, back plate, yaw tower, yaw servo | world | — |
-| Turret + spring mast, shoulder servo, yaw coupler | turret | `translate([0, SY, 0]) rotate([0, 0, YAW])` |
+| Turret + spring mast, shoulder servo, yaw coupler | turret | `translate([0, SY, ARM_Z0]) rotate([0, 0, YAW])` |
 | link1 (incl. elbow bracket), cover, elbow servo | link1 | `rotate([0, -SH, 0])` |
 | link2, cover, tilt post, tilt servo | link2 | `translate([L1, 0, 0]) rotate([0, -EL, 0])` |
 | Head (tilt-axis frame) | head | `translate([L2 + TILT_OFF, 0, -TILT_DROP]) rotate([0, TILT, 0])` |
@@ -44,6 +46,8 @@ nano voss.scad                       # e.g. new servo dimensions or a thinner he
 python3 tools/head_mass.py           # head CG x should be ~0; adjust HS if not
 python3 tools/loads.py               # torques + spring rate
 python3 tools/collide.py             # must end with ALL CLEAR
+python3 tools/verify.py              # must end with ALL CHECKS PASSED
+python3 tools/package_build.py       # refresh build/
 ./tools/render.sh                    # refresh docs/img
 ```
 

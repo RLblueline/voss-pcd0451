@@ -1,5 +1,39 @@
 # Changelog
 
+## v0.7 — build-verified (2026-10)
+
+A full audit for real-world buildability, plus the build package.
+
+**Fixes**
+- **Gears:** real involute module-1 pinions (18 T, 36 T) and matching racks, phased to engage.
+  The mesh check proves engagement with no interference.
+- **Pinion bores:** 21 T SG90 spline bore plus the M2 horn screw (round bores would spin).
+- **Spring mast:**
+  - A single coplanar pulley directly above the shoulder (the old route bent between
+    non-coplanar pulleys and had no axles).
+  - The arm and yaw tower are raised 70 mm (`ARM_Z0`) so the mast clears the housing at
+    every yaw.
+  - 2:1 reeving so the spring travels 37 mm instead of an impossible ~210% stretch.
+- **Fastening:**
+  - Head seam screws (insert bosses plus clearance bosses).
+  - Ears printed with the crown.
+  - Rod bars extended to the walls, with insert holes and matching wall holes.
+  - Cover screw pads in the beams.
+  - Lens holder fused to the carriage, with a seat lip.
+  - One-piece bellows.
+  - Rod mounts exported as their two real parts.
+- **New parts:** yaw coupler, 10 mm and 7 mm pulleys, spring block. The yaw shaft is now
+  8 × 80 mm.
+- Cosmetic-only geometry (screw heads, inlays) is excluded from print files.
+
+**New tools and outputs**
+- `verify.py`: bolt-path and print-solid checks.
+- `package_build.py` builds `build/`: 27 print files, the JLC3DP order sheet, `BOM.csv`
+  and `BUILD.md`.
+- GitHub CI, license note and templates.
+- 24 fps animation.
+
+
 ## v0.6 — expression engine (2026-10)
 
 **Motion engine**

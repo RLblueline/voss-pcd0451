@@ -5,9 +5,9 @@ import numpy as np, trimesh
 warnings.filterwarnings("ignore")
 STL = Path(__file__).resolve().parent.parent / "stl"
 RHO = 1.24e-3   # PLA g/mm3
-PARTS = {"head_top": 0.9, "head_mid": 0.9, "head_chin": 0.9, "ears": 0.9, "eye_plate": 0.9, "eye_rods": 0.9,
+PARTS = {"head_top": 0.9, "head_mid": 0.9, "head_chin": 0.9, "eye_plate": 0.9, "eye_rods": 0.9,
          "carriage_0": 0.8, "shut_top_0_1": 1.0, "shut_bot_0_1": 1.0, "leds": 1.0, "paper": 0.5}
-FIXED = {"lift_sg90": 9.0, "pinion_0": 1.0, "lift_pinion": 2.0}
+FIXED = {"lift_sg90": 9.0, "pinion_0_1": 1.0, "lift_pinion_0": 2.0}
 
 
 def mass_props():

@@ -1,0 +1,28 @@
+file,qty,process / material,colour / finish,size x mm,size y mm,size z mm,volume cm3,notes
+01_housing.stl,1,MJF PA12 nylon,any; paint corporate beige,144.0,70.0,226.0,228.6,Largest part (144 x 70 x 226). Front lettering engraved 0.6 mm
+02_back_plate.stl,1,MJF PA12 nylon,any,137.4,9.0,219.4,119.6,Keyholes for one stud; 4 M3 heat-set inserts in the edges
+03_yaw_tower.stl,1,MJF PA12 nylon,any,60.0,61.0,102.0,56.7,Two 608 pockets + MG996R mount
+04_turret_with_spring_mast.stl,1,MJF PA12 nylon,any; paint beige,44.0,73.0,155.0,58.4,Carries the shoulder servo and the 2:1 spring mast
+05_link1.stl,1,MJF PA12 nylon,any; paint beige,158.0,75.8,32.0,57.4,Includes the elbow bracket and the cable eye
+06_link2.stl,1,MJF PA12 nylon,any; paint beige,146.0,62.2,32.0,54.8,
+07_tilt_post.stl,1,MJF PA12 nylon,any,32.0,45.8,82.0,18.6,Self-tap M3 x 2 into link2
+08_cover_link1.stl,1,MJF PA12 nylon,any; paint beige,25.3,30.0,20.0,2.6,Top-only arm cover
+09_cover_link2.stl,1,MJF PA12 nylon,any; paint beige,47.3,30.0,20.0,5.1,Top-only arm cover
+10_yaw_coupler.stl,1,MJF PA12 nylon,any,24.0,24.0,11.0,2.8,"MG996R horn -> 8 mm shaft, M3 insert + set screw"
+11_spring_block.stl,1,MJF PA12 nylon,any,12.0,10.0,16.0,1.0,Rides on the spring; 7 mm pulley on an M3 axle
+12_pulley_10mm.stl,1,SLA resin (standard),any,10.4,10.4,5.0,0.4,Or buy a 10 mm / M3 cable pulley
+13_pulley_7mm.stl,1,SLA resin (standard),any,7.4,7.4,4.8,0.2,Or buy a 7 mm / M3 cable pulley
+14_head_top_with_ears.stl,1,SLA resin (standard),white; paint beige,150.0,140.0,75.0,129.6,Crown + status windows + tilt ears; 4 M3 heat-set inserts in the seam bosses
+15_head_middle.stl,1,SLA resin (standard),white; paint beige,143.3,136.8,160.0,190.0,Eye recess; 4 inserts (bottom seam) + 6 wall holes for the rod bars
+16_head_chin.stl,1,SLA resin (standard),white; paint beige,128.4,129.6,75.0,109.5,Chin slot
+17_eye_slot_plate.stl,1,SLA resin (standard),black,2.0,92.0,148.0,13.4,Glue to the back of the eye recess
+18_eye_carriage.stl,1,SLA resin (standard),black,30.6,111.5,166.0,73.3,"Mask, rear plate, rails, lens seat, SG90 mount, rod bushings, lift rack"
+19_eyelid_top.stl,1,SLA resin (standard),dark grey,5.8,86.6,80.0,7.8,"Involute rack, module 1"
+20_eyelid_bottom.stl,1,SLA resin (standard),dark grey,5.8,106.1,86.0,8.6,"Involute rack, module 1"
+21_pinion_18T.stl,1,SLA resin (standard),any (tough resin preferred),3.2,20.0,19.8,0.7,SG90 spline bore + M2 horn screw
+22_pinion_36T.stl,1,SLA resin (standard),any (tough resin preferred),38.0,4.0,38.0,3.9,SG90 spline bore + M2 horn screw
+23_rod_bar_top.stl,1,SLA resin (standard),black,10.0,131.3,6.0,7.6,2 M3 inserts in the ends
+24_rod_bar_bottom_with_lift_mount.stl,1,SLA resin (standard),black,42.0,124.8,86.0,28.9,4 M3 inserts in the ends; lift SG90 mount
+25_eye_lens_dome.stl,1,SLA clear resin,clear; tint amber (or buy a 60 mm amber acrylic dome),8.0,60.0,60.0,11.5,"60 mm dome, 8 mm high"
+26_neck_boot.stl,1,TPU (FDM) - see note,black,54.0,58.3,28.7,10.0,Flexible bellows
+27_chin_bumper.stl,1,TPU (FDM) - see note,black,22.0,22.0,8.5,3.2,

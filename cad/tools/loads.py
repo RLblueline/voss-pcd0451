@@ -13,7 +13,7 @@ import head_mass             # noqa: E402
 
 STL = HERE.parent / "stl"
 RHO = 1.24e-3
-SPR_A, SPR_B = 70.0, 44.0
+SPR_A, SPR_B = 96.0, 50.0
 KGCM = 0.0980665             # N*m per kg*cm
 
 
@@ -58,7 +58,8 @@ def main():
         i = int(t + 20)
         print(f"  {t:4d}         {g[i]:6.1f}     {r[i]:+6.1f}     {e[i]:5.1f}")
     print(f"spring: K = k*a*b = {K:.1f} kg*cm -> k = {k:.3f} N/mm (a={SPR_A:.0f}, b={SPR_B:.0f}); residual <= {resid:.1f} kg*cm;"
-          f" unpowered balance ~{eq:.0f} deg; cable span {pq(75):.0f}..{pq(-20):.0f} mm; force {k*pq(75):.0f}..{k*pq(-20):.0f} N")
+          f" unpowered balance ~{eq:.0f} deg; cable span {pq(75):.0f}..{pq(-20):.0f} mm; cable tension {k*pq(75):.0f}..{k*pq(-20):.0f} N")
+    print(f"2:1 reeved spring: rate {4 * k:.2f} N/mm, travel {(pq(-20) - pq(75)) / 2:.0f} mm, force up to {2 * k * pq(-20):.0f} N")
 
 
 if __name__ == "__main__":

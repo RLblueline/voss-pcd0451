@@ -20,12 +20,13 @@ on a spring-balanced robot arm, with a deep, late-'70s HR-terminal head:
 
 *36 s rendered from the CAD while the real firmware motion engine runs on a virtual clock: gestures, springy settles, blinks, speech bobs (MP4: `docs/img/voss_expressive.mp4`).*
 
-## Status (v0.6)
+## Status (v0.7)
 
 | Area | State |
 |---|---|
 | Software | Complete pipeline with an expression engine; 28 offline tests pass; **not yet run on hardware** |
-| CAD | Full parametric OpenSCAD model. Every part is exported, and every joint plus the moving eye is collision-checked (all clear) |
+| CAD | Full parametric OpenSCAD model. Collision sweep, gear-mesh, bolt-path and print-solid checks all pass |
+| Build | **[`build/`](build/BUILD.md)**: 27 print-ready STLs, a JLC3DP order sheet, BOM (~$214 before printing), build guide |
 | Hardware | Not built. Servo, printer and speaker dimensions are datasheet values to verify |
 
 ## What's in the repo
@@ -34,16 +35,20 @@ on a spring-balanced robot arm, with a deep, late-'70s HR-terminal head:
 voss/            Python package (runs on the Pi as systemd service "voss")
 tests/           Offline tests: VOSS_SIM=1 python -m unittest discover tests
 deploy/          install.sh, systemd unit, config.txt lines, env template
+build/           BUILD.md, BOM.csv, print_order_jlc3dp.csv, print_files/ (27 STLs)
 cad/             OpenSCAD model, part export, renders, collision + load checks
   voss.scad        all parts, parametric
   assembly.scad    posed assembly (-D YAW= SH= EL= PITCH= EYE= SHUT=)
   view_eye.scad    eye carriage close-up
-  tools/           parts.scad, export.sh, render.sh, collide.py, loads.py, head_mass.py, reach.py
+  tools/           parts.scad, export.sh, render.sh, collide.py, verify.py, loads.py,
+                   head_mass.py, reach.py, animate.py, package_build.py
   stl/             every part, ready to slice
 docs/            Build documentation
 ```
 
 ## Documentation
+
+**Building one? Start with [build/BUILD.md](build/BUILD.md).**
 
 0. [Personnel asset record (bio)](docs/00-bio.md)
 1. [Overview and character](docs/01-overview.md)
@@ -67,7 +72,7 @@ VOSS_SIM=1 VOSS_DATA=/tmp/voss ANTHROPIC_API_KEY=sk-ant-... python -m voss.main 
 
 | | |
 |---|---|
-| Budget | ~$220–235 at list prices, ~$190–200 with SD card, wire and filament on hand; Claude API billed separately |
+| Budget | ~$214 purchased parts (`build/BOM.csv`) + printing; Claude API billed separately |
 | Arm | Yaw + shoulder + elbow + head tilt; L1 120, L2 100 mm; spring-balanced shoulder |
 | Head | ~300 tall × 151 deep (crown) × 140 wide, ~690 g, kept level automatically; tilt −40…+50° |
 | Eye | 60 mm amber lens on a carriage, ±24 mm travel in the slot, rack-and-pinion eyelids |

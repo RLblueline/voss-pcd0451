@@ -19,18 +19,19 @@ Prices are rough, typical online prices (USD, late 2026).
 | 1 | 58 mm TTL thermal printer + paper | memos | 25 |
 | 1 | 5 V 5 A supply | Pi, amp, LEDs, printer | 12 |
 | 1 | 6 V 6 A supply | servo rail | 15 |
-| 2 | 608 bearings + 75 mm × 8 mm steel rod | yaw shaft | 5 |
+| 2 | 608 bearings + 80 mm × 8 mm steel rod | yaw shaft | 5 |
 | 3 | 624 bearings + M4 × 20 shoulder bolts | shoulder, elbow, tilt pivots | 4 |
 | 2 | 3 mm steel rod, 150 mm | eye carriage guides | 2 |
-| 1 | Extension spring ~0.8 N/mm, ~40 mm free length, ≥75 mm travel, ~20 N initial tension; 1 mm braided cable; 2 small pulleys | shoulder counterbalance | 6 |
+| 1 | Extension spring ~2.1 N/mm, ~55 mm free length, OD ≤ 13 mm, ≥40 mm safe extension, ≥130 N; 1 mm braided cable + crimps | shoulder counterbalance (2:1) | 7 |
 | — | Split-loom tubing (6–8 mm), zip ties, servo extension leads, 22–26 AWG wire | harness and service tubes | 8 |
 | — | M3 screws + heat-set inserts, M4 nylocs | | 6 |
 | — | 1000 µF cap, 330 Ω resistor, 2 DC jacks | | 3 |
 | — | Filament: ~1.3 kg beige PLA/PETG, charcoal, grey, TPU, translucent amber | plan 1.5–2 kg with reprints | 30–40 |
 | (opt) | 74AHCT125 level shifter | only if LEDs glitch | 2 |
 
-**Total: about $220–235 at list prices, or about $190–200 if you already have the SD
-card, wire and filament.**
+**Total: about $214 for purchased parts (see `build/BOM.csv`), plus printing.** Printing
+at home costs about $30–40 in filament. A print service costs noticeably more; get a quote
+from the order sheet.
 
 Where the money goes compared with the classic arm (v0.4):
 - The **desk-lamp spring** saves about $5–8. The DS3225s replace the 35 kg·cm servo, and

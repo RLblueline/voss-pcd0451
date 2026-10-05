@@ -1,0 +1,35 @@
+category,qty,item,spec,used for,approx USD (line total)
+Electronics,1,Raspberry Pi Zero 2 W,with soldered header,brain,15
+Electronics,1,microSD card,"32 GB, A1",OS,7
+Electronics,2,INMP441 I2S MEMS microphone,breakout,voice + direction of arrival,6
+Electronics,1,MAX98357A I2S amplifier,breakout,voice,5
+Electronics,1,Speaker,"40 mm, 4 ohm, 3 W",voice,3
+Electronics,1,PCA9685 servo driver,"16 channel, OE pin broken out",servos,6
+Electronics,1,WS2812B LED ring,"16 LEDs, 44 mm OD",eye light,5
+Electronics,3,WS2812B single-LED boards,~10 mm,REC / AUD / OK,4
+Electronics,1,58 mm TTL thermal printer + paper,"ESC/POS, 9600 baud",memos,25
+Electronics,1,Electrolytic capacitor,1000 uF 10 V,servo rail,1
+Electronics,1,Resistor,330 ohm,LED data line,0
+Electronics,2,"DC barrel jack, panel mount",5.5 x 2.1 mm,power in,2
+Electronics,1,Level shifter (optional),74AHCT125,only if LEDs glitch,2
+Power,1,5 V supply,5 A,"Pi, amp, LEDs, printer",12
+Power,1,6 V supply,6 A,servo rail,15
+Servos,1,MG996R,"standard size, 180 deg",base yaw,6
+Servos,2,DS3225,"25 kg-cm, standard size, 180 deg","shoulder, elbow",32
+Servos,1,DS3218,"20 kg-cm, 180 deg",head tilt,14
+Servos,2,SG90,"9 g, 180 deg","eyelids, eye lift",6
+Motion,2,608 ball bearing,8 x 22 x 7,yaw shaft,2
+Motion,3,624 ball bearing,4 x 13 x 5,shoulder / elbow / tilt pivots,2
+Motion,1,Steel rod,8 mm x 80 mm (cut),yaw shaft,3
+Motion,2,Steel rod,3 mm x 148 mm (cut),eye carriage guides,2
+Counterbalance,1,Extension spring,"~2.1 N/mm, ~55 mm free length incl. hooks, OD <= 13 mm, >= 40 mm safe extension, >= 130 N max",shoulder spring (2:1 reeved),4
+Counterbalance,1,Braided steel cable,"1 mm, ~40 cm + 2 crimp sleeves",spring cable,3
+Fasteners,3,M4 x 20 shoulder bolt + nyloc,,pitch pivots,3
+Fasteners,1,M3 screw assortment,"6-30 mm, button + socket head, nuts",general; axles; tensioner,6
+Fasteners,30,M3 heat-set inserts,M3 x 5.7 x 4.6,"covers, seams, rod bars, coupler, back plate",4
+Fasteners,1,M3 x 6 set screw,,yaw coupler,0
+Fasteners,2,#8 x 2 in wood screw,,wall stud,1
+Wiring,1,Servo extension leads + hookup wire,22-26 AWG,harness,5
+Wiring,1,Split-loom tubing + zip ties,"6-8 mm, ~1 m",service tubes,3
+Finishing,1,"Primer + beige / black paint, Dymo tape",,the look,10
+,,"TOTAL (purchased parts, excl. printing)",,,214
